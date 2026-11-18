@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-11-18
+
+First stable release. The REST routes, ability names, parameters, response fields, error codes and filters documented in `docs/` are now the public interface, and won't change in a way that breaks callers within 1.x.
+
+### Changed
+
+- The abilities are no longer offered to the WordPress MCP Adapter. MCP support, with a dedicated server listing each query as its own tool, is planned for a later release. The REST routes and the Abilities API are unaffected.
+
+### Documentation
+
+- `docs/connecting-an-agent.md` covers cursor paging, the per-query range limits and the `catalogue` fields added in 0.5.0, and lists the errors an agent actually receives, including WordPress's own 404 for a query this site doesn't offer.
+- Checked against a development site and copies of two production sites, with up to 1.5 million views and four years of data, including WooCommerce orders with refunds, Contact Form 7 submissions and year-on-year comparisons. Every figure matched the Independent Analytics dashboard.
+
 ## [0.5.1] - 2026-11-18
 
 ### Fixed
