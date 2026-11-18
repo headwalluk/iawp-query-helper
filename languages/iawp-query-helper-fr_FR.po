@@ -84,7 +84,7 @@ msgid_plural "A range can cover at most %d days. Split this one into shorter ran
 msgstr[0] "Une période ne peut pas dépasser %d jour. Divisez-la en périodes plus courtes."
 msgstr[1] "Une période peut couvrir au maximum %d jours. Divisez celle-ci en périodes plus courtes."
 
-#: includes/class-dimension-query.php:134
+#: includes/class-dimension-query.php:146
 #: includes/queries/class-top-posts-query.php:96
 msgid "Metric to rank by, highest first."
 msgstr "Critère de classement, du plus élevé au plus bas."
@@ -242,7 +242,7 @@ msgstr "Pays"
 msgid "Traffic by visitor country for a date range, from Independent Analytics: country code, country name and continent, with views, visitors, sessions, bounce rate, views per session and average session length. Matches the dashboard's countries table. Sessions with no known location are left out. Visitors must not be summed across rows. Paged."
 msgstr "Trafic par pays d'origine des visiteurs pour une période donnée, d'après Independent Analytics : code pays, nom du pays et continent, avec le nombre de pages vues, de visiteurs, de sessions, le taux de rebond, le nombre de pages vues par session et la durée moyenne des sessions. Correspond au tableau « Pays » du tableau de bord. Les sessions dont la localisation n'est pas connue sont exclues. Les visiteurs ne doivent pas être cumulés d'une ligne à l'autre. Affichage paginé."
 
-#: includes/queries/class-countries-query.php:107
+#: includes/queries/class-countries-query.php:119
 msgid "ISO 3166-1 alpha-2 code."
 msgstr "Code ISO 3166-1 alpha-2."
 

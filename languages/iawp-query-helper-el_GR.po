@@ -84,7 +84,7 @@ msgid_plural "A range can cover at most %d days. Split this one into shorter ran
 msgstr[0] "Ένα διάστημα μπορεί να καλύπτει το πολύ %d ημέρα. Χωρίστε αυτό το διάστημα σε μικρότερα διαστήματα."
 msgstr[1] "Ένα διάστημα μπορεί να καλύπτει το πολύ %d ημέρες. Χωρίστε αυτό το διάστημα σε μικρότερα διαστήματα."
 
-#: includes/class-dimension-query.php:134
+#: includes/class-dimension-query.php:146
 #: includes/queries/class-top-posts-query.php:96
 msgid "Metric to rank by, highest first."
 msgstr "Μονάδα μέτρησης για την ταξινόμηση, με την υψηλότερη τιμή πρώτη."
@@ -242,7 +242,7 @@ msgstr "Χώρες"
 msgid "Traffic by visitor country for a date range, from Independent Analytics: country code, country name and continent, with views, visitors, sessions, bounce rate, views per session and average session length. Matches the dashboard's countries table. Sessions with no known location are left out. Visitors must not be summed across rows. Paged."
 msgstr "Κυκλοφορία ανά χώρα προέλευσης επισκεπτών για ένα χρονικό διάστημα, από το Independent Analytics: κωδικός χώρας, όνομα χώρας και ήπειρος, με προβολές, επισκέπτες, συνεδρίες, ποσοστό εγκατάλειψης, προβολές ανά συνεδρία και μέση διάρκεια συνεδρίας. Αντιστοιχεί στον πίνακα χωρών του πίνακα ελέγχου. Οι συνεδρίες χωρίς γνωστή τοποθεσία δεν περιλαμβάνονται. Οι επισκέπτες δεν πρέπει να αθροίζονται μεταξύ των σειρών. Με σελιδοποίηση."
 
-#: includes/queries/class-countries-query.php:107
+#: includes/queries/class-countries-query.php:119
 msgid "ISO 3166-1 alpha-2 code."
 msgstr "Κωδικός ISO 3166-1 alpha-2."
 

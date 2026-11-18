@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: IAWP Query Helper 0.5.0\n"
+"Project-Id-Version: IAWP Query Helper 0.5.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iawp-query-helper\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-18T15:22:48+00:00\n"
+"POT-Creation-Date: 2026-11-18T16:22:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: iawp-query-helper\n"
@@ -84,7 +84,7 @@ msgid_plural "A range can cover at most %d days. Split this one into shorter ran
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-dimension-query.php:134
+#: includes/class-dimension-query.php:146
 #: includes/queries/class-top-posts-query.php:96
 msgid "Metric to rank by, highest first."
 msgstr ""
@@ -313,7 +313,7 @@ msgstr ""
 msgid "Traffic by visitor country for a date range, from Independent Analytics: country code, country name and continent, with views, visitors, sessions, bounce rate, views per session and average session length. Matches the dashboard's countries table. Sessions with no known location are left out. Visitors must not be summed across rows. Paged."
 msgstr ""
 
-#: includes/queries/class-countries-query.php:107
+#: includes/queries/class-countries-query.php:119
 msgid "ISO 3166-1 alpha-2 code."
 msgstr ""
 

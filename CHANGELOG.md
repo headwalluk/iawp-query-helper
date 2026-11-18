@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.5.1] - 2026-11-18
+
+### Fixed
+
+- Rates in the breakdowns, page-level queries and the `revenue-by-*` and `form-submissions-by-*` queries could differ from the dashboard by 0.01. Independent Analytics divides in SQL, where the result is held to four decimal places, then rounds again for display; this plugin now does the same arithmetic. Found on a site with 1.5 million views.
+- Rows with equal values are now ordered as on the dashboard (by title, name or label), so the rows at a page boundary are the same ones the dashboard shows.
+
 ## [0.5.0] - 2026-11-18
 
 ### Added

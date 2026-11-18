@@ -85,7 +85,7 @@ msgstr[0] "Przedział może obejmować maksymalnie %d dzień. Podziel ten przedz
 msgstr[1] "Przedział może obejmować maksymalnie %d dni. Podziel ten przedział na krótsze przedziały."
 msgstr[2] "Przedział może obejmować maksymalnie %d dni. Podziel ten przedział na krótsze przedziały."
 
-#: includes/class-dimension-query.php:134
+#: includes/class-dimension-query.php:146
 #: includes/queries/class-top-posts-query.php:96
 msgid "Metric to rank by, highest first."
 msgstr "Jednostka miary, według której ma być sortowana lista, od największej wartości."
@@ -245,7 +245,7 @@ msgstr "Kraje"
 msgid "Traffic by visitor country for a date range, from Independent Analytics: country code, country name and continent, with views, visitors, sessions, bounce rate, views per session and average session length. Matches the dashboard's countries table. Sessions with no known location are left out. Visitors must not be summed across rows. Paged."
 msgstr "Ruch według kraju pochodzenia odwiedzających w wybranym przedziale czasowym, na podstawie danych z serwisu Independent Analytics: kod kraju, nazwa kraju i kontynent, wraz z liczbą wyświetleń, odwiedzających, sesji, współczynnikiem odrzuceń, liczbą wyświetleń na sesję oraz średnim czasem trwania sesji. Dane odpowiadają tabeli krajów w panelu kontrolnym. Sesje bez znanej lokalizacji nie są uwzględniane. Liczby odwiedzających nie mogą być sumowane w wierszach. Stronicowanie."
 
-#: includes/queries/class-countries-query.php:107
+#: includes/queries/class-countries-query.php:119
 msgid "ISO 3166-1 alpha-2 code."
 msgstr "Kod ISO 3166-1 typu alfa-2."
 
