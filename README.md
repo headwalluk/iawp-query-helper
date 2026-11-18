@@ -4,14 +4,14 @@
 [![WordPress](https://img.shields.io/badge/WordPress-6.9+-21759B.svg)](https://wordpress.org/)
 [![License](https://img.shields.io/badge/license-GPL--2.0+-green.svg)](LICENSE)
 
-Read-only REST routes and WordPress Abilities for querying [Independent Analytics](https://independentwp.com/) visitor and view metrics. Built so an AI agent, connected with an Application Password or through MCP, can ask "which posts did best last month?" and get the same numbers the Independent Analytics dashboard shows.
+Read-only REST routes and WordPress Abilities for querying [Independent Analytics](https://independentwp.com/) visitor and view metrics. Built so an AI agent, connected with an Application Password, can ask "which posts did best last month?" and get the same numbers the Independent Analytics dashboard shows.
 
 This is an independent plugin. It isn't made or supported by the Independent Analytics team.
 
 ## What it does
 
 - A small library of named queries, each exposed twice: as a REST route under `/wp-json/iawp-query-helper/v1/` and as an ability under `iawp-query-helper/`
-- Abilities appear in the core Abilities API, so the WordPress MCP Adapter picks them up as MCP tools without further setup
+- Abilities appear in the core Abilities API, with the same input and output schemas as the REST routes. MCP support is planned for a later release
 - Figures match the Independent Analytics dashboard for the same date range
 - Date presets match the dashboard's, plus year-on-year and previous-period comparison
 - Every query runs inside safety rails: a 20 second statement timeout, a limit of two queries at once per site, a maximum range of 366 days and capped page sizes. A busy analytics agent shouldn't be able to slow the site down for visitors
@@ -68,7 +68,7 @@ See [docs/connecting-an-agent.md](docs/connecting-an-agent.md) for every query, 
 ## Documentation
 
 - [How it works](docs/how-it-works.md): metric definitions, safety rails, permissions
-- [Connecting an agent](docs/connecting-an-agent.md): REST, Abilities and MCP, with parameters and examples
+- [Connecting an agent](docs/connecting-an-agent.md): REST and the Abilities API, with parameters and examples
 - [Hooks and filters](docs/developers/hooks-and-filters.md)
 
 ## Licence

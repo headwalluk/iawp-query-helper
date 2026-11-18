@@ -1,10 +1,11 @@
 # Connecting an agent
 
-Each named query is available three ways. They run the same code and return the same response.
+Each named query is available two ways. They run the same code and return the same response.
 
-- **REST:** `GET /wp-json/iawp-query-helper/v1/<query>` with parameters in the query string
-- **Abilities API:** `GET /wp-json/wp-abilities/v1/abilities/iawp-query-helper/<query>/run` with parameters as `input[name]=value`
-- **MCP:** through the [WordPress MCP Adapter](https://github.com/WordPress/mcp-adapter), which lists the abilities as tools. Each tool's description and input schema tell the agent what it does and what it accepts
+- **REST:** `GET /wp-json/iawp-query-helper/v1/<query>` with parameters in the query string. This is the main way in, and what the examples below use
+- **Abilities API:** `GET /wp-json/wp-abilities/v1/abilities/iawp-query-helper/<query>/run` with parameters as `input[name]=value`. Each ability carries the same description and input and output schemas, so an agent framework that reads abilities can pick the queries up directly
+
+MCP isn't supported yet. The queries are hidden from the [WordPress MCP Adapter](https://github.com/WordPress/mcp-adapter) for now, and MCP support with its own server is planned for a later release.
 
 ## Authentication
 

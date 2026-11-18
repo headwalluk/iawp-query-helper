@@ -13,7 +13,8 @@ only what is specific to IAWP Query Helper.
 
 Read-only access to IAWP's visitor and view metrics for AI agents. A library of named queries,
 each registered as a REST route (`iawp-query-helper/v1/<name>`) and an ability
-(`iawp-query-helper/<name>`). The MCP Adapter exposes the abilities as MCP tools.
+(`iawp-query-helper/<name>`). MCP is switched off by `IS_MCP_ENABLED` (constants.php) until
+our own MCP server is built; while it is false the adapter's default server can't see the abilities.
 
 ## Request flow
 

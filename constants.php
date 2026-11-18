@@ -38,6 +38,13 @@ const ABILITY_NAMESPACE = 'iawp-query-helper';
 const ABILITY_CATEGORY  = 'iawp-query-helper';
 
 /**
+ * Whether the abilities are offered to the WordPress MCP Adapter. Off until MCP support is finished.
+ *
+ * @since 1.0.0
+ */
+const IS_MCP_ENABLED = false;
+
+/**
  * GitHub updater.
  *
  * @since 0.1.0

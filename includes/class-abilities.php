@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || die();
 /**
  * Registers the ability category and `iawp-query-helper/<query-name>` abilities.
  *
- * Core serves them at /wp-json/wp-abilities/v1, and the MCP Adapter exposes them as MCP tools.
+ * Core serves them at /wp-json/wp-abilities/v1. The MCP Adapter sees them only when IS_MCP_ENABLED is true.
  *
  * @since 0.1.0
  */
@@ -115,7 +115,8 @@ class Abilities {
 							// `public` arrived in WordPress 7.1; `show_in_rest` covers 6.9 and 7.0.
 							'public'       => true,
 							'show_in_rest' => true,
-							'mcp'          => array( 'public' => true ),
+							// The adapter reads an explicit mcp.public before falling back to `public`.
+							'mcp'          => array( 'public' => IS_MCP_ENABLED ),
 						),
 					)
 				);

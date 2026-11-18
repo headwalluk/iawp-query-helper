@@ -6,7 +6,7 @@ For site owners:
 
 For anyone connecting an AI agent:
 
-- [Connecting an agent](connecting-an-agent.md): REST routes, Abilities and MCP, every query's parameters, the response format and error codes
+- [Connecting an agent](connecting-an-agent.md): REST routes and the Abilities API, every query's parameters, the response format and error codes
 
 For developers:
 
