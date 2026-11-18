@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: IAWP Query Helper 0.2.0\n"
+"Project-Id-Version: IAWP Query Helper 0.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iawp-query-helper\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-18T13:26:49+00:00\n"
+"POT-Creation-Date: 2026-11-18T13:34:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: iawp-query-helper\n"
@@ -181,6 +181,49 @@ msgstr ""
 msgid "Percentage change from previous to current, to 1 decimal place. A metric is null when its previous value was 0."
 msgstr ""
 
+#: includes/class-resource-query.php:105
+msgid "Metric to rank by, highest first. entrances counts sessions that started on the page; exits counts sessions that ended on it."
+msgstr ""
+
+#: includes/class-resource-query.php:113
+msgid "Only pages of this kind: singular (posts, pages, products), home, post_type_archive, term_archive (category and tag pages), author_archive, date_archive, search, 404 or virtual_page. Omit for all."
+msgstr ""
+
+#: includes/class-resource-query.php:118
+msgid "Only singular pages of this post type, such as post or product."
+msgstr ""
+
+#: includes/class-resource-query.php:123
+msgid "Only the page with exactly this absolute URL, as Independent Analytics recorded it."
+msgstr ""
+
+#: includes/class-resource-query.php:150
+msgid "Post ID for singular pages; null otherwise."
+msgstr ""
+
+#: includes/class-resource-query.php:155
+msgid "What the visitor searched for, on search pages."
+msgstr ""
+
+#: includes/class-resource-query.php:159
+msgid "The requested path, on 404 pages."
+msgstr ""
+
+#. translators: %s: post type name.
+#: includes/class-resource-query.php:184
+#: includes/queries/class-top-posts-query.php:143
+#, php-format
+msgid "There is no post type called %s on this site."
+msgstr ""
+
+#: includes/class-resource-query.php:365
+msgid "Exits as a percentage of views."
+msgstr ""
+
+#: includes/class-resource-query.php:371
+msgid "Average time on the page before the next view in the same session; null when no view had a next view."
+msgstr ""
+
 #: includes/queries/class-campaigns-query.php:88
 msgctxt "ability label; marketing campaigns tracked with UTM parameters"
 msgid "Campaigns"
@@ -262,6 +305,49 @@ msgstr ""
 msgid "Device type, operating system or browser, depending on dimension."
 msgstr ""
 
+#: includes/queries/class-landing-pages-query.php:40
+msgctxt "ability label; pages where visits start"
+msgid "Landing pages"
+msgstr ""
+
+#: includes/queries/class-landing-pages-query.php:51
+msgid "The pages where visits start, for a date range, from Independent Analytics: pages ranked by entrances (sessions that began on the page), with the same fields as top-pages. Useful alongside Google Search Console, which reports the landing page for search clicks. Only pages with at least one entrance are listed. Paged."
+msgstr ""
+
+#: includes/queries/class-not-found-query.php:40
+msgctxt "ability label; requested addresses that returned a 404 error"
+msgid "Not found pages"
+msgstr ""
+
+#: includes/queries/class-not-found-query.php:51
+msgid "Requested URLs that returned a 404 Not Found error, for a date range, from Independent Analytics: one row per requested path (not_found_url) with views, visitors and sessions. Shows broken links and pages visitors expect to exist, which may need a redirect or new content. Paged."
+msgstr ""
+
+#: includes/queries/class-page-stats-query.php:62
+msgctxt "ability label; traffic figures for one web page"
+msgid "Page stats"
+msgstr ""
+
+#: includes/queries/class-page-stats-query.php:73
+msgid "One page in detail, for a date range, from Independent Analytics. Give post_id, or the page's absolute url (for example from Google Search Console). Returns one row with the same fields as top-pages, and series: views, visitors and sessions for that page per day, week or month (interval). With compare, the row carries previous figures and previous_series holds the comparison series. Errors with iawpqh_unknown_page if Independent Analytics has never recorded the page."
+msgstr ""
+
+#: includes/queries/class-page-stats-query.php:99
+msgid "The post, page or product ID. Give this or url."
+msgstr ""
+
+#: includes/queries/class-page-stats-query.php:104
+msgid "The page's absolute URL, as Independent Analytics recorded it. Give this or post_id."
+msgstr ""
+
+#: includes/queries/class-page-stats-query.php:203
+msgid "Give exactly one of post_id or url."
+msgstr ""
+
+#: includes/queries/class-page-stats-query.php:218
+msgid "Independent Analytics has no record of that page."
+msgstr ""
+
 #: includes/queries/class-referrer-types-query.php:40
 msgctxt "ability label; categories of traffic source such as search or social"
 msgid "Referrer types"
@@ -292,6 +378,15 @@ msgstr ""
 msgid "Referring domain; empty for Direct."
 msgstr ""
 
+#: includes/queries/class-site-searches-query.php:40
+msgctxt "ability label; terms visitors typed into the site search box"
+msgid "Site searches"
+msgstr ""
+
+#: includes/queries/class-site-searches-query.php:51
+msgid "What visitors searched for using the site's own search box, for a date range, from Independent Analytics: one row per search term (search_query) with views, visitors, sessions, exits and bounce rate. A strong source of content ideas: frequent searches show what visitors expect to find. Paged."
+msgstr ""
+
 #: includes/queries/class-site-summary-query.php:48
 msgctxt "ability label; website traffic totals"
 msgid "Site summary"
@@ -303,6 +398,15 @@ msgstr ""
 
 #: includes/queries/class-site-summary-query.php:124
 msgid "Single-view sessions as a percentage of sessions, rounded as on the dashboard."
+msgstr ""
+
+#: includes/queries/class-top-pages-query.php:40
+msgctxt "ability label; most-visited pages of any kind"
+msgid "Top pages"
+msgstr ""
+
+#: includes/queries/class-top-pages-query.php:51
+msgid "Every kind of page Independent Analytics records (posts, pages, products, the home page, category and tag archives, search results, 404s) ranked by views, visitors, sessions, entrances or exits for a date range. Each row has the page title, absolute URL, path, kind and, for posts, the post ID and post type, plus views, visitors, sessions, entrances, exits, exit rate, bounces, bounce rate, views per session and average time on page. Matches the dashboard's Pages table. Filter with resource_type, post_type or an exact url (for example a URL from Google Search Console). Visitors must not be summed across rows. Paged."
 msgstr ""
 
 #: includes/queries/class-top-posts-query.php:48
@@ -320,12 +424,6 @@ msgstr ""
 
 #: includes/queries/class-top-posts-query.php:90
 msgid "Only posts in this category, by term ID."
-msgstr ""
-
-#. translators: %s: post type name.
-#: includes/queries/class-top-posts-query.php:143
-#, php-format
-msgid "There is no post type called %s on this site."
 msgstr ""
 
 #: includes/queries/class-traffic-over-time-query.php:48

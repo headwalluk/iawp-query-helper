@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-18
+
+### Added
+
+- `top-pages`: every kind of page (posts, archives, the home page, search results, 404s), with entrances, exits, exit percent, bounces, bounce rate, views per session and average time on page. Filter by `resource_type`, `post_type` or exact `url`. Matches the dashboard's Pages table.
+- `landing-pages`: pages ranked by entrances.
+- `page-stats`: one page by `post_id` or `url`, with its own daily, weekly or monthly series and comparison.
+- `site-searches` and `not-found`: search terms visitors used, and requested paths that returned 404.
+
 ## [0.2.0] - 2026-11-18
 
 First release. Development versions before it went only to a test site.

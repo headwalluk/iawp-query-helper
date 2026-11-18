@@ -326,6 +326,7 @@ msgid "Only posts in this category, by term ID."
 msgstr "Tylko wpisy z tej kategorii, według identyfikatora terminu."
 
 #. translators: %s: post type name.
+#: includes/class-resource-query.php:184
 #: includes/queries/class-top-posts-query.php:143
 #, php-format
 msgid "There is no post type called %s on this site."
@@ -347,3 +348,100 @@ msgstr "Wielkość puli. Tygodnie rozpoczynają się w dniu ustawionym w module 
 #: includes/queries/class-traffic-over-time-query.php:105
 msgid "First day of the bucket, Y-m-d, site timezone."
 msgstr "Pierwszy dzień okresu rozliczeniowego, Y-m-d, strefa czasowa serwisu."
+
+#: includes/class-resource-query.php:105
+msgid "Metric to rank by, highest first. entrances counts sessions that started on the page; exits counts sessions that ended on it."
+msgstr "Wskaźnik, według którego ma być tworzony ranking, od najwyższego. Liczba wejść obejmuje sesje, które rozpoczęły się na tej stronie; liczba wyjść obejmuje sesje, które się na niej zakończyły."
+
+#: includes/class-resource-query.php:113
+msgid "Only pages of this kind: singular (posts, pages, products), home, post_type_archive, term_archive (category and tag pages), author_archive, date_archive, search, 404 or virtual_page. Omit for all."
+msgstr "Tylko strony tego rodzaju: pojedyncze (wpisy, strony, produkty), strona główna, archiwum typu wpisu, archiwum terminów (strony kategorii i tagów), archiwum autora, archiwum dat, wyszukiwanie, strona 404 lub strona wirtualna. Pomiń dla wszystkich."
+
+#: includes/class-resource-query.php:118
+msgid "Only singular pages of this post type, such as post or product."
+msgstr "Tylko pojedyncze strony tego typu, takie jak wpis lub produkt."
+
+#: includes/class-resource-query.php:123
+msgid "Only the page with exactly this absolute URL, as Independent Analytics recorded it."
+msgstr "Tylko strona o dokładnie tym adresie URL w formacie bezwzględnym, zgodnie z danymi zarejestrowanymi przez Independent Analytics."
+
+#: includes/class-resource-query.php:150
+msgid "Post ID for singular pages; null otherwise."
+msgstr "Identyfikator wpisu dla pojedynczych stron; w pozostałych przypadkach wartość null."
+
+#: includes/class-resource-query.php:155
+msgid "What the visitor searched for, on search pages."
+msgstr "Co użytkownik wyszukiwał na stronach wyszukiwania."
+
+#: includes/class-resource-query.php:159
+msgid "The requested path, on 404 pages."
+msgstr "Żądana ścieżka na stronach 404."
+
+#: includes/class-resource-query.php:365
+msgid "Exits as a percentage of views."
+msgstr "Odsetek wyjść w stosunku do liczby wyświetleń."
+
+#: includes/class-resource-query.php:371
+msgid "Average time on the page before the next view in the same session; null when no view had a next view."
+msgstr "Średni czas spędzony na stronie przed wyświetleniem kolejnej strony w tej samej sesji; wartość null, jeśli żadne wyświetlenie nie miało następnego wyświetlenia."
+
+#: includes/queries/class-landing-pages-query.php:40
+msgctxt "ability label; pages where visits start"
+msgid "Landing pages"
+msgstr "Strony docelowe"
+
+#: includes/queries/class-landing-pages-query.php:51
+msgid "The pages where visits start, for a date range, from Independent Analytics: pages ranked by entrances (sessions that began on the page), with the same fields as top-pages. Useful alongside Google Search Console, which reports the landing page for search clicks. Only pages with at least one entrance are listed. Paged."
+msgstr "Strony, z których rozpoczynają się wizyty w danym przedziale czasowym, według danych z Independent Analytics: strony uszeregowane według liczby wejść (sesji, które rozpoczęły się na danej stronie), z tymi samymi polami co w przypadku najpopularniejszych stron. Przydatne w połączeniu z Google Search Console, która podaje stronę docelową dla kliknięć w wynikach wyszukiwania. Wyświetlane są wyłącznie strony, na które odnotowano co najmniej jedno wejście. Wyniki są podzielone na strony."
+
+#: includes/queries/class-not-found-query.php:40
+msgctxt "ability label; requested addresses that returned a 404 error"
+msgid "Not found pages"
+msgstr "Strony „Nie znaleziono”"
+
+#: includes/queries/class-not-found-query.php:51
+msgid "Requested URLs that returned a 404 Not Found error, for a date range, from Independent Analytics: one row per requested path (not_found_url) with views, visitors and sessions. Shows broken links and pages visitors expect to exist, which may need a redirect or new content. Paged."
+msgstr "Adresy URL, do których wysłano żądania i które zwróciły błąd 404 Not Found w danym przedziale czasowym, według danych z serwisu Independent Analytics: jeden wiersz na każdą ścieżkę, do której wysłano żądanie (not_found_url), wraz z liczbą wyświetleń, odwiedzających i sesji. Pokazuje niedziałające linki oraz strony, których istnienia oczekują odwiedzający, a które mogą wymagać przekierowania lub nowej treści. Dane są podzielone na strony."
+
+#: includes/queries/class-page-stats-query.php:62
+msgctxt "ability label; traffic figures for one web page"
+msgid "Page stats"
+msgstr "Statystyki strony"
+
+#: includes/queries/class-page-stats-query.php:73
+msgid "One page in detail, for a date range, from Independent Analytics. Give post_id, or the page's absolute url (for example from Google Search Console). Returns one row with the same fields as top-pages, and series: views, visitors and sessions for that page per day, week or month (interval). With compare, the row carries previous figures and previous_series holds the comparison series. Errors with iawpqh_unknown_page if Independent Analytics has never recorded the page."
+msgstr "Szczegółowe dane dotyczące jednej strony w wybranym przedziale czasowym, pochodzące z serwisu Independent Analytics. Należy podać identyfikator post_id lub bezwzględny adres URL strony (na przykład z Google Search Console). Zwraca jeden wiersz zawierający te same pola co w przypadku top-pages oraz serie: wyświetlenia, odwiedzających i sesji dla tej strony w ujęciu dziennym, tygodniowym lub miesięcznym (interwał). W przypadku użycia opcji compare wiersz zawiera poprzednie wartości, a pole previous_series zawiera serie porównawcze. W przypadku, gdy Independent Analytics nigdy nie zarejestrowało tej strony, zwracany jest błąd typu iawpqh_unknown_page."
+
+#: includes/queries/class-page-stats-query.php:99
+msgid "The post, page or product ID. Give this or url."
+msgstr "Identyfikator wpisu, strony lub produktu. Podaj ten identyfikator lub adres URL."
+
+#: includes/queries/class-page-stats-query.php:104
+msgid "The page's absolute URL, as Independent Analytics recorded it. Give this or post_id."
+msgstr "Bezwzględny adres URL strony, zgodnie z danymi zarejestrowanymi przez Independent Analytics. Należy podać ten adres lub identyfikator post_id."
+
+#: includes/queries/class-page-stats-query.php:203
+msgid "Give exactly one of post_id or url."
+msgstr "Należy podać dokładnie jedną z wartości: „post_id” lub „url”."
+
+#: includes/queries/class-page-stats-query.php:218
+msgid "Independent Analytics has no record of that page."
+msgstr "W serwisie Independent Analytics nie ma żadnych danych dotyczących tej strony."
+
+#: includes/queries/class-site-searches-query.php:40
+msgctxt "ability label; terms visitors typed into the site search box"
+msgid "Site searches"
+msgstr "Wyszukiwania na stronie"
+
+#: includes/queries/class-site-searches-query.php:51
+msgid "What visitors searched for using the site's own search box, for a date range, from Independent Analytics: one row per search term (search_query) with views, visitors, sessions, exits and bounce rate. A strong source of content ideas: frequent searches show what visitors expect to find. Paged."
+msgstr "Co użytkownicy wyszukiwali za pomocą własnej wyszukiwarki serwisu w wybranym przedziale czasowym – dane z Independent Analytics: jeden wiersz na każdy termin wyszukiwania (search_query) wraz z liczbą wyświetleń, odwiedzających, sesji, wyjść i współczynnikiem odrzuceń. Doskonałe źródło pomysłów na treści: częste wyszukiwania pokazują, czego użytkownicy oczekują. Stronicowanie."
+
+#: includes/queries/class-top-pages-query.php:40
+msgctxt "ability label; most-visited pages of any kind"
+msgid "Top pages"
+msgstr "Najpopularniejsze strony"
+
+#: includes/queries/class-top-pages-query.php:51
+msgid "Every kind of page Independent Analytics records (posts, pages, products, the home page, category and tag archives, search results, 404s) ranked by views, visitors, sessions, entrances or exits for a date range. Each row has the page title, absolute URL, path, kind and, for posts, the post ID and post type, plus views, visitors, sessions, entrances, exits, exit rate, bounces, bounce rate, views per session and average time on page. Matches the dashboard's Pages table. Filter with resource_type, post_type or an exact url (for example a URL from Google Search Console). Visitors must not be summed across rows. Paged."
+msgstr "Wszystkie rodzaje stron rejestrowane przez Independent Analytics (wpisy, strony, produkty, strona główna, archiwa kategorii i tagów, wyniki wyszukiwania, strony 404) uszeregowane według liczby wyświetleń, odwiedzających, sesji, wejść lub wyjść w danym przedziale czasowym. Każdy wiersz zawiera tytuł strony, bezwzględny adres URL, ścieżkę, rodzaj oraz – w przypadku wpisów – identyfikator i typ wpisu, a także liczbę wyświetleń, odwiedzających, sesji, wejść, wyjść, współczynnik wyjść, odbić, współczynnik odrzuceń, liczbę wyświetleń na sesję oraz średni czas spędzony na stronie. Odpowiada tabeli „Strony” na pulpicie nawigacyjnym. Filtruj według resource_type, post_type lub dokładnego adresu URL (na przykład adresu z Google Search Console). Liczba odwiedzających nie może być sumowana w różnych wierszach. Stronicowanie."

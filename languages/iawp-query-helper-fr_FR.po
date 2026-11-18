@@ -323,6 +323,7 @@ msgid "Only posts in this category, by term ID."
 msgstr "Uniquement les articles de cette catégorie, par ID de terme."
 
 #. translators: %s: post type name.
+#: includes/class-resource-query.php:184
 #: includes/queries/class-top-posts-query.php:143
 #, php-format
 msgid "There is no post type called %s on this site."
@@ -344,3 +345,100 @@ msgstr "Taille du « bucket ». Les semaines commencent le jour défini dans Ind
 #: includes/queries/class-traffic-over-time-query.php:105
 msgid "First day of the bucket, Y-m-d, site timezone."
 msgstr "Premier jour du « bucket », j-m-a, fuseau horaire du site."
+
+#: includes/class-resource-query.php:105
+msgid "Metric to rank by, highest first. entrances counts sessions that started on the page; exits counts sessions that ended on it."
+msgstr "Critère de classement, du plus élevé au plus bas. Le nombre d'entrées correspond aux sessions qui ont débuté sur cette page ; le nombre de sorties correspond aux sessions qui s'y sont terminées."
+
+#: includes/class-resource-query.php:113
+msgid "Only pages of this kind: singular (posts, pages, products), home, post_type_archive, term_archive (category and tag pages), author_archive, date_archive, search, 404 or virtual_page. Omit for all."
+msgstr "Uniquement les pages de ce type : singulières (articles, pages, produits), page d'accueil, archive_type_article, archive_terme (pages de catégories et de balises), archive_auteur, archive_date, recherche, 404 ou page_virtuelle. Ignorer pour toutes les autres."
+
+#: includes/class-resource-query.php:118
+msgid "Only singular pages of this post type, such as post or product."
+msgstr "Uniquement les pages individuelles de ce type de publication, telles que les articles ou les produits."
+
+#: includes/class-resource-query.php:123
+msgid "Only the page with exactly this absolute URL, as Independent Analytics recorded it."
+msgstr "Uniquement la page dont l'URL absolue correspond exactement à celle enregistrée par Independent Analytics."
+
+#: includes/class-resource-query.php:150
+msgid "Post ID for singular pages; null otherwise."
+msgstr "ID de l'article pour les pages individuelles ; null dans le cas contraire."
+
+#: includes/class-resource-query.php:155
+msgid "What the visitor searched for, on search pages."
+msgstr "Ce que le visiteur a recherché sur les pages de recherche."
+
+#: includes/class-resource-query.php:159
+msgid "The requested path, on 404 pages."
+msgstr "Le chemin d'accès demandé, sur les pages 404."
+
+#: includes/class-resource-query.php:365
+msgid "Exits as a percentage of views."
+msgstr "Pourcentage de sorties par rapport au nombre de vues."
+
+#: includes/class-resource-query.php:371
+msgid "Average time on the page before the next view in the same session; null when no view had a next view."
+msgstr "Durée moyenne passée sur la page avant la consultation suivante au cours de la même session ; valeur nulle lorsqu'aucune consultation n'a été suivie d'une autre."
+
+#: includes/queries/class-landing-pages-query.php:40
+msgctxt "ability label; pages where visits start"
+msgid "Landing pages"
+msgstr "Pages de destination"
+
+#: includes/queries/class-landing-pages-query.php:51
+msgid "The pages where visits start, for a date range, from Independent Analytics: pages ranked by entrances (sessions that began on the page), with the same fields as top-pages. Useful alongside Google Search Console, which reports the landing page for search clicks. Only pages with at least one entrance are listed. Paged."
+msgstr "Les pages d'entrée, pour une période donnée, d'après Independent Analytics : pages classées par nombre d'entrées (sessions ayant débuté sur la page), avec les mêmes champs que les pages les plus consultées. Utile en complément de Google Search Console, qui indique la page de destination pour les clics issus de la recherche. Seules les pages ayant enregistré au moins une entrée sont répertoriées. Affichage paginé."
+
+#: includes/queries/class-not-found-query.php:40
+msgctxt "ability label; requested addresses that returned a 404 error"
+msgid "Not found pages"
+msgstr "Pages « Non trouvées »"
+
+#: includes/queries/class-not-found-query.php:51
+msgid "Requested URLs that returned a 404 Not Found error, for a date range, from Independent Analytics: one row per requested path (not_found_url) with views, visitors and sessions. Shows broken links and pages visitors expect to exist, which may need a redirect or new content. Paged."
+msgstr "URL demandées ayant renvoyé une erreur 404 « Not Found », pour une plage de dates donnée, issues d'Independent Analytics : une ligne par chemin d'accès demandé (not_found_url) avec le nombre de pages vues, de visiteurs et de sessions. Affiche les liens rompus et les pages que les visiteurs s'attendent à trouver, et qui pourraient nécessiter une redirection ou un nouveau contenu. Affichage paginé."
+
+#: includes/queries/class-page-stats-query.php:62
+msgctxt "ability label; traffic figures for one web page"
+msgid "Page stats"
+msgstr "Statistiques de la page"
+
+#: includes/queries/class-page-stats-query.php:73
+msgid "One page in detail, for a date range, from Independent Analytics. Give post_id, or the page's absolute url (for example from Google Search Console). Returns one row with the same fields as top-pages, and series: views, visitors and sessions for that page per day, week or month (interval). With compare, the row carries previous figures and previous_series holds the comparison series. Errors with iawpqh_unknown_page if Independent Analytics has never recorded the page."
+msgstr "Une page en détail, pour une plage de dates, fournie par Independent Analytics. Indiquez le post_id ou l'URL absolue de la page (par exemple, celle fournie par Google Search Console). Renvoie une ligne contenant les mêmes champs que « top-pages », ainsi que les séries suivantes : vues, visiteurs et sessions pour cette page par jour, semaine ou mois (intervalle). Avec l'option « compare », la ligne contient les chiffres précédents et le champ « previous_series » contient la série de comparaison. Une erreur « iawpqh_unknown_page » est renvoyée si Independent Analytics n'a jamais enregistré la page."
+
+#: includes/queries/class-page-stats-query.php:99
+msgid "The post, page or product ID. Give this or url."
+msgstr "L'identifiant de l'article, de la page ou du produit. Indiquez cet identifiant ou l'URL correspondante."
+
+#: includes/queries/class-page-stats-query.php:104
+msgid "The page's absolute URL, as Independent Analytics recorded it. Give this or post_id."
+msgstr "L'URL absolue de la page, telle qu'enregistrée par Independent Analytics. Indiquez cette URL ou le post_id."
+
+#: includes/queries/class-page-stats-query.php:203
+msgid "Give exactly one of post_id or url."
+msgstr "Indiquez exactement l'un des éléments suivants : « post_id » ou « url »."
+
+#: includes/queries/class-page-stats-query.php:218
+msgid "Independent Analytics has no record of that page."
+msgstr "Independent Analytics ne dispose d'aucune trace de cette page."
+
+#: includes/queries/class-site-searches-query.php:40
+msgctxt "ability label; terms visitors typed into the site search box"
+msgid "Site searches"
+msgstr "Recherches sur le site"
+
+#: includes/queries/class-site-searches-query.php:51
+msgid "What visitors searched for using the site's own search box, for a date range, from Independent Analytics: one row per search term (search_query) with views, visitors, sessions, exits and bounce rate. A strong source of content ideas: frequent searches show what visitors expect to find. Paged."
+msgstr "Ce que les visiteurs ont recherché à l'aide du champ de recherche du site, pour une période donnée, d'après Independent Analytics : une ligne par terme de recherche (search_query) avec le nombre de pages vues, de visiteurs, de sessions, de sorties et le taux de rebond. Une source précieuse d'idées de contenu : les recherches fréquentes révèlent ce que les visiteurs s'attendent à trouver. Affichage paginé."
+
+#: includes/queries/class-top-pages-query.php:40
+msgctxt "ability label; most-visited pages of any kind"
+msgid "Top pages"
+msgstr "Pages les plus consultées"
+
+#: includes/queries/class-top-pages-query.php:51
+msgid "Every kind of page Independent Analytics records (posts, pages, products, the home page, category and tag archives, search results, 404s) ranked by views, visitors, sessions, entrances or exits for a date range. Each row has the page title, absolute URL, path, kind and, for posts, the post ID and post type, plus views, visitors, sessions, entrances, exits, exit rate, bounces, bounce rate, views per session and average time on page. Matches the dashboard's Pages table. Filter with resource_type, post_type or an exact url (for example a URL from Google Search Console). Visitors must not be summed across rows. Paged."
+msgstr "Tous les types de pages enregistrées par Independent Analytics (articles, pages, produits, page d’accueil, archives de catégories et de balises, résultats de recherche, pages 404) classés par nombre de vues, de visiteurs, de sessions, d’entrées ou de sorties pour une période donnée. Chaque ligne contient le titre de la page, l’URL absolue, le chemin d’accès, le type et, pour les articles, l’ID et le type de l’article, ainsi que le nombre de vues, de visiteurs, de sessions, d’entrées, de sorties, le taux de sortie, les rebonds, le taux de rebond, le nombre de vues par session et le temps moyen passé sur la page. Correspond au tableau « Pages » du tableau de bord. Filtrage possible par `resource_type`, `post_type` ou une URL exacte (par exemple une URL provenant de Google Search Console). Les visiteurs ne doivent pas être cumulés d’une ligne à l’autre. Pagination."
