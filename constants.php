@@ -166,6 +166,13 @@ const CURSOR_PATTERN   = '^\d{14}-\d{1,20}$';
 const SECONDS_PER_HOUR = 3600;
 
 /**
+ * Decimal places MariaDB and MySQL keep when dividing integers (default `div_precision_increment`).
+ *
+ * @since 0.5.1
+ */
+const SQL_DIVISION_SCALE = 4;
+
+/**
  * Error codes returned by the executor.
  *
  * @since 0.1.0

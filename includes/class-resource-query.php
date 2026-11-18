@@ -276,7 +276,7 @@ abstract class Resource_Query extends Query {
 				{$filter_sql}
 			GROUP BY views.resource_id
 			{$having_sql}
-			ORDER BY {$orderby} DESC, views.resource_id ASC
+			ORDER BY {$orderby} DESC, title ASC, views.resource_id ASC
 			LIMIT %d OFFSET %d",
 			$values
 		);
@@ -340,10 +340,10 @@ abstract class Resource_Query extends Query {
 			'sessions'             => $sessions,
 			'entrances'            => (int) ( $row['entrances'] ?? 0 ),
 			'exits'                => $exits,
-			'exit_percent'         => 0 === $views ? 0.0 : round( $exits / $views * 100, 2 ),
+			'exit_percent'         => round_sql_value( sql_divide( $exits, $views, 100 ) ),
 			'bounces'              => $bounces,
-			'bounce_rate_percent'  => 0 === $sessions ? 0.0 : round( $bounces / $sessions * 100, 2 ),
-			'views_per_session'    => 0 === $sessions ? 0.0 : round( $views / $sessions, 2 ),
+			'bounce_rate_percent'  => round_sql_value( sql_divide( $bounces, $sessions, 100 ) ),
+			'views_per_session'    => round_sql_value( sql_divide( $views, $sessions ) ),
 			// The dashboard truncates the average to whole seconds.
 			'average_view_seconds' => is_null( $duration ) ? null : (int) $duration,
 		);

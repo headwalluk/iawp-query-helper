@@ -142,6 +142,56 @@ function divide( int|float $numerator, int|float $denominator, int $precision = 
 }
 
 /**
+ * Integer division as MariaDB and MySQL do it in SQL: rounded half up to SQL_DIVISION_SCALE places.
+ *
+ * IAWP's dashboard tables divide in SQL and round the result again for display, so a rate computed
+ * exactly in PHP can differ by 0.01. See docs/how-it-works.md.
+ *
+ * @since 0.5.1
+ *
+ * @param int $numerator   Non-negative numerator.
+ * @param int $denominator Denominator; 0 gives 0, as IAWP's IF(x = 0, 0, ...) does.
+ * @param int $multiplier  Applied before rounding, such as 100 for a percentage.
+ * @return float
+ */
+function sql_divide( int $numerator, int $denominator, int $multiplier = 1 ): float {
+	$result = 0.0;
+
+	if ( $denominator > 0 && $numerator >= 0 ) {
+		$scale  = 10 ** SQL_DIVISION_SCALE;
+		$scaled = intdiv( 2 * $numerator * $multiplier * $scale + $denominator, 2 * $denominator );
+		$result = $scaled / $scale;
+	} elseif ( $denominator > 0 ) {
+		// Negative numerators (net earnings after large refunds) round away from zero, as SQL does.
+		$result = -sql_divide( -$numerator, $denominator, $multiplier );
+	} else {
+		// No denominator: 0.
+		$result = 0.0;
+	}
+
+	return $result;
+}
+
+/**
+ * Round a value already rounded to SQL_DIVISION_SCALE places, half up, as IAWP rounds for display.
+ *
+ * @since 0.5.1
+ *
+ * @param float $value     Value from sql_divide().
+ * @param int   $precision Decimal places.
+ * @return float
+ */
+function round_sql_value( float $value, int $precision = 2 ): float {
+	// Work in whole SQL_DIVISION_SCALE units so binary floats don't move a half.
+	$units  = (int) round( $value * ( 10 ** SQL_DIVISION_SCALE ) );
+	$step   = 10 ** ( SQL_DIVISION_SCALE - $precision );
+	$sign   = $units < 0 ? -1 : 1;
+	$result = $sign * intdiv( abs( $units ) * 2 + $step, 2 * $step ) / ( 10 ** $precision );
+
+	return (float) $result;
+}
+
+/**
  * Percentage change from a previous value, or null when there is no previous value to compare with.
  *
  * @since 0.1.0
@@ -217,10 +267,13 @@ function get_order_metrics( array $order_row, int $visitors, bool $is_site_summa
 	$orders          = (int) ( $order_row['orders'] ?? 0 );
 	$gross_sales     = (int) ( $order_row['gross_sales'] ?? 0 );
 	$refunded_amount = (int) ( $order_row['refunded_amount'] ?? 0 );
-	$earnings        = 0 === $visitors ? 0.0 : ( $gross_sales - $refunded_amount ) / $visitors;
+	$earnings        = sql_divide( $gross_sales - $refunded_amount, $visitors );
+	$order_value     = round_sql_value( sql_divide( $gross_sales, $orders ), 0 );
 
 	if ( $is_site_summary ) {
-		$earnings = (float) (int) $earnings;
+		// The headline figure truncates earnings per visitor, and rounds the order value to 2 places first.
+		$earnings    = (float) (int) $earnings;
+		$order_value = round_sql_value( round_sql_value( sql_divide( $gross_sales, $orders ) ), 0 );
 	}
 
 	return array(
@@ -229,8 +282,8 @@ function get_order_metrics( array $order_row, int $visitors, bool $is_site_summa
 		'refunds'                 => (int) ( $order_row['refunds'] ?? 0 ),
 		'refunded_amount'         => round( $refunded_amount / 100, 2 ),
 		'net_sales'               => round( (int) ( $order_row['net_sales'] ?? 0 ) / 100, 2 ),
-		'conversion_rate_percent' => 0 === $visitors ? 0.0 : round( $orders / $visitors * 100, 2 ),
+		'conversion_rate_percent' => round_sql_value( sql_divide( $orders, $visitors, 100 ) ),
 		'earnings_per_visitor'    => round( $earnings / 100, 2 ),
-		'average_order_value'     => 0 === $orders ? 0.0 : round( round( $gross_sales / $orders ) / 100, 2 ),
+		'average_order_value'     => round( $order_value / 100, 2 ),
 	);
 }

@@ -29,6 +29,8 @@ Page-level queries (`top-pages`, `landing-pages`, `page-stats`, `site-searches`,
 - **Average view seconds** is the mean time from a view of the page to the next view in the same session, truncated to whole seconds. A session's last view has no next view, so it isn't counted
 - `page-stats` series count the page's own views, and the visitors and sessions that viewed it, bucketed by session start like every other series
 
+Rates in the breakdowns, page-level queries and `revenue-by-*` and `form-submissions-by-*` queries are rounded the way the dashboard rounds them. Independent Analytics divides in SQL, where the database keeps four decimal places, and rounds that again to two for display. A bounce rate of 758 in 765 is 99.08497%: the database holds 99.0850, which displays as 99.09. This plugin does the same arithmetic, so its figures agree with the dashboard to the last decimal place. The headline figures in `site-summary` and `form-submissions` are worked out in PHP on the dashboard, and are here too.
+
 Daily, weekly and monthly series are bucketed by the day each session started, using the site's current UTC offset, exactly as the dashboard chart does. Weeks start on the day set in Independent Analytics. One consequence, shared with the dashboard: across a clock change, an hour of traffic can land in the neighbouring day.
 
 The Independent Analytics developer API (`iawp_analytics()` and friends) counts slightly differently, filtering on view time only. That's why this plugin reads the tables rather than calling it: its numbers can drift from the dashboard at the edges of a range.

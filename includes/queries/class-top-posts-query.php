@@ -255,7 +255,7 @@ class Top_Posts_Query extends Query {
 				AND resources.singular_id IS NOT NULL
 				{$filter_sql}
 			GROUP BY views.resource_id
-			ORDER BY {$orderby} DESC, views.resource_id ASC
+			ORDER BY {$orderby} DESC, title ASC, views.resource_id ASC
 			LIMIT %d OFFSET %d",
 			$values
 		);

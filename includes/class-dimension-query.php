@@ -68,6 +68,18 @@ abstract class Dimension_Query extends Query {
 	abstract public function get_label_columns( Query_Context $context ): array;
 
 	/**
+	 * Label alias that breaks ties in the ranking, as the dashboard's table does.
+	 *
+	 * @since 0.5.1
+	 *
+	 * @param Query_Context $context Validated input.
+	 * @return string
+	 */
+	public function get_tie_breaker( Query_Context $context ): string {
+		return (string) array_key_first( $this->get_label_columns( $context ) );
+	}
+
+	/**
 	 * Schema for the label fields of a row.
 	 *
 	 * @since 0.2.0
@@ -271,6 +283,7 @@ abstract class Dimension_Query extends Query {
 		$group_column   = $this->get_group_column( $context );
 		$join_sql       = $this->get_join_sql( $context );
 		$orderby        = in_array( $context->get_param( 'orderby' ), self::SORTABLE_METRICS, true ) ? (string) $context->get_param( 'orderby' ) : METRIC_VIEWS;
+		$tie_breaker    = $this->get_tie_breaker( $context );
 
 		list( $filter_sql, $values ) = $this->get_filter( $context );
 
@@ -307,7 +320,7 @@ abstract class Dimension_Query extends Query {
 				AND {$group_column} IS NOT NULL
 				{$filter_sql}
 			GROUP BY {$group_column}
-			ORDER BY {$orderby} DESC, group_key ASC
+			ORDER BY {$orderby} DESC, {$tie_breaker} ASC, group_key ASC
 			LIMIT %d OFFSET %d",
 			$values
 		);
@@ -426,8 +439,8 @@ abstract class Dimension_Query extends Query {
 			'visitors'                => (int) ( $group['visitors'] ?? 0 ),
 			'sessions'                => $sessions,
 			'bounces'                 => $bounces,
-			'bounce_rate_percent'     => 0 === $sessions ? 0.0 : round( $bounces / $sessions * 100, 2 ),
-			'views_per_session'       => 0 === $sessions ? 0.0 : round( $views / $sessions, 2 ),
+			'bounce_rate_percent'     => round_sql_value( sql_divide( $bounces, $sessions, 100 ) ),
+			'views_per_session'       => round_sql_value( sql_divide( $views, $sessions ) ),
 			'average_session_seconds' => $group['average_session_duration'] ?? null,
 		);
 	}

@@ -317,8 +317,7 @@ abstract class Form_Breakdown_Query extends Query {
 			'visitors'                => $visitors,
 			'sessions'                => (int) ( $traffic_row['sessions'] ?? 0 ),
 			'submissions'             => $submissions,
-			// The dashboard's tables report 0, not 100, when there are no visitors.
-			'conversion_rate_percent' => 0 === $visitors ? 0.0 : round( $submissions / $visitors * 100, 2 ),
+			'conversion_rate_percent' => round_sql_value( sql_divide( $submissions, $visitors, 100 ) ),
 		);
 	}
 }

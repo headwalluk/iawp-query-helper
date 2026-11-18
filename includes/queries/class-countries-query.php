@@ -78,6 +78,18 @@ class Countries_Query extends Dimension_Query {
 	}
 
 	/**
+	 * Ties are broken by country name, as on the dashboard.
+	 *
+	 * @since 0.5.1
+	 *
+	 * @param Query_Context $context Validated input.
+	 * @return string
+	 */
+	public function get_tie_breaker( Query_Context $context ): string {
+		return 'country';
+	}
+
+	/**
 	 * Label columns.
 	 *
 	 * @since 0.2.0
