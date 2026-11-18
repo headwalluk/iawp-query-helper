@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-11-18
+
+### Changed
+
+- 404 URLs are sent to agents without their query string or fragment, in `not-found`, the other page-level queries, the revenue and form breakdowns by page, and `raw-views`. Independent Analytics records the full requested URL, which can carry a password-reset or invitation token. Two rows can now share a path where Independent Analytics recorded them with different query strings. Other pages keep their query strings.
+
+### Documentation
+
+- `docs/how-it-works.md` has a new section, "What agents receive", on the visitor-supplied text agents get: search terms exactly as typed, 404 paths without query strings, and individual views without visitor or session identifiers.
+
 ## [1.0.1] - 2026-11-18
 
 ### Fixed

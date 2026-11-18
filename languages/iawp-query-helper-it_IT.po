@@ -375,11 +375,11 @@ msgstr "Cosa ha cercato il visitatore nelle pagine di ricerca."
 msgid "The requested path, on 404 pages."
 msgstr "Il percorso richiesto, nelle pagine 404."
 
-#: includes/class-resource-query.php:365
+#: includes/class-resource-query.php:367
 msgid "Exits as a percentage of views."
 msgstr "Visualizzazioni in uscita in percentuale rispetto alle visualizzazioni totali."
 
-#: includes/class-resource-query.php:371
+#: includes/class-resource-query.php:373
 msgid "Average time on the page before the next view in the same session; null when no view had a next view."
 msgstr "Tempo medio trascorso sulla pagina prima della visualizzazione successiva nella stessa sessione; valore nullo quando nessuna visualizzazione ha avuto una visualizzazione successiva."
 
@@ -396,10 +396,6 @@ msgstr "Le pagine da cui hanno inizio le visite, per un determinato intervallo d
 msgctxt "ability label; requested addresses that returned a 404 error"
 msgid "Not found pages"
 msgstr "Pagine \"Non trovate\""
-
-#: includes/queries/class-not-found-query.php:51
-msgid "Requested URLs that returned a 404 Not Found error, for a date range, from Independent Analytics: one row per requested path (not_found_url) with views, visitors and sessions. Shows broken links and pages visitors expect to exist, which may need a redirect or new content. Paged."
-msgstr "URL richiesti che hanno restituito un errore 404 Not Found, per un intervallo di date, da Independent Analytics: una riga per ogni percorso richiesto (not_found_url) con visualizzazioni, visitatori e sessioni. Mostra i link non funzionanti e le pagine che i visitatori si aspettano di trovare, che potrebbero richiedere un reindirizzamento o nuovi contenuti. Pagina per pagina."
 
 #: includes/queries/class-page-stats-query.php:62
 msgctxt "ability label; traffic figures for one web page"
@@ -586,3 +582,7 @@ msgstr "Se questa fosse stata la prima immagine della sua visita."
 #: includes/queries/class-raw-views-query.php:146
 msgid "That cursor is not valid. Pass meta.pagination.next_cursor unchanged, or omit it for the first page."
 msgstr "Quel cursore non è valido. Passa meta.pagination.next_cursor senza modificarlo oppure omettilo per la prima pagina."
+
+#: includes/queries/class-not-found-query.php:51
+msgid "Requested URLs that returned a 404 Not Found error, for a date range, from Independent Analytics: one row per requested path (not_found_url) with views, visitors and sessions. Shows broken links and pages visitors expect to exist, which may need a redirect or new content. Query strings and fragments are removed from these URLs, so two rows can share a path when Independent Analytics recorded them with different query strings. Paged."
+msgstr "URL richiesti che hanno restituito un errore 404 Not Found, per un intervallo di date, da Independent Analytics: una riga per ogni percorso richiesto (not_found_url) con visualizzazioni, visitatori e sessioni. Mostra i link non funzionanti e le pagine che i visitatori si aspettano di trovare, che potrebbero richiedere un reindirizzamento o nuovi contenuti. Da questi URL vengono rimosse le stringhe di query e i frammenti; pertanto, due righe possono condividere lo stesso percorso qualora Independent Analytics le abbia registrate con stringhe di query diverse. Pagina."

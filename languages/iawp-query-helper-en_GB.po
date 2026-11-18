@@ -375,11 +375,11 @@ msgstr "What the visitor searched for, on search pages."
 msgid "The requested path, on 404 pages."
 msgstr "The requested path, on 404 pages."
 
-#: includes/class-resource-query.php:365
+#: includes/class-resource-query.php:367
 msgid "Exits as a percentage of views."
 msgstr "Exits as a percentage of views."
 
-#: includes/class-resource-query.php:371
+#: includes/class-resource-query.php:373
 msgid "Average time on the page before the next view in the same session; null when no view had a next view."
 msgstr "Average time on the page before the next view in the same session; null when no view had a next view."
 
@@ -396,10 +396,6 @@ msgstr "The pages where visits start, for a date range, from Independent Analyti
 msgctxt "ability label; requested addresses that returned a 404 error"
 msgid "Not found pages"
 msgstr "Not found pages"
-
-#: includes/queries/class-not-found-query.php:51
-msgid "Requested URLs that returned a 404 Not Found error, for a date range, from Independent Analytics: one row per requested path (not_found_url) with views, visitors and sessions. Shows broken links and pages visitors expect to exist, which may need a redirect or new content. Paged."
-msgstr "Requested URLs that returned a 404 Not Found error, for a date range, from Independent Analytics: one row per requested path (not_found_url) with views, visitors and sessions. Shows broken links and pages visitors expect to exist, which may need a redirect or new content. Paged."
 
 #: includes/queries/class-page-stats-query.php:62
 msgctxt "ability label; traffic figures for one web page"
@@ -586,3 +582,7 @@ msgstr "Whether this was the first view of its visit."
 #: includes/queries/class-raw-views-query.php:146
 msgid "That cursor is not valid. Pass meta.pagination.next_cursor unchanged, or omit it for the first page."
 msgstr "That cursor is not valid. Pass meta.pagination.next_cursor unchanged, or omit it for the first page."
+
+#: includes/queries/class-not-found-query.php:51
+msgid "Requested URLs that returned a 404 Not Found error, for a date range, from Independent Analytics: one row per requested path (not_found_url) with views, visitors and sessions. Shows broken links and pages visitors expect to exist, which may need a redirect or new content. Query strings and fragments are removed from these URLs, so two rows can share a path when Independent Analytics recorded them with different query strings. Paged."
+msgstr "Requested URLs that returned a 404 Not Found error, for a date range, from Independent Analytics: one row per requested path (not_found_url) with views, visitors and sessions. Shows broken links and pages visitors expect to exist, which may need a redirect or new content. Query strings and fragments are removed from these URLs, so two rows can share a path when Independent Analytics recorded them with different query strings. Paged."

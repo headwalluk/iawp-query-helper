@@ -375,11 +375,11 @@ msgstr "Τι αναζήτησε ο επισκέπτης στις σελίδες 
 msgid "The requested path, on 404 pages."
 msgstr "Η διαδρομή που ζητήθηκε, στις σελίδες 404."
 
-#: includes/class-resource-query.php:365
+#: includes/class-resource-query.php:367
 msgid "Exits as a percentage of views."
 msgstr "Οι εξόδους ως ποσοστό των προβολών."
 
-#: includes/class-resource-query.php:371
+#: includes/class-resource-query.php:373
 msgid "Average time on the page before the next view in the same session; null when no view had a next view."
 msgstr "Μέσος χρόνος παραμονής στη σελίδα πριν από την επόμενη προβολή στην ίδια συνεδρία· η τιμή είναι null όταν καμία προβολή δεν είχε επόμενη προβολή."
 
@@ -396,10 +396,6 @@ msgstr "Οι σελίδες από τις οποίες ξεκινούν οι ε�
 msgctxt "ability label; requested addresses that returned a 404 error"
 msgid "Not found pages"
 msgstr "Σελίδες «Δεν βρέθηκε»"
-
-#: includes/queries/class-not-found-query.php:51
-msgid "Requested URLs that returned a 404 Not Found error, for a date range, from Independent Analytics: one row per requested path (not_found_url) with views, visitors and sessions. Shows broken links and pages visitors expect to exist, which may need a redirect or new content. Paged."
-msgstr "Διευθύνσεις URL που ζητήθηκαν και επέστρεψαν σφάλμα 404 Not Found, για ένα χρονικό διάστημα, από το Independent Analytics: μία σειρά ανά ζητηθείσα διαδρομή (not_found_url) με προβολές, επισκέπτες και συνεδρίες. Εμφανίζει σπασμένους συνδέσμους και σελίδες που οι επισκέπτες αναμένουν να υπάρχουν, οι οποίες ενδέχεται να χρειάζονται ανακατεύθυνση ή νέο περιεχόμενο. Με σελιδοποίηση."
 
 #: includes/queries/class-page-stats-query.php:62
 msgctxt "ability label; traffic figures for one web page"
@@ -586,3 +582,7 @@ msgstr "Αν αυτή ήταν η πρώτη εικόνα από την επίσ
 #: includes/queries/class-raw-views-query.php:146
 msgid "That cursor is not valid. Pass meta.pagination.next_cursor unchanged, or omit it for the first page."
 msgstr "Αυτός ο δείκτης δεν είναι έγκυρος. Δώστε το meta.pagination.next_cursor χωρίς αλλαγές ή παραλείψτε το για την πρώτη σελίδα."
+
+#: includes/queries/class-not-found-query.php:51
+msgid "Requested URLs that returned a 404 Not Found error, for a date range, from Independent Analytics: one row per requested path (not_found_url) with views, visitors and sessions. Shows broken links and pages visitors expect to exist, which may need a redirect or new content. Query strings and fragments are removed from these URLs, so two rows can share a path when Independent Analytics recorded them with different query strings. Paged."
+msgstr "Διευθύνσεις URL που ζητήθηκαν και επέστρεψαν σφάλμα 404 Not Found, για ένα χρονικό διάστημα, από το Independent Analytics: μία σειρά ανά ζητηθείσα διαδρομή (not_found_url) με προβολές, επισκέπτες και συνεδρίες. Παρουσιάζει σπασμένους συνδέσμους και σελίδες που οι επισκέπτες αναμένουν να υπάρχουν, οι οποίες ενδέχεται να χρειάζονται ανακατεύθυνση ή νέο περιεχόμενο. Οι συμβολοσειρές ερωτήματος και τα τμήματα αφαιρούνται από αυτές τις διευθύνσεις URL, οπότε δύο σειρές μπορούν να μοιράζονται την ίδια διαδρομή όταν το Independent Analytics τις κατέγραψε με διαφορετικές συμβολοσειρές ερωτήματος. Με σελιδοποίηση."
