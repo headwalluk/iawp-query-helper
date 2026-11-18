@@ -50,7 +50,7 @@ Analytics tables get large, and many WordPress sites share a modest database ser
 
 - **Statement timeout.** Every statement runs with a 20 second limit, enforced by the database server (`max_statement_time` on MariaDB, `MAX_EXECUTION_TIME` on MySQL 5.7.8 and later). A query that hits it is stopped and the caller is told to narrow the range
 - **Two at once.** Only two queries run at the same time per site, across every PHP worker. A third gets HTTP 429 with a `Retry-After` header
-- **366 days at most** in any one range. A comparison range gets its own allowance, so a full year against the previous year works
+- **366 days at most** in any one range, and 31 for `raw-views`. A comparison range gets its own allowance, so a full year against the previous year works
 - **Page sizes** are capped at 500 rows, and paging stops after 10,000 rows
 - **No total counts.** Pages report whether there is more, rather than counting every row
 
@@ -64,7 +64,7 @@ Agents connect with an Application Password belonging to one of those users. See
 
 ## Independent Analytics Pro
 
-Queries that need Pro features only appear when Pro is installed and licensed: without it they aren't registered as abilities or REST routes, and calling one directly returns `iawpqh_requires_pro`. There's no setting to change that. This plugin isn't a way around buying Pro.
+Queries that need Pro features only appear when Pro is installed and licensed: without it they aren't registered as abilities or REST routes, so calling one gets WordPress's own 404. There's no setting to change that. This plugin isn't a way around buying Pro.
 
 The WooCommerce queries count orders as the dashboard does:
 

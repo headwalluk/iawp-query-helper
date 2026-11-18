@@ -21,7 +21,7 @@ curl -u 'username:xxxx xxxx xxxx xxxx xxxx xxxx' \
 - `start`, `end`: `Y-m-d` dates in the site's timezone, both included. Use instead of `period`. `end` defaults to today
 - `compare`: `none` (default), `previous_year` or `previous_period`
 
-Paged queries also take `page` (from 1) and `per_page` (1 to 500, default 100).
+Paged queries also take `page` (from 1) and `per_page` (1 to 500, default 100). `raw-views` is the exception: it pages with a `cursor` instead of `page`, and doesn't take `compare` (see [raw views](#raw-views)). `catalogue` takes no parameters at all.
 
 Unknown parameters are refused rather than ignored, so a typo shows up as an error.
 
@@ -29,7 +29,7 @@ Unknown parameters are refused rather than ignored, so a typo shows up as an err
 
 ### `catalogue`
 
-Takes no parameters. One row describing the site: `site_url`, `timezone`, `utc_offset`, `week_starts_on`, `currency` (when WooCommerce is active), `first_view_date`, `is_pro`, `limits`, `periods`, and `queries` (every query with its ability name, REST route, description, and whether it is paged and available here). Agents should call it first.
+Takes no parameters. One row describing the site: `site_url`, `timezone`, `utc_offset`, `week_starts_on`, `currency` (when WooCommerce is active), `first_view_date`, `is_pro`, `limits` (`max_range_days`, `max_per_page`, `max_row_offset`, `statement_timeout_seconds`, `concurrent_queries`), `periods`, and `queries`. Each entry in `queries` has `name`, `ability`, `rest_route`, `label`, `description`, `is_paged`, `paging` (`page`, `cursor` or `none`), `max_range_days` (`null` for `catalogue`), `is_pro_only` and `is_available` (whether it can run on this site). Agents should call it first.
 
 ### `site-summary`
 
@@ -54,7 +54,7 @@ Each row: `post_id`, `title`, `post_type`, `url`, `path`, `views`, `visitors`, `
 `top-pages`, `landing-pages`, `site-searches` and `not-found` share one row shape. Labels: `resource_type`, `title`, `url`, `path`, `post_id`, `post_type`, `search_query`, `not_found_url` (the last two are only set on search and 404 pages). Metrics: `views`, `visitors`, `sessions`, `entrances`, `exits`, `exit_percent`, `bounces`, `bounce_rate_percent`, `views_per_session`, `average_view_seconds`. All are paged and take `orderby` (`views`, `visitors`, `sessions`, `entrances` or `exits`).
 
 - `top-pages`: every kind of page. Filter with `resource_type` (`singular`, `home`, `post_type_archive`, `term_archive`, `author_archive`, `date_archive`, `search`, `404`, `virtual_page`), `post_type`, or an exact `url`
-- `landing-pages`: pages with at least one entrance, ranked by entrances
+- `landing-pages`: pages with at least one entrance, ranked by entrances. Takes the same filters as `top-pages`
 - `site-searches`: one row per search term typed into the site's own search
 - `not-found`: one row per requested path that returned a 404
 
@@ -145,22 +145,24 @@ With `compare`, `previous_rows` holds the same series for the comparison range.
 }
 ```
 
-`meta.range` is `null` for `catalogue`, which has no date range.
+`meta.range` is `null` for `catalogue`, which has no date range. `meta.pagination` is only present on paged queries. For `raw-views` it is `{ "per_page": 500, "has_more": true, "next_cursor": "20261115093012-48121" }` instead, with `next_cursor` `null` on the last page.
 
-When comparing, `meta.compare` describes the comparison range. Rows from every query except `traffic-over-time` and `catalogue` then carry `previous` (the same metrics for the comparison range) and `change_percent` (percentage change, one decimal place, `null` where the previous value was zero). For rates such as `bounce_rate_percent`, `change_percent` is the relative change, not the difference in percentage points.
+Some queries add keys beside `rows`: `previous_rows` (`traffic-over-time`), `series` and `previous_series` (`page-stats`) and `totals` (`form-submissions`).
+
+When comparing, `meta.compare` describes the comparison range. Rows from every query except `traffic-over-time`, `catalogue` and `raw-views` (and the `totals` object of `form-submissions`) then carry `previous` (the same metrics for the comparison range) and `change_percent` (percentage change, one decimal place, `null` where the previous value was zero). For rates such as `bounce_rate_percent`, `change_percent` is the relative change, not the difference in percentage points.
 
 ## Errors
 
 Errors use the usual WordPress REST format, `{ "code": "...", "message": "...", "data": { "status": 400 } }`. The message is written to be shown to, or acted on by, the agent.
 
 - `iawpqh_invalid_param` (400): a parameter is wrong; the message says which
-- `iawpqh_range_too_long` (400): more than 366 days in one range. Split it
+- `iawpqh_range_too_long` (400): the range is longer than the query allows: 366 days, 31 for `raw-views`, or less if the site has lowered it. `catalogue` lists each query's limit. Split the range
 - `iawpqh_forbidden` (401 or 403): no credentials, or the user can't view all analytics
-- `iawpqh_requires_pro` (403): the query needs Independent Analytics Pro
-- `iawpqh_busy` (429): two queries are already running. Wait for `Retry-After` seconds
+- `iawpqh_busy` (429): the site's limit on queries running at once (two by default) is reached. Wait for `Retry-After` seconds
 - `iawpqh_timeout` (503): the query ran past the time limit. Narrow the range or add a filter
 - `iawpqh_migrating` (503): Independent Analytics is updating its database. Retry later
 - `iawpqh_unknown_page` (404): `page-stats` was given a page Independent Analytics has never recorded
+- `rest_no_route` or `rest_ability_not_found` (404), from WordPress itself: there's no query with that name on this site. That includes the Pro-only queries on a site without a Pro licence, which aren't registered at all. `catalogue` lists what's available
 - `iawpqh_iawp_missing` (503): Independent Analytics isn't active
 - `iawpqh_database_error` (500): logged on the server
 
