@@ -141,43 +141,43 @@ msgstr[1] "La query ha richiesto più di %d secondi ed è stata interrotta. Rest
 msgid "The analytics query failed. The error has been logged on the server."
 msgstr "La query di analisi non è andata a buon fine. L'errore è stato registrato sul server."
 
-#: includes/class-query.php:166
+#: includes/class-query.php:177
 msgid "Preset date range, defined as on the Independent Analytics dashboard, in the site timezone. year_to_date is the dashboard's \"This Year\". Defaults to last_30_days. Do not combine with start/end."
 msgstr "Intervallo di date predefinito, come definito nella dashboard di Independent Analytics, nel fuso orario del sito. year_to_date corrisponde alla voce \"Quest'anno\" della dashboard. Il valore predefinito è last_30_days. Non combinare con start/end."
 
-#: includes/class-query.php:171
+#: includes/class-query.php:182
 msgid "First day, Y-m-d, site timezone, inclusive. Use instead of period."
 msgstr "Primo giorno, G-M-A, fuso orario del sito, compreso. Da utilizzare al posto del punto."
 
-#: includes/class-query.php:176
+#: includes/class-query.php:187
 msgid "Last day, Y-m-d, site timezone, inclusive. Defaults to today when start is given."
 msgstr "Ultimo giorno, G-M-A, fuso orario del sito, compreso. Se viene specificata la data di inizio, il valore predefinito è la data odierna."
 
-#: includes/class-query.php:182
+#: includes/class-query.php:193
 msgid "Also report a comparison range. previous_year is the same dates one year earlier (use with year_to_date for year-on-year); previous_period is the same number of days immediately before."
 msgstr "Indicare anche un intervallo di confronto. \"previous_year\" corrisponde alle stesse date dell'anno precedente (da utilizzare insieme a \"year_to_date\" per il confronto su base annua); \"previous_period\" corrisponde allo stesso numero di giorni immediatamente precedenti."
 
-#: includes/class-query.php:191
+#: includes/class-query.php:202
 msgid "Page of results, from 1. Check meta.pagination.has_more."
 msgstr "Pagina dei risultati, a partire da 1. Verificare meta.pagination.has_more."
 
-#: includes/class-query.php:198
+#: includes/class-query.php:209
 msgid "Rows per page."
 msgstr "Righe per pagina."
 
-#: includes/class-query.php:226
+#: includes/class-query.php:237
 msgid "Query name, resolved ranges, pagination and IAWP version details."
 msgstr "Nome della query, intervalli risolti, impaginazione e dettagli sulla versione IAWP."
 
-#: includes/class-query.php:236
+#: includes/class-query.php:247
 msgid "The same series for the comparison range, or null when not comparing."
 msgstr "La stessa serie per l'intervallo di confronto, oppure \"null\" se non si effettua alcun confronto."
 
-#: includes/class-query.php:285
+#: includes/class-query.php:296
 msgid "Values for the comparison range, or null when not comparing."
 msgstr "Valori per l'intervallo di confronto, oppure \"null\" se non si effettua alcun confronto."
 
-#: includes/class-query.php:290
+#: includes/class-query.php:301
 msgid "Percentage change from previous to current, to 1 decimal place. A metric is null when its previous value was 0."
 msgstr "Variazione percentuale dal valore precedente a quello attuale, arrotondata al primo decimale. Un indicatore è nullo quando il suo valore precedente era 0."
 
@@ -442,3 +442,59 @@ msgstr "Pagine più visitate"
 #: includes/queries/class-top-pages-query.php:51
 msgid "Every kind of page Independent Analytics records (posts, pages, products, the home page, category and tag archives, search results, 404s) ranked by views, visitors, sessions, entrances or exits for a date range. Each row has the page title, absolute URL, path, kind and, for posts, the post ID and post type, plus views, visitors, sessions, entrances, exits, exit rate, bounces, bounce rate, views per session and average time on page. Matches the dashboard's Pages table. Filter with resource_type, post_type or an exact url (for example a URL from Google Search Console). Visitors must not be summed across rows. Paged."
 msgstr "Ogni tipo di pagina registrata da Independent Analytics (post, pagine, prodotti, home page, archivi di categorie e tag, risultati di ricerca, pagine 404) ordinata in base a visualizzazioni, visitatori, sessioni, entrate o uscite per un intervallo di date. Ogni riga riporta il titolo della pagina, l’URL assoluto, il percorso, il tipo e, per i post, l’ID e il tipo di post, oltre a visualizzazioni, visitatori, sessioni, ingressi, uscite, tasso di uscita, rimbalzi, frequenza di rimbalzo, visualizzazioni per sessione e tempo medio trascorso sulla pagina. Corrisponde alla tabella “Pagine” della dashboard. Filtra in base a `resource_type`, `post_type` o a un URL esatto (ad esempio un URL proveniente da Google Search Console). I visitatori non devono essere sommati tra le righe. Pagina per pagina."
+
+#: includes/class-revenue-query.php:137
+msgid "Order metric to rank by, highest first."
+msgstr "Ordina i valori in base al parametro di classificazione, dal più alto al più basso."
+
+#: includes/class-revenue-query.php:157
+msgid "Gross sales less refunds, in the store currency (meta.currency), major units."
+msgstr "Fatturato lordo al netto dei rimborsi, nella valuta del negozio (meta.currency), unità principali."
+
+#: includes/class-revenue-query.php:161
+msgid "Orders as a percentage of visitors."
+msgstr "Ordini in percentuale rispetto ai visitatori."
+
+#: includes/class-revenue-query.php:166
+msgid "Gross sales divided by orders."
+msgstr "Fatturato lordo diviso per gli ordini."
+
+#: includes/queries/class-ecommerce-summary-query.php:48
+msgctxt "ability label; shop sales totals"
+msgid "Ecommerce summary"
+msgstr "Riepilogo e-commerce"
+
+#: includes/queries/class-ecommerce-summary-query.php:59
+msgid "Site-wide WooCommerce totals for a date range, from Independent Analytics Pro: orders, gross sales, refunds, refunded amount, net sales, conversion rate (orders per visitor), earnings per visitor and average order value, with visitors. Money is in the store currency (the currency field) in major units. Matches the ecommerce figures on the dashboard. Use compare=previous_year with period=year_to_date for year-on-year. Returns one row."
+msgstr "Totali WooCommerce a livello di sito per un intervallo di date, da Independent Analytics Pro: ordini, vendite lorde, rimborsi, importo rimborsato, vendite nette, tasso di conversione (ordini per visitatore), guadagni per visitatore e valore medio dell'ordine, con numero di visitatori. Gli importi sono espressi nella valuta del negozio (campo \"valuta\") nelle unità principali. I dati corrispondono a quelli dell’e-commerce riportati nella dashboard. Utilizzare compare=previous_year con period=year_to_date per il confronto su base annua. Restituisce una riga."
+
+#: includes/queries/class-ecommerce-summary-query.php:99
+msgid "Store base currency, ISO 4217."
+msgstr "Valuta di riferimento del negozio, ISO 4217."
+
+#: includes/queries/class-revenue-by-campaign-query.php:40
+msgctxt "ability label; shop sales grouped by marketing campaign"
+msgid "Revenue by campaign"
+msgstr "Ricavi per campagna"
+
+#: includes/queries/class-revenue-by-campaign-query.php:51
+msgid "WooCommerce orders and sales from UTM-tagged campaign traffic for a date range, from Independent Analytics Pro. dimension chooses whole campaigns or one UTM parameter, as in the campaigns query. Each row has orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, plus visitors and sessions. Money is in the store currency (meta.currency) in major units. Only campaigns with at least one order are listed, ranked by net sales. Paged."
+msgstr "Ordini e vendite WooCommerce provenienti dal traffico delle campagne con tag UTM per un intervallo di date, da Independent Analytics Pro. La dimensione consente di selezionare intere campagne o un singolo parametro UTM, come nella query delle campagne. Ogni riga riporta ordini, vendite lorde, rimborsi, vendite nette, tasso di conversione, guadagni per visitatore e valore medio dell’ordine, oltre a visitatori e sessioni. Gli importi sono espressi nella valuta del negozio (meta.currency) nelle unità principali. Vengono elencate solo le campagne con almeno un ordine, ordinate in base alle vendite nette. Pagina per pagina."
+
+#: includes/queries/class-revenue-by-landing-page-query.php:62
+msgctxt "ability label; shop sales grouped by the page where the visit started"
+msgid "Revenue by landing page"
+msgstr "Ricavi per pagina di destinazione"
+
+#: includes/queries/class-revenue-by-landing-page-query.php:73
+msgid "WooCommerce orders and sales by landing page for a date range, from Independent Analytics Pro: the page each ordering visit started on, with its title, URL and kind, plus orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, and the page's visitors and sessions. Money is in the store currency (meta.currency) in major units. Matches the ecommerce columns of the dashboard's Pages table. Pair with Google Search Console landing pages to see which search traffic earns money. Only pages with at least one order are listed, ranked by net sales. Paged."
+msgstr "Ordini e vendite WooCommerce per pagina di destinazione in un intervallo di date, da Independent Analytics Pro: la pagina da cui è partita ogni visita che ha generato un ordine, con titolo, URL e tipo, oltre a ordini, vendite lorde, rimborsi, vendite nette, tasso di conversione, guadagni per visitatore e valore medio dell’ordine, nonché visitatori e sessioni della pagina. Gli importi sono espressi nella valuta del negozio (meta.currency) nelle unità principali. Corrisponde alle colonne e-commerce della tabella “Pagine” della dashboard. Abbinalo alle pagine di destinazione di Google Search Console per vedere quale traffico di ricerca genera entrate. Sono elencate solo le pagine con almeno un ordine, ordinate in base alle vendite nette. Pagina per pagina."
+
+#: includes/queries/class-revenue-by-referrer-query.php:40
+msgctxt "ability label; shop sales grouped by the website that sent the visitor"
+msgid "Revenue by referrer"
+msgstr "Ricavi per fonte di provenienza"
+
+#: includes/queries/class-revenue-by-referrer-query.php:51
+msgid "WooCommerce orders and sales by traffic source for a date range, from Independent Analytics Pro: each referrer (Google, Facebook, Direct...) with orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, plus its visitors and sessions. Money is in the store currency (meta.currency) in major units. Matches the ecommerce columns of the dashboard's Referrers table. Only referrers with at least one order are listed, ranked by net sales. Filter with referrer_type. Paged."
+msgstr "Ordini e vendite WooCommerce per fonte di traffico in un intervallo di date, da Independent Analytics Pro: ogni fonte di provenienza (Google, Facebook, Diretto...) con ordini, vendite lorde, rimborsi, vendite nette, tasso di conversione, guadagni per visitatore e valore medio dell'ordine, oltre ai relativi visitatori e sessioni. Gli importi sono espressi nella valuta del negozio (meta.currency) nelle unità principali. Corrisponde alle colonne e-commerce della tabella “Referrer” della dashboard. Sono elencati solo i referrer con almeno un ordine, ordinati in base alle vendite nette. Filtra con referrer_type. Pagina per pagina."

@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-11-18
+
+### Added
+
+- WooCommerce queries, available only with a licensed copy of Independent Analytics Pro: `ecommerce-summary`, `revenue-by-landing-page`, `revenue-by-referrer` and `revenue-by-campaign`. Figures match the dashboard's ecommerce statistics and table columns. Without Pro they are not registered at all.
+
 ## [0.3.0] - 2026-11-18
 
 ### Added

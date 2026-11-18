@@ -141,43 +141,43 @@ msgstr[1] "The query took longer than %d seconds and was stopped. Narrow the dat
 msgid "The analytics query failed. The error has been logged on the server."
 msgstr "The analytics query failed. The error has been logged on the server."
 
-#: includes/class-query.php:166
+#: includes/class-query.php:177
 msgid "Preset date range, defined as on the Independent Analytics dashboard, in the site timezone. year_to_date is the dashboard's \"This Year\". Defaults to last_30_days. Do not combine with start/end."
 msgstr "Preset date range, defined as on the Independent Analytics dashboard, in the site timezone. year_to_date is the dashboard's \"This Year\". Defaults to last_30_days. Do not combine with start/end."
 
-#: includes/class-query.php:171
+#: includes/class-query.php:182
 msgid "First day, Y-m-d, site timezone, inclusive. Use instead of period."
 msgstr "First day, Y-m-d, site timezone, inclusive. Use instead of period."
 
-#: includes/class-query.php:176
+#: includes/class-query.php:187
 msgid "Last day, Y-m-d, site timezone, inclusive. Defaults to today when start is given."
 msgstr "Last day, Y-m-d, site timezone, inclusive. Defaults to today when start is given."
 
-#: includes/class-query.php:182
+#: includes/class-query.php:193
 msgid "Also report a comparison range. previous_year is the same dates one year earlier (use with year_to_date for year-on-year); previous_period is the same number of days immediately before."
 msgstr "Also report a comparison range. previous_year is the same dates one year earlier (use with year_to_date for year-on-year); previous_period is the same number of days immediately before."
 
-#: includes/class-query.php:191
+#: includes/class-query.php:202
 msgid "Page of results, from 1. Check meta.pagination.has_more."
 msgstr "Page of results, from 1. Check meta.pagination.has_more."
 
-#: includes/class-query.php:198
+#: includes/class-query.php:209
 msgid "Rows per page."
 msgstr "Rows per page."
 
-#: includes/class-query.php:226
+#: includes/class-query.php:237
 msgid "Query name, resolved ranges, pagination and IAWP version details."
 msgstr "Query name, resolved ranges, pagination and IAWP version details."
 
-#: includes/class-query.php:236
+#: includes/class-query.php:247
 msgid "The same series for the comparison range, or null when not comparing."
 msgstr "The same series for the comparison range, or null when not comparing."
 
-#: includes/class-query.php:285
+#: includes/class-query.php:296
 msgid "Values for the comparison range, or null when not comparing."
 msgstr "Values for the comparison range, or null when not comparing."
 
-#: includes/class-query.php:290
+#: includes/class-query.php:301
 msgid "Percentage change from previous to current, to 1 decimal place. A metric is null when its previous value was 0."
 msgstr "Percentage change from previous to current, to 1 decimal place. A metric is null when its previous value was 0."
 
@@ -442,3 +442,59 @@ msgstr "Top pages"
 #: includes/queries/class-top-pages-query.php:51
 msgid "Every kind of page Independent Analytics records (posts, pages, products, the home page, category and tag archives, search results, 404s) ranked by views, visitors, sessions, entrances or exits for a date range. Each row has the page title, absolute URL, path, kind and, for posts, the post ID and post type, plus views, visitors, sessions, entrances, exits, exit rate, bounces, bounce rate, views per session and average time on page. Matches the dashboard's Pages table. Filter with resource_type, post_type or an exact url (for example a URL from Google Search Console). Visitors must not be summed across rows. Paged."
 msgstr "Every kind of page Independent Analytics records (posts, pages, products, the home page, category and tag archives, search results, 404s) ranked by views, visitors, sessions, entrances or exits for a date range. Each row has the page title, absolute URL, path, kind and, for posts, the post ID and post type, plus views, visitors, sessions, entrances, exits, exit rate, bounces, bounce rate, views per session and average time on page. Matches the dashboard's Pages table. Filter with resource_type, post_type or an exact url (for example a URL from Google Search Console). Visitors must not be summed across rows. Paged."
+
+#: includes/class-revenue-query.php:137
+msgid "Order metric to rank by, highest first."
+msgstr "Order metric to rank by, highest first."
+
+#: includes/class-revenue-query.php:157
+msgid "Gross sales less refunds, in the store currency (meta.currency), major units."
+msgstr "Gross sales less refunds, in the store currency (meta.currency), major units."
+
+#: includes/class-revenue-query.php:161
+msgid "Orders as a percentage of visitors."
+msgstr "Orders as a percentage of visitors."
+
+#: includes/class-revenue-query.php:166
+msgid "Gross sales divided by orders."
+msgstr "Gross sales divided by orders."
+
+#: includes/queries/class-ecommerce-summary-query.php:48
+msgctxt "ability label; shop sales totals"
+msgid "Ecommerce summary"
+msgstr "Ecommerce summary"
+
+#: includes/queries/class-ecommerce-summary-query.php:59
+msgid "Site-wide WooCommerce totals for a date range, from Independent Analytics Pro: orders, gross sales, refunds, refunded amount, net sales, conversion rate (orders per visitor), earnings per visitor and average order value, with visitors. Money is in the store currency (the currency field) in major units. Matches the ecommerce figures on the dashboard. Use compare=previous_year with period=year_to_date for year-on-year. Returns one row."
+msgstr "Site-wide WooCommerce totals for a date range, from Independent Analytics Pro: orders, gross sales, refunds, refunded amount, net sales, conversion rate (orders per visitor), earnings per visitor and average order value, with visitors. Money is in the store currency (the currency field) in major units. Matches the ecommerce figures on the dashboard. Use compare=previous_year with period=year_to_date for year-on-year. Returns one row."
+
+#: includes/queries/class-ecommerce-summary-query.php:99
+msgid "Store base currency, ISO 4217."
+msgstr "Store base currency, ISO 4217."
+
+#: includes/queries/class-revenue-by-campaign-query.php:40
+msgctxt "ability label; shop sales grouped by marketing campaign"
+msgid "Revenue by campaign"
+msgstr "Revenue by campaign"
+
+#: includes/queries/class-revenue-by-campaign-query.php:51
+msgid "WooCommerce orders and sales from UTM-tagged campaign traffic for a date range, from Independent Analytics Pro. dimension chooses whole campaigns or one UTM parameter, as in the campaigns query. Each row has orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, plus visitors and sessions. Money is in the store currency (meta.currency) in major units. Only campaigns with at least one order are listed, ranked by net sales. Paged."
+msgstr "WooCommerce orders and sales from UTM-tagged campaign traffic for a date range, from Independent Analytics Pro. dimension chooses whole campaigns or one UTM parameter, as in the campaigns query. Each row has orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, plus visitors and sessions. Money is in the store currency (meta.currency) in major units. Only campaigns with at least one order are listed, ranked by net sales. Paged."
+
+#: includes/queries/class-revenue-by-landing-page-query.php:62
+msgctxt "ability label; shop sales grouped by the page where the visit started"
+msgid "Revenue by landing page"
+msgstr "Revenue by landing page"
+
+#: includes/queries/class-revenue-by-landing-page-query.php:73
+msgid "WooCommerce orders and sales by landing page for a date range, from Independent Analytics Pro: the page each ordering visit started on, with its title, URL and kind, plus orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, and the page's visitors and sessions. Money is in the store currency (meta.currency) in major units. Matches the ecommerce columns of the dashboard's Pages table. Pair with Google Search Console landing pages to see which search traffic earns money. Only pages with at least one order are listed, ranked by net sales. Paged."
+msgstr "WooCommerce orders and sales by landing page for a date range, from Independent Analytics Pro: the page each ordering visit started on, with its title, URL and kind, plus orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, and the page's visitors and sessions. Money is in the store currency (meta.currency) in major units. Matches the ecommerce columns of the dashboard's Pages table. Pair with Google Search Console landing pages to see which search traffic earns money. Only pages with at least one order are listed, ranked by net sales. Paged."
+
+#: includes/queries/class-revenue-by-referrer-query.php:40
+msgctxt "ability label; shop sales grouped by the website that sent the visitor"
+msgid "Revenue by referrer"
+msgstr "Revenue by referrer"
+
+#: includes/queries/class-revenue-by-referrer-query.php:51
+msgid "WooCommerce orders and sales by traffic source for a date range, from Independent Analytics Pro: each referrer (Google, Facebook, Direct...) with orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, plus its visitors and sessions. Money is in the store currency (meta.currency) in major units. Matches the ecommerce columns of the dashboard's Referrers table. Only referrers with at least one order are listed, ranked by net sales. Filter with referrer_type. Paged."
+msgstr "WooCommerce orders and sales by traffic source for a date range, from Independent Analytics Pro: each referrer (Google, Facebook, Direct...) with orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, plus its visitors and sessions. Money is in the store currency (meta.currency) in major units. Matches the ecommerce columns of the dashboard's Referrers table. Only referrers with at least one order are listed, ranked by net sales. Filter with referrer_type. Paged."

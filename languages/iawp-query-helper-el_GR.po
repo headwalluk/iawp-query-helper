@@ -141,43 +141,43 @@ msgstr[1] "Η αναζήτηση διήρκεσε περισσότερο από 
 msgid "The analytics query failed. The error has been logged on the server."
 msgstr "Η ερώτηση ανάλυσης απέτυχε. Το σφάλμα καταγράφηκε στον διακομιστή."
 
-#: includes/class-query.php:166
+#: includes/class-query.php:177
 msgid "Preset date range, defined as on the Independent Analytics dashboard, in the site timezone. year_to_date is the dashboard's \"This Year\". Defaults to last_30_days. Do not combine with start/end."
 msgstr "Προκαθορισμένο χρονικό διάστημα, όπως ορίζεται στον πίνακα ελέγχου του Independent Analytics, σύμφωνα με τη ζώνη ώρας του ιστότοπου. Το year_to_date αντιστοιχεί στην επιλογή «Φέτος» του πίνακα ελέγχου. Η προεπιλεγμένη τιμή είναι last_30_days. Μην το συνδυάζετε με τις παραμέτρους start/end."
 
-#: includes/class-query.php:171
+#: includes/class-query.php:182
 msgid "First day, Y-m-d, site timezone, inclusive. Use instead of period."
 msgstr "Πρώτη ημέρα, Η-Μ-Η, ζώνη ώρας ιστότοπου, συμπεριλαμβανομένης. Χρησιμοποιήστε το αντί για τελεία."
 
-#: includes/class-query.php:176
+#: includes/class-query.php:187
 msgid "Last day, Y-m-d, site timezone, inclusive. Defaults to today when start is given."
 msgstr "Τελευταία ημέρα, Η-Μ-Η, ζώνη ώρας ιστότοπου, συμπεριλαμβανομένης της ίδιας ημέρας. Αν οριστεί ημερομηνία έναρξης, η προεπιλεγμένη τιμή είναι η σημερινή ημερομηνία."
 
-#: includes/class-query.php:182
+#: includes/class-query.php:193
 msgid "Also report a comparison range. previous_year is the same dates one year earlier (use with year_to_date for year-on-year); previous_period is the same number of days immediately before."
 msgstr "Αναφέρετε επίσης ένα εύρος σύγκρισης. Το «previous_year» αντιστοιχεί στις ίδιες ημερομηνίες ενός έτους νωρίτερα (χρησιμοποιήστε το μαζί με το «year_to_date» για σύγκριση σε ετήσια βάση), ενώ το «previous_period» αντιστοιχεί στον ίδιο αριθμό ημερών αμέσως πριν."
 
-#: includes/class-query.php:191
+#: includes/class-query.php:202
 msgid "Page of results, from 1. Check meta.pagination.has_more."
 msgstr "Σελίδα αποτελεσμάτων, από το 1. Ελέγξτε το meta.pagination.has_more."
 
-#: includes/class-query.php:198
+#: includes/class-query.php:209
 msgid "Rows per page."
 msgstr "Γραμμές ανά σελίδα."
 
-#: includes/class-query.php:226
+#: includes/class-query.php:237
 msgid "Query name, resolved ranges, pagination and IAWP version details."
 msgstr "Όνομα ερωτήματος, καθορισμένα εύρη, σελιδοποίηση και λεπτομέρειες σχετικά με την έκδοση του IAWP."
 
-#: includes/class-query.php:236
+#: includes/class-query.php:247
 msgid "The same series for the comparison range, or null when not comparing."
 msgstr "Η ίδια σειρά για το εύρος σύγκρισης, ή η τιμή null όταν δεν γίνεται σύγκριση."
 
-#: includes/class-query.php:285
+#: includes/class-query.php:296
 msgid "Values for the comparison range, or null when not comparing."
 msgstr "Τιμές για το εύρος σύγκρισης ή η τιμή null όταν δεν γίνεται σύγκριση."
 
-#: includes/class-query.php:290
+#: includes/class-query.php:301
 msgid "Percentage change from previous to current, to 1 decimal place. A metric is null when its previous value was 0."
 msgstr "Ποσοστιαία μεταβολή από την προηγούμενη στην τρέχουσα τιμή, με ακρίβεια ενός δεκαδικού ψηφίου. Μια μέτρηση θεωρείται μηδενική όταν η προηγούμενη τιμή της ήταν 0."
 
@@ -442,3 +442,59 @@ msgstr "Κορυφαίες σελίδες"
 #: includes/queries/class-top-pages-query.php:51
 msgid "Every kind of page Independent Analytics records (posts, pages, products, the home page, category and tag archives, search results, 404s) ranked by views, visitors, sessions, entrances or exits for a date range. Each row has the page title, absolute URL, path, kind and, for posts, the post ID and post type, plus views, visitors, sessions, entrances, exits, exit rate, bounces, bounce rate, views per session and average time on page. Matches the dashboard's Pages table. Filter with resource_type, post_type or an exact url (for example a URL from Google Search Console). Visitors must not be summed across rows. Paged."
 msgstr "Κάθε είδος σελίδας που καταγράφει το Independent Analytics (αναρτήσεις, σελίδες, προϊόντα, η αρχική σελίδα, αρχεία κατηγοριών και ετικετών, αποτελέσματα αναζήτησης, σελίδες 404) ταξινομημένο κατά προβολές, επισκέπτες, συνεδρίες, εισόδους ή εξόδους για ένα χρονικό διάστημα. Κάθε σειρά περιλαμβάνει τον τίτλο της σελίδας, την απόλυτη διεύθυνση URL, τη διαδρομή, τον τύπο και, για τις αναρτήσεις, το αναγνωριστικό και τον τύπο της ανάρτησης, καθώς και τις προβολές, τους επισκέπτες, τις συνεδρίες, τις εισόδους, τις εξόδους, το ποσοστό εξόδου, τις αναπηδήσεις, το ποσοστό αναπήδησης, τις προβολές ανά συνεδρία και τον μέσο χρόνο παραμονής στη σελίδα. Αντιστοιχεί στον πίνακα «Σελίδες» του πίνακα ελέγχου. Φιλτράρετε με βάση το resource_type, το post_type ή μια ακριβή διεύθυνση URL (για παράδειγμα, μια διεύθυνση URL από το Google Search Console). Οι επισκέπτες δεν πρέπει να αθροίζονται μεταξύ των σειρών. Με σελιδοποίηση."
+
+#: includes/class-revenue-query.php:137
+msgid "Order metric to rank by, highest first."
+msgstr "Ταξινόμηση της μέτρησης, με την υψηλότερη τιμή πρώτη."
+
+#: includes/class-revenue-query.php:157
+msgid "Gross sales less refunds, in the store currency (meta.currency), major units."
+msgstr "Ακαθάριστες πωλήσεις μείον επιστροφές, στο νόμισμα του καταστήματος (meta.currency), σε κύριες μονάδες μέτρησης."
+
+#: includes/class-revenue-query.php:161
+msgid "Orders as a percentage of visitors."
+msgstr "Παραγγελίες ως ποσοστό των επισκεπτών."
+
+#: includes/class-revenue-query.php:166
+msgid "Gross sales divided by orders."
+msgstr "Ακαθάριστες πωλήσεις διαιρούμενες με τις παραγγελίες."
+
+#: includes/queries/class-ecommerce-summary-query.php:48
+msgctxt "ability label; shop sales totals"
+msgid "Ecommerce summary"
+msgstr "Σύνοψη ηλεκτρονικού εμπορίου"
+
+#: includes/queries/class-ecommerce-summary-query.php:59
+msgid "Site-wide WooCommerce totals for a date range, from Independent Analytics Pro: orders, gross sales, refunds, refunded amount, net sales, conversion rate (orders per visitor), earnings per visitor and average order value, with visitors. Money is in the store currency (the currency field) in major units. Matches the ecommerce figures on the dashboard. Use compare=previous_year with period=year_to_date for year-on-year. Returns one row."
+msgstr "Συνολικά στοιχεία WooCommerce για ολόκληρο τον ιστότοπο για ένα χρονικό διάστημα, από το Independent Analytics Pro: παραγγελίες, ακαθάριστες πωλήσεις, επιστροφές χρημάτων, επιστραφέν ποσό, καθαρές πωλήσεις, ποσοστό μετατροπής (παραγγελίες ανά επισκέπτη), έσοδα ανά επισκέπτη και μέση αξία παραγγελίας, μαζί με τον αριθμό των επισκεπτών. Τα χρηματικά ποσά αναφέρονται στο νόμισμα του καταστήματος (το πεδίο «νόμισμα») σε κύριες μονάδες. Τα στοιχεία αυτά αντιστοιχούν στα στοιχεία ηλεκτρονικού εμπορίου που εμφανίζονται στον πίνακα ελέγχου. Χρησιμοποιήστε τη συμβολοσειρά compare=previous_year μαζί με την παράμετρο period=year_to_date για σύγκριση σε ετήσια βάση. Επιστρέφει μία σειρά."
+
+#: includes/queries/class-ecommerce-summary-query.php:99
+msgid "Store base currency, ISO 4217."
+msgstr "Αποθήκευση νομίσματος βάσης, ISO 4217."
+
+#: includes/queries/class-revenue-by-campaign-query.php:40
+msgctxt "ability label; shop sales grouped by marketing campaign"
+msgid "Revenue by campaign"
+msgstr "Έσοδα ανά καμπάνια"
+
+#: includes/queries/class-revenue-by-campaign-query.php:51
+msgid "WooCommerce orders and sales from UTM-tagged campaign traffic for a date range, from Independent Analytics Pro. dimension chooses whole campaigns or one UTM parameter, as in the campaigns query. Each row has orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, plus visitors and sessions. Money is in the store currency (meta.currency) in major units. Only campaigns with at least one order are listed, ranked by net sales. Paged."
+msgstr "Παραγγελίες και πωλήσεις WooCommerce από επισκεψιμότητα καμπανιών με ετικέτες UTM για ένα χρονικό διάστημα, από το Independent Analytics Pro. Η διάσταση επιτρέπει την επιλογή ολόκληρων καμπανιών ή μιας παραμέτρου UTM, όπως και στην ερώτηση για τις καμπάνιες. Κάθε σειρά περιλαμβάνει παραγγελίες, ακαθάριστες πωλήσεις, επιστροφές χρημάτων, καθαρές πωλήσεις, ποσοστό μετατροπής, έσοδα ανά επισκέπτη και μέση αξία παραγγελίας, καθώς και επισκέπτες και συνεδρίες. Τα χρηματικά ποσά αναφέρονται στο νόμισμα του καταστήματος (meta.currency) σε κύριες μονάδες. Εμφανίζονται μόνο οι καμπάνιες με τουλάχιστον μία παραγγελία, ταξινομημένες κατά καθαρές πωλήσεις. Με σελιδοποίηση."
+
+#: includes/queries/class-revenue-by-landing-page-query.php:62
+msgctxt "ability label; shop sales grouped by the page where the visit started"
+msgid "Revenue by landing page"
+msgstr "Έσοδα ανά σελίδα προορισμού"
+
+#: includes/queries/class-revenue-by-landing-page-query.php:73
+msgid "WooCommerce orders and sales by landing page for a date range, from Independent Analytics Pro: the page each ordering visit started on, with its title, URL and kind, plus orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, and the page's visitors and sessions. Money is in the store currency (meta.currency) in major units. Matches the ecommerce columns of the dashboard's Pages table. Pair with Google Search Console landing pages to see which search traffic earns money. Only pages with at least one order are listed, ranked by net sales. Paged."
+msgstr "Παραγγελίες και πωλήσεις WooCommerce ανά σελίδα προορισμού για ένα χρονικό διάστημα, από το Independent Analytics Pro: η σελίδα από την οποία ξεκίνησε κάθε επίσκεψη που οδήγησε σε παραγγελία, μαζί με τον τίτλο, τη διεύθυνση URL και τον τύπο της, καθώς και τις παραγγελίες, τις ακαθάριστες πωλήσεις, τις επιστροφές χρημάτων, τις καθαρές πωλήσεις, το ποσοστό μετατροπής, τα έσοδα ανά επισκέπτη και τη μέση αξία παραγγελίας, αλλά και τους επισκέπτες και τις συνεδρίες της σελίδας. Τα χρηματικά ποσά αναφέρονται στο νόμισμα του καταστήματος (meta.currency) σε κύριες μονάδες. Αντιστοιχεί στις στήλες ηλεκτρονικού εμπορίου του πίνακα «Σελίδες» του πίνακα ελέγχου. Συνδυάστε τα στοιχεία αυτά με τις σελίδες προορισμού της Google Search Console για να δείτε ποια επισκεψιμότητα από αναζήτηση αποφέρει έσοδα. Εμφανίζονται μόνο οι σελίδες με τουλάχιστον μία παραγγελία, ταξινομημένες κατά καθαρές πωλήσεις. Σελίδες."
+
+#: includes/queries/class-revenue-by-referrer-query.php:40
+msgctxt "ability label; shop sales grouped by the website that sent the visitor"
+msgid "Revenue by referrer"
+msgstr "Έσοδα ανά πηγή παραπομπής"
+
+#: includes/queries/class-revenue-by-referrer-query.php:51
+msgid "WooCommerce orders and sales by traffic source for a date range, from Independent Analytics Pro: each referrer (Google, Facebook, Direct...) with orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, plus its visitors and sessions. Money is in the store currency (meta.currency) in major units. Matches the ecommerce columns of the dashboard's Referrers table. Only referrers with at least one order are listed, ranked by net sales. Filter with referrer_type. Paged."
+msgstr "Παραγγελίες και πωλήσεις WooCommerce ανά πηγή επισκεψιμότητας για ένα χρονικό διάστημα, από το Independent Analytics Pro: κάθε πηγή προέλευσης (Google, Facebook, Άμεση πρόσβαση...) με παραγγελίες, ακαθάριστες πωλήσεις, επιστροφές χρημάτων, καθαρές πωλήσεις, ποσοστό μετατροπής, έσοδα ανά επισκέπτη και μέση αξία παραγγελίας, καθώς και τους επισκέπτες και τις συνεδρίες της. Τα χρηματικά ποσά αναφέρονται στο νόμισμα του καταστήματος (meta.currency) σε βασικές μονάδες. Αντιστοιχεί στις στήλες ηλεκτρονικού εμπορίου του πίνακα «Πηγές Προέλευσης» του πίνακα ελέγχου. Εμφανίζονται μόνο οι πηγές προέλευσης με τουλάχιστον μία παραγγελία, ταξινομημένες κατά καθαρές πωλήσεις. Φιλτράρετε με βάση το referrer_type. Με σελιδοποίηση."
