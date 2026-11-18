@@ -108,12 +108,25 @@ class Rest_Controller {
 	 * @return \WP_REST_Response
 	 */
 	private function handle_request( Query $query, \WP_REST_Request $request ): \WP_REST_Response {
-		$input = array();
+		$input      = array();
+		$known_keys = array_keys( $query->get_input_schema( $this->resolver->get_periods() )['properties'] );
 
-		foreach ( array_keys( $query->get_input_schema( $this->resolver->get_periods() )['properties'] ) as $name ) {
+		foreach ( $known_keys as $name ) {
 			if ( $request->has_param( $name ) ) {
 				$input[ $name ] = $request->get_param( $name );
 			}
+		}
+
+		// Unknown keys go through too, so the executor refuses them; WordPress's own _fields, _envelope etc. don't.
+		foreach ( (array) $request->get_query_params() as $name => $value ) {
+			$name = (string) $name;
+
+			if ( in_array( $name, $known_keys, true ) || str_starts_with( $name, '_' ) || in_array( $name, REST_TRANSPORT_PARAMS, true ) ) {
+				// Already copied, or belongs to the REST transport.
+				continue;
+			}
+
+			$input[ $name ] = $value;
 		}
 
 		$result = $this->executor->execute( $query->get_name(), $input );

@@ -9,10 +9,19 @@ MCP isn't supported yet. The queries are hidden from the [WordPress MCP Adapter]
 
 ## Authentication
 
-Create an Application Password (Users, Profile, Application Passwords) for a user who can view all Independent Analytics data, and send it with HTTP Basic authentication over HTTPS:
+Agents authenticate with a WordPress Application Password, sent with HTTP Basic authentication over HTTPS.
+
+An Application Password carries **every permission of the user it belongs to**, across the whole WordPress REST API, not just these routes. An administrator's Application Password lets whoever holds it create users, install plugins and change settings. So give the agent its own user with nothing but analytics access:
+
+1. Create a role with only the basic `read` capability. With WP-CLI: `wp role create analytics-agent "Analytics agent"` then `wp cap add analytics-agent read`. A role editor plugin works too
+2. In Independent Analytics, Settings, User permissions, set that role to **View all analytics**. (`wp cap add analytics-agent iawp_read_only_access` does the same.) Don't use "View analytics for authored content": this plugin refuses it for now
+3. Create a user with that role, for example `analytics-agent`, with an address you control. It never needs to log in
+4. As an administrator, open that user's profile, add an Application Password named after the agent, and copy it. It's shown once
+
+Don't give the role to an existing one such as Subscriber or Customer: every account with that role would get analytics access. Revoke the Application Password from the user's profile to cut the agent off.
 
 ```bash
-curl -u 'username:xxxx xxxx xxxx xxxx xxxx xxxx' \
+curl -u 'analytics-agent:xxxx xxxx xxxx xxxx xxxx xxxx' \
   'https://example.com/wp-json/iawp-query-helper/v1/top-posts?period=last_month&per_page=10'
 ```
 
@@ -140,13 +149,13 @@ With `compare`, `previous_rows` holds the same series for the comparison range.
     "iawp_db_version": 53,
     "is_pro": false,
     "schema_untested": false,
-    "pagination": { "page": 1, "per_page": 10, "has_more": true, "next_page": 2 }
+    "pagination": { "page": 1, "per_page": 10, "has_more": true, "next_page": 2, "is_capped": false }
   },
   "rows": [ ]
 }
 ```
 
-`meta.range` is `null` for `catalogue`, which has no date range. `meta.pagination` is only present on paged queries. For `raw-views` it is `{ "per_page": 500, "has_more": true, "next_cursor": "20261115093012-48121" }` instead, with `next_cursor` `null` on the last page.
+`meta.range` is `null` for `catalogue`, which has no date range. `meta.pagination` is only present on paged queries. Paging stops after 10,000 rows: on the last page allowed, `has_more` can still be true while `next_page` is `null` and `is_capped` is `true`. Narrow the range or add a filter to see the rest. For `raw-views` it is `{ "per_page": 500, "has_more": true, "next_cursor": "20261115093012-48121" }` instead, with `next_cursor` `null` on the last page.
 
 Some queries add keys beside `rows`: `previous_rows` (`traffic-over-time`), `series` and `previous_series` (`page-stats`) and `totals` (`form-submissions`).
 

@@ -56,10 +56,10 @@ Future updates arrive through the bundled GitHub updater.
 
 ## Quick start
 
-Create an Application Password for a user who can view all Independent Analytics data (an administrator, or a role given "View all analytics" in Independent Analytics), then:
+Create a dedicated user for the agent, in a role that has nothing but "View all analytics" in Independent Analytics, and give it an Application Password. Don't use an administrator's: an Application Password carries all of its user's permissions, across the whole REST API. [Connecting an agent](docs/connecting-an-agent.md#authentication) has the steps. Then:
 
 ```bash
-curl -u 'username:xxxx xxxx xxxx xxxx xxxx xxxx' \
+curl -u 'analytics-agent:xxxx xxxx xxxx xxxx xxxx xxxx' \
   'https://example.com/wp-json/iawp-query-helper/v1/site-summary?period=year_to_date&compare=previous_year'
 ```
 

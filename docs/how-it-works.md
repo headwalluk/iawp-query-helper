@@ -31,7 +31,7 @@ Page-level queries (`top-pages`, `landing-pages`, `page-stats`, `site-searches`,
 
 Rates in the breakdowns, page-level queries and `revenue-by-*` and `form-submissions-by-*` queries are rounded the way the dashboard rounds them. Independent Analytics divides in SQL, where the database keeps four decimal places, and rounds that again to two for display. A bounce rate of 758 in 765 is 99.08497%: the database holds 99.0850, which displays as 99.09. This plugin does the same arithmetic, so its figures agree with the dashboard to the last decimal place. The headline figures in `site-summary` and `form-submissions` are worked out in PHP on the dashboard, and are here too.
 
-Daily, weekly and monthly series are bucketed by the day each session started, using the site's current UTC offset, exactly as the dashboard chart does. Weeks start on the day set in Independent Analytics. One consequence, shared with the dashboard: across a clock change, an hour of traffic can land in the neighbouring day.
+Daily, weekly and monthly series are bucketed by the day each session started, using the site's current UTC offset, exactly as the dashboard chart does. Weeks start on the day set in Independent Analytics. One consequence, shared with the dashboard: across a clock change, an hour of traffic can land in the neighbouring day. At the edges of a range that hour falls outside the series altogether, so for a range in summer time, viewed in winter, the series can total slightly less than `site-summary` for the same range. On one site, July 2025 showed 4,661 sessions in the series against 4,672 in the summary, the same on the dashboard's chart and headline. For exact totals, use `site-summary`.
 
 The Independent Analytics developer API (`iawp_analytics()` and friends) counts slightly differently, filtering on view time only. That's why this plugin reads the tables rather than calling it: its numbers can drift from the dashboard at the edges of a range.
 
@@ -60,7 +60,7 @@ Hosts can tighten these with filters; see [hooks and filters](developers/hooks-a
 
 The same people who can see all analytics in Independent Analytics: administrators, and any role given "View all analytics" or "View all analytics and edit settings" in its settings. Roles limited to "View analytics for authored content" are refused for now.
 
-Agents connect with an Application Password belonging to one of those users. See [connecting an agent](connecting-an-agent.md).
+Agents connect with an Application Password belonging to one of those users. The Application Password carries all of that user's permissions, not just analytics, so give each agent its own user in a role with nothing else. See [connecting an agent](connecting-an-agent.md#authentication).
 
 ## Independent Analytics Pro
 

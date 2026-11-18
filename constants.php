@@ -38,6 +38,14 @@ const ABILITY_NAMESPACE = 'iawp-query-helper';
 const ABILITY_CATEGORY  = 'iawp-query-helper';
 
 /**
+ * Query-string keys WordPress's REST transport uses itself, besides the `_`-prefixed ones.
+ * `rest_route` carries the route on sites without pretty permalinks.
+ *
+ * @since 1.0.1
+ */
+const REST_TRANSPORT_PARAMS = array( 'rest_route' );
+
+/**
  * Whether the abilities are offered to the WordPress MCP Adapter. Off until MCP support is finished.
  *
  * @since 1.0.0

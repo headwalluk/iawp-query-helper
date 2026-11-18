@@ -232,11 +232,15 @@ class Executor {
 		} elseif ( $query->is_paged() ) {
 			$has_more = ! empty( $output['has_more'] );
 
+			// The next page would start past the paging limit, so prepare_input() would refuse it.
+			$is_capped = $has_more && $context->get_page() * $context->get_per_page() > MAX_GROUPED_ROW_OFFSET;
+
 			$meta['pagination'] = array(
 				'page'      => $context->get_page(),
 				'per_page'  => $context->get_per_page(),
 				'has_more'  => $has_more,
-				'next_page' => $has_more ? $context->get_page() + 1 : null,
+				'next_page' => ( $has_more && ! $is_capped ) ? $context->get_page() + 1 : null,
+				'is_capped' => $is_capped,
 			);
 		}
 
