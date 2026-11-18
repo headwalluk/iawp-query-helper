@@ -1,0 +1,346 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IAWP Query Helper 0.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iawp-query-helper\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-18T13:26:49+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: iawp-query-helper\n"
+
+#. Plugin Name of the plugin
+#: iawp-query-helper.php
+msgid "IAWP Query Helper"
+msgstr "IAWP Query Helper"
+
+#. Plugin URI of the plugin
+#: iawp-query-helper.php
+msgid "https://headwall-hosting.com/plugins/iawp-query-helper/"
+msgstr "https://headwall-hosting.com/plugins/iawp-query-helper/"
+
+#. Description of the plugin
+#: iawp-query-helper.php
+msgid "Read-only REST routes and Abilities for querying Independent Analytics visitor and view metrics, built for AI agents."
+msgstr "Rutas REST de solo lectura y funciones para consultar métricas de visitantes y visualizaciones de Independent Analytics, diseñadas para agentes de IA."
+
+#. Author of the plugin
+#: iawp-query-helper.php
+msgid "Paul Faulkner"
+msgstr "Paul Faulkner"
+
+#. Author URI of the plugin
+#: iawp-query-helper.php
+msgid "https://headwall-hosting.com/a-web-guys-blog/"
+msgstr "https://headwall-hosting.com/a-web-guys-blog/"
+
+#: functions-private.php:68
+msgid "You need permission to view all Independent Analytics data."
+msgstr "Necesitas permiso para ver todos los datos de Independent Analytics."
+
+#: includes/class-abilities.php:82
+msgctxt "ability category label; product name"
+msgid "Independent Analytics"
+msgstr "Análisis independiente"
+
+#: includes/class-abilities.php:83
+msgid "Read-only queries over Independent Analytics visitor and view data."
+msgstr "Consultas de solo lectura sobre los datos de visitantes y visualizaciones de Independent Analytics."
+
+#: includes/class-date-range-resolver.php:92
+msgid "Use either period, or start and end, not both."
+msgstr "Utiliza o bien el punto, o bien la fecha de inicio y la de finalización, pero no ambas cosas."
+
+#: includes/class-date-range-resolver.php:94
+msgid "end needs a start date as well."
+msgstr "La fecha de finalización también necesita una fecha de inicio."
+
+#: includes/class-date-range-resolver.php:163
+msgid "start must be a real date in Y-m-d format."
+msgstr "La fecha de inicio debe ser una fecha real en formato A-M-D."
+
+#: includes/class-date-range-resolver.php:165
+msgid "end must be a real date in Y-m-d format."
+msgstr "La fecha de finalización debe ser una fecha real en formato A-M-D."
+
+#: includes/class-date-range-resolver.php:167
+msgid "start must not be after end."
+msgstr "El inicio no debe ser posterior al final."
+
+#: includes/class-date-range-resolver.php:235
+msgid "Unknown period."
+msgstr "Época desconocida."
+
+#. translators: %d: maximum days allowed in one range.
+#: includes/class-date-range-resolver.php:313
+#, php-format
+msgid "A range can cover at most %d day. Split this one into shorter ranges."
+msgid_plural "A range can cover at most %d days. Split this one into shorter ranges."
+msgstr[0] "Un intervalo puede abarcar como máximo %d día. Divida este en intervalos más cortos."
+msgstr[1] "Un intervalo puede abarcar como máximo %d días. Divida este en intervalos más cortos."
+
+#: includes/class-dimension-query.php:134
+#: includes/queries/class-top-posts-query.php:96
+msgid "Metric to rank by, highest first."
+msgstr "Criterio de clasificación, de mayor a menor."
+
+#: includes/class-executor.php:103
+msgid "There is no query with that name."
+msgstr "No existe ninguna consulta con ese nombre."
+
+#: includes/class-executor.php:105
+msgid "Independent Analytics is not active on this site, or its tables are missing."
+msgstr "Independent Analytics no está activo en este sitio web, o bien faltan sus tablas."
+
+#: includes/class-executor.php:109
+msgid "Independent Analytics is updating its database. Retry in a few minutes."
+msgstr "Independent Analytics está actualizando su base de datos. Vuelve a intentarlo dentro de unos minutos."
+
+#: includes/class-executor.php:116
+msgid "This query needs a licensed copy of Independent Analytics Pro."
+msgstr "Esta consulta requiere una copia con licencia de Independent Analytics Pro."
+
+#. translators: %d: maximum row offset.
+#: includes/class-executor.php:157
+#, php-format
+msgid "Paging stops after %d row. Narrow the range or add a filter instead."
+msgid_plural "Paging stops after %d rows. Narrow the range or add a filter instead."
+msgstr[0] "La paginación se detiene tras %d fila. Reduce el rango o añade un filtro."
+msgstr[1] "La paginación se detiene tras %d filas. Reduce el rango o añade un filtro."
+
+#. translators: %s: plugin name.
+#: includes/class-plugin.php:240
+#, php-format
+msgid "%s needs Independent Analytics (free or Pro) to be active. Its REST routes and abilities are switched off until then."
+msgstr "Para que %s esté activo, es necesario tener instalado Independent Analytics (gratuito o Pro). Hasta entonces, sus rutas REST y sus funciones permanecerán desactivadas."
+
+#. translators: 1: plugin name, 2: IAWP database version, 3: highest tested version.
+#: includes/class-plugin.php:251
+#, php-format
+msgid "%1$s has not been tested with Independent Analytics database version %2$d (tested up to %3$d). Queries still run; check for an update."
+msgstr "%1$s no se ha probado con la versión %2$d de la base de datos de Independent Analytics (se ha probado hasta la versión %3$d). Las consultas siguen ejecutándose; comprueba si hay alguna actualización."
+
+#: includes/class-query-runner.php:65
+msgid "Other analytics queries are already running on this site. Retry shortly."
+msgstr "Ya hay otras consultas de análisis en ejecución en este sitio web. Inténtalo de nuevo dentro de un rato."
+
+#. translators: %d: seconds.
+#: includes/class-query-runner.php:242
+#, php-format
+msgid "The query took longer than %d second and was stopped. Narrow the date range or add a filter."
+msgid_plural "The query took longer than %d seconds and was stopped. Narrow the date range or add a filter."
+msgstr[0] "La consulta tardó más de %d segundo y se detuvo. Limita el intervalo de fechas o añade un filtro."
+msgstr[1] "La consulta tardó más de %d segundos y se detuvo. Limita el intervalo de fechas o añade un filtro."
+
+#: includes/class-query-runner.php:252
+msgid "The analytics query failed. The error has been logged on the server."
+msgstr "La consulta analítica ha fallado. El error se ha registrado en el servidor."
+
+#: includes/class-query.php:166
+msgid "Preset date range, defined as on the Independent Analytics dashboard, in the site timezone. year_to_date is the dashboard's \"This Year\". Defaults to last_30_days. Do not combine with start/end."
+msgstr "Intervalo de fechas preestablecido, tal y como se define en el panel de control de Independent Analytics, en la zona horaria del sitio. «year_to_date» corresponde a «Este año» del panel de control. El valor por defecto es «last_30_days». No se debe combinar con «start/end»."
+
+#: includes/class-query.php:171
+msgid "First day, Y-m-d, site timezone, inclusive. Use instead of period."
+msgstr "Primer día, Y-m-d, zona horaria del sitio, incluido. Utilízalo en lugar del punto."
+
+#: includes/class-query.php:176
+msgid "Last day, Y-m-d, site timezone, inclusive. Defaults to today when start is given."
+msgstr "Último día, Y-m-d, zona horaria del sitio, incluido. Por defecto, se establece en «hoy» cuando se especifica una fecha de inicio."
+
+#: includes/class-query.php:182
+msgid "Also report a comparison range. previous_year is the same dates one year earlier (use with year_to_date for year-on-year); previous_period is the same number of days immediately before."
+msgstr "Indica también un intervalo de comparación. «previous_year» corresponde a las mismas fechas del año anterior (utilízalo junto con «year_to_date» para la comparación interanual); «previous_period» corresponde al mismo número de días inmediatamente anteriores."
+
+#: includes/class-query.php:191
+msgid "Page of results, from 1. Check meta.pagination.has_more."
+msgstr "Página de resultados, desde la 1. Comprueba meta.pagination.has_more."
+
+#: includes/class-query.php:198
+msgid "Rows per page."
+msgstr "Filas por página."
+
+#: includes/class-query.php:226
+msgid "Query name, resolved ranges, pagination and IAWP version details."
+msgstr "Nombre de la consulta, rangos resueltos, paginación y detalles de la versión de la IAWP."
+
+#: includes/class-query.php:236
+msgid "The same series for the comparison range, or null when not comparing."
+msgstr "La misma serie para el rango de comparación, o «null» cuando no se realice ninguna comparación."
+
+#: includes/class-query.php:285
+msgid "Values for the comparison range, or null when not comparing."
+msgstr "Valores del rango de comparación, o «null» cuando no se realiza ninguna comparación."
+
+#: includes/class-query.php:290
+msgid "Percentage change from previous to current, to 1 decimal place. A metric is null when its previous value was 0."
+msgstr "Variación porcentual entre el valor anterior y el actual, redondeada a un decimal. Una métrica se considera nula cuando su valor anterior era 0."
+
+#: includes/queries/class-campaigns-query.php:88
+msgctxt "ability label; marketing campaigns tracked with UTM parameters"
+msgid "Campaigns"
+msgstr "Campañas"
+
+#: includes/queries/class-campaigns-query.php:99
+msgid "Traffic from UTM-tagged campaign links for a date range, from Independent Analytics. dimension=campaign gives one row per distinct campaign (landing page, source, medium, campaign, term, content); utm_source, utm_medium, utm_campaign or landing_page group by that one parameter. Each row has views, visitors, sessions, bounce rate, views per session and average session length, matching the dashboard's Campaigns tables. Untagged traffic is not included. Paged."
+msgstr "Tráfico procedente de enlaces de campaña con etiquetas UTM para un intervalo de fechas, según Independent Analytics. La dimensión «campaign» ofrece una fila por cada campaña distinta (página de destino, fuente, medio, campaña, término, contenido); «utm_source», «utm_medium», «utm_campaign» o «landing_page» agrupan los datos según ese parámetro concreto. Cada fila contiene las vistas, los visitantes, las sesiones, la tasa de rebote, las vistas por sesión y la duración media de la sesión, coincidiendo con las tablas de «Campañas» del panel de control. No se incluye el tráfico sin etiquetas. Paginado."
+
+#: includes/queries/class-campaigns-query.php:117
+msgid "Group by whole campaign, or by one UTM parameter."
+msgstr "Agrupa por campaña completa o por un parámetro UTM."
+
+#: includes/queries/class-campaigns-query.php:183
+msgid "Title of the page the campaign link pointed to."
+msgstr "Título de la página a la que conducía el enlace de la campaña."
+
+#: includes/queries/class-catalogue-query.php:62
+msgctxt "ability label; list of available analytics queries and site settings"
+msgid "Analytics catalogue"
+msgstr "Catálogo de análisis"
+
+#: includes/queries/class-catalogue-query.php:73
+msgid "Call this first. Describes the Independent Analytics data on this site: timezone, week start, store currency, the first day with data, whether Independent Analytics Pro is active, the limits on date ranges and page sizes, and every analytics query available with what it is for. Takes no parameters."
+msgstr "Llama primero a esta función. Describe los datos de Independent Analytics de este sitio web: zona horaria, inicio de la semana, moneda de la tienda, primer día con datos, si Independent Analytics Pro está activo, los límites en los intervalos de fechas y el tamaño de las páginas, y todas las consultas de análisis disponibles junto con su finalidad. No admite parámetros."
+
+#: includes/queries/class-catalogue-query.php:121
+msgid "Store currency, when WooCommerce is active."
+msgstr "Moneda de la tienda, cuando WooCommerce está activo."
+
+#: includes/queries/class-catalogue-query.php:125
+msgid "First day with recorded views, Y-m-d, site timezone. Ranges before it return zeros."
+msgstr "Primer día con visitas registradas, A-M-D, zona horaria del sitio. Los valores anteriores a esa fecha se muestran como ceros."
+
+#: includes/queries/class-cities-query.php:40
+msgctxt "ability label; visitor locations by city"
+msgid "Cities"
+msgstr "Ciudades"
+
+#: includes/queries/class-cities-query.php:51
+msgid "Traffic by visitor city for a date range, from Independent Analytics: city, region, country code and country, with views, visitors, sessions, bounce rate, views per session and average session length. Matches the dashboard's cities table. Filter with country_code to see one country. Visitors must not be summed across rows. Paged."
+msgstr "Tráfico por ciudad de origen de los visitantes para un intervalo de fechas, según datos de Independent Analytics: ciudad, región, código de país y país, con visitas, visitantes, sesiones, tasa de rebote, visitas por sesión y duración media de la sesión. Se corresponde con la tabla de ciudades del panel de control. Filtra por «country_code» para ver un solo país. Los visitantes no deben sumarse entre filas. Paginado."
+
+#: includes/queries/class-cities-query.php:68
+msgid "Only cities in this country, by ISO 3166-1 alpha-2 code, such as GB."
+msgstr "Solo ciudades de este país, según el código ISO 3166-1 alfa-2, como GB."
+
+#: includes/queries/class-cities-query.php:131
+msgid "Region, state or county."
+msgstr "Región, provincia o condado."
+
+#: includes/queries/class-countries-query.php:40
+msgctxt "ability label; visitor locations by country"
+msgid "Countries"
+msgstr "Países"
+
+#: includes/queries/class-countries-query.php:51
+msgid "Traffic by visitor country for a date range, from Independent Analytics: country code, country name and continent, with views, visitors, sessions, bounce rate, views per session and average session length. Matches the dashboard's countries table. Sessions with no known location are left out. Visitors must not be summed across rows. Paged."
+msgstr "Tráfico por país de origen de los visitantes para un intervalo de fechas, según datos de Independent Analytics: código de país, nombre del país y continente, con visitas, visitantes, sesiones, tasa de rebote, visitas por sesión y duración media de la sesión. Coincide con la tabla de países del panel de control. Se excluyen las sesiones sin ubicación conocida. Los visitantes no deben sumarse entre filas. Paginado."
+
+#: includes/queries/class-countries-query.php:107
+msgid "ISO 3166-1 alpha-2 code."
+msgstr "Código ISO 3166-1 alfa-2."
+
+#: includes/queries/class-devices-query.php:52
+msgctxt "ability label; visitor device type, operating system or browser"
+msgid "Devices"
+msgstr "Dispositivos"
+
+#: includes/queries/class-devices-query.php:63
+msgid "Traffic by device for a date range, from Independent Analytics. dimension=device_type gives Desktop, Mobile and Tablet; os gives operating systems; browser gives browsers. Each row has views, visitors, sessions, bounce rate, views per session and average session length, matching the dashboard's Devices tables. Visitors must not be summed across rows. Paged."
+msgstr "Tráfico por dispositivo para un intervalo de fechas, según Independent Analytics. La dimensión «device_type» muestra «Ordenador», «Móvil» y «Tableta»; «os» muestra los sistemas operativos; «browser» muestra los navegadores. Cada fila contiene las visualizaciones, los visitantes, las sesiones, la tasa de rebote, las visualizaciones por sesión y la duración media de la sesión, que coinciden con las tablas «Dispositivos» del panel de control. No se deben sumar los visitantes entre filas. Paginado."
+
+#: includes/queries/class-devices-query.php:81
+msgid "Which device attribute to group by."
+msgstr "¿Por qué atributo del dispositivo se debe agrupar?"
+
+#: includes/queries/class-devices-query.php:138
+msgid "Device type, operating system or browser, depending on dimension."
+msgstr "Tipo de dispositivo, sistema operativo o navegador, según la dimensión."
+
+#: includes/queries/class-referrer-types-query.php:40
+msgctxt "ability label; categories of traffic source such as search or social"
+msgid "Referrer types"
+msgstr "Tipos de referencias"
+
+#: includes/queries/class-referrer-types-query.php:51
+msgid "Traffic split by source category for a date range, from Independent Analytics: Search, Social, AI, Direct, Referrer (other websites) and Ad, each with views, visitors, sessions, bounce rate, views per session and average session length. Matches the dashboard's Referrer Types table. Use it for \"how much traffic comes from search?\" questions; use referrers for individual sites."
+msgstr "Desglose del tráfico por categoría de origen para un intervalo de fechas, según Independent Analytics: búsqueda, redes sociales, IA, acceso directo, referencias (otros sitios web) y publicidad, cada una con visualizaciones, visitantes, sesiones, tasa de rebote, visualizaciones por sesión y duración media de la sesión. Coincide con la tabla «Tipos de referencias» del panel de control. Úsala para responder a preguntas del tipo «¿cuánto tráfico procede de los motores de búsqueda?»; utiliza las referencias para sitios web concretos."
+
+#: includes/queries/class-referrers-query.php:48
+msgctxt "ability label; websites that sent visitors"
+msgid "Referrers"
+msgstr "Fuentes de referencia"
+
+#: includes/queries/class-referrers-query.php:59
+msgid "Traffic by referring source for a date range, from Independent Analytics: each row is a referrer (such as Google, Facebook, an AI assistant, or Direct) with its domain and type, plus views, visitors, sessions, bounce rate, views per session and average session length. Matches the dashboard's Referrers table. Filter by referrer_type to see, for example, only Search or only AI. Visitors must not be summed across rows. Paged."
+msgstr "Tráfico por fuente de referencia para un intervalo de fechas, según Independent Analytics: cada fila corresponde a una fuente de referencia (como Google, Facebook, un asistente de IA o «Directo») con su dominio y tipo, además de visitas, visitantes, sesiones, tasa de rebote, visitas por sesión y duración media de la sesión. Se corresponde con la tabla «Fuentes de referencia» del panel de control. Filtra por «referrer_type» para ver, por ejemplo, solo «Búsqueda» o solo «IA». Los visitantes no deben sumarse entre filas. Paginado."
+
+#: includes/queries/class-referrers-query.php:76
+msgid "Only referrers of this type."
+msgstr "Solo referencias de este tipo."
+
+#: includes/queries/class-referrers-query.php:137
+msgid "Referrer name, such as Google or Direct."
+msgstr "Nombre de la fuente de referencia, como Google o Directo."
+
+#: includes/queries/class-referrers-query.php:141
+msgid "Referring domain; empty for Direct."
+msgstr "Dominio de referencia; vacío en el caso de «Direct»."
+
+#: includes/queries/class-site-summary-query.php:48
+msgctxt "ability label; website traffic totals"
+msgid "Site summary"
+msgstr "Resumen del sitio"
+
+#: includes/queries/class-site-summary-query.php:59
+msgid "Site-wide totals from Independent Analytics for a date range: views, unique visitors, sessions, bounces, bounce rate, average session length and views per session. Figures match the Independent Analytics dashboard for the same range. Use compare=previous_year with period=year_to_date for year-on-year. Returns one row."
+msgstr "Totales de todo el sitio web proporcionados por Independent Analytics para un intervalo de fechas: visitas, visitantes únicos, sesiones, salidas, tasa de rebote, duración media de la sesión y visitas por sesión. Las cifras coinciden con las del panel de control de Independent Analytics para el mismo intervalo. Utiliza «compare=previous_year» junto con «period=year_to_date» para obtener la comparación interanual. Devuelve una fila."
+
+#: includes/queries/class-site-summary-query.php:124
+msgid "Single-view sessions as a percentage of sessions, rounded as on the dashboard."
+msgstr "Sesiones de una sola vista como porcentaje del total de sesiones, redondeadas tal y como aparecen en el panel de control."
+
+#: includes/queries/class-top-posts-query.php:48
+msgctxt "ability label; most-visited blog posts and pages"
+msgid "Top posts"
+msgstr "Entradas más populares"
+
+#: includes/queries/class-top-posts-query.php:59
+msgid "Posts, pages, products and other singular content ranked by views, visitors or sessions for a date range, from Independent Analytics. Each row has the post ID, title, post type, absolute URL and path; the URL is the key to match against Google Search Console page data. Figures match the dashboard's Pages table. Visitors are unique per row and must not be summed across rows. Paged: check meta.pagination.has_more."
+msgstr "Entradas, páginas, productos y otros contenidos individuales clasificados por visitas, visitantes o sesiones para un intervalo de fechas, según datos de Independent Analytics. Cada fila incluye el ID de la entrada, el título, el tipo de entrada, la URL absoluta y la ruta; la URL es la clave para cotejar los datos con los de las páginas de Google Search Console. Las cifras coinciden con las de la tabla «Páginas» del panel de control. Los visitantes son únicos por fila y no deben sumarse entre filas. Paginado: comprueba meta.pagination.has_more."
+
+#: includes/queries/class-top-posts-query.php:85
+msgid "Only this post type, such as post, page or product. Omit for all."
+msgstr "Solo este tipo de entrada, como entrada, página o producto. Omítelo si quieres que se aplique a todos."
+
+#: includes/queries/class-top-posts-query.php:90
+msgid "Only posts in this category, by term ID."
+msgstr "Solo entradas de esta categoría, por ID de término."
+
+#. translators: %s: post type name.
+#: includes/queries/class-top-posts-query.php:143
+#, php-format
+msgid "There is no post type called %s on this site."
+msgstr "No existe ningún tipo de entrada llamado %s en este sitio."
+
+#: includes/queries/class-traffic-over-time-query.php:48
+msgctxt "ability label; website visits per day, week or month"
+msgid "Traffic over time"
+msgstr "Tráfico a lo largo del tiempo"
+
+#: includes/queries/class-traffic-over-time-query.php:59
+msgid "Views, unique visitors and sessions per day, week or month across a date range, from Independent Analytics, matching the dashboard chart. Every bucket in the range is present, with zeros where there was no traffic. Visitors are unique within each bucket and must not be summed across buckets; use site-summary for range totals. With compare, previous_rows holds the same series for the comparison range."
+msgstr "Visitas, visitantes únicos y sesiones por día, semana o mes en un intervalo de fechas, según Independent Analytics, que coinciden con el gráfico del panel de control. Se incluyen todos los intervalos del rango, con ceros en los casos en los que no hubo tráfico. Los visitantes son únicos dentro de cada intervalo y no deben sumarse entre intervalos; utilice el resumen del sitio para obtener los totales del intervalo. Con la función «compare», «previous_rows» contiene la misma serie para el intervalo de comparación."
+
+#: includes/queries/class-traffic-over-time-query.php:86
+msgid "Bucket size. Weeks start on the day set in Independent Analytics."
+msgstr "Tamaño del periodo. Las semanas comienzan el día establecido en Independent Analytics."
+
+#: includes/queries/class-traffic-over-time-query.php:105
+msgid "First day of the bucket, Y-m-d, site timezone."
+msgstr "Primer día del periodo, d-m-a, zona horaria del sitio."

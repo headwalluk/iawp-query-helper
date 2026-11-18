@@ -1,0 +1,346 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IAWP Query Helper 0.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iawp-query-helper\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-18T13:26:49+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: iawp-query-helper\n"
+
+#. Plugin Name of the plugin
+#: iawp-query-helper.php
+msgid "IAWP Query Helper"
+msgstr "IAWP Query Helper"
+
+#. Plugin URI of the plugin
+#: iawp-query-helper.php
+msgid "https://headwall-hosting.com/plugins/iawp-query-helper/"
+msgstr "https://headwall-hosting.com/plugins/iawp-query-helper/"
+
+#. Description of the plugin
+#: iawp-query-helper.php
+msgid "Read-only REST routes and Abilities for querying Independent Analytics visitor and view metrics, built for AI agents."
+msgstr "Διαδρομές REST μόνο για ανάγνωση και δυνατότητες για την αναζήτηση μετρήσεων επισκεπτών και προβολών του Independent Analytics, σχεδιασμένες για πράκτορες τεχνητής νοημοσύνης."
+
+#. Author of the plugin
+#: iawp-query-helper.php
+msgid "Paul Faulkner"
+msgstr "Paul Faulkner"
+
+#. Author URI of the plugin
+#: iawp-query-helper.php
+msgid "https://headwall-hosting.com/a-web-guys-blog/"
+msgstr "https://headwall-hosting.com/a-web-guys-blog/"
+
+#: functions-private.php:68
+msgid "You need permission to view all Independent Analytics data."
+msgstr "Χρειάζεστε άδεια για να δείτε όλα τα δεδομένα της Independent Analytics."
+
+#: includes/class-abilities.php:82
+msgctxt "ability category label; product name"
+msgid "Independent Analytics"
+msgstr "Independent Analytics"
+
+#: includes/class-abilities.php:83
+msgid "Read-only queries over Independent Analytics visitor and view data."
+msgstr "Ερωτήματα μόνο για ανάγνωση σχετικά με τα δεδομένα επισκεπτών και προβολών της Independent Analytics."
+
+#: includes/class-date-range-resolver.php:92
+msgid "Use either period, or start and end, not both."
+msgstr "Χρησιμοποιήστε είτε τελεία είτε την ένδειξη έναρξης και λήξης, όχι και τα δύο."
+
+#: includes/class-date-range-resolver.php:94
+msgid "end needs a start date as well."
+msgstr "και το τέλος πρέπει επίσης να έχει ημερομηνία έναρξης."
+
+#: includes/class-date-range-resolver.php:163
+msgid "start must be a real date in Y-m-d format."
+msgstr "Η τιμή «start» πρέπει να είναι μια πραγματική ημερομηνία σε μορφή Y-m-d."
+
+#: includes/class-date-range-resolver.php:165
+msgid "end must be a real date in Y-m-d format."
+msgstr "Το «end» πρέπει να είναι μια πραγματική ημερομηνία σε μορφή Y-m-d."
+
+#: includes/class-date-range-resolver.php:167
+msgid "start must not be after end."
+msgstr "Η έναρξη δεν πρέπει να είναι μετά το τέλος."
+
+#: includes/class-date-range-resolver.php:235
+msgid "Unknown period."
+msgstr "Άγνωστη περίοδος."
+
+#. translators: %d: maximum days allowed in one range.
+#: includes/class-date-range-resolver.php:313
+#, php-format
+msgid "A range can cover at most %d day. Split this one into shorter ranges."
+msgid_plural "A range can cover at most %d days. Split this one into shorter ranges."
+msgstr[0] "Ένα διάστημα μπορεί να καλύπτει το πολύ %d ημέρα. Χωρίστε αυτό το διάστημα σε μικρότερα διαστήματα."
+msgstr[1] "Ένα διάστημα μπορεί να καλύπτει το πολύ %d ημέρες. Χωρίστε αυτό το διάστημα σε μικρότερα διαστήματα."
+
+#: includes/class-dimension-query.php:134
+#: includes/queries/class-top-posts-query.php:96
+msgid "Metric to rank by, highest first."
+msgstr "Μονάδα μέτρησης για την ταξινόμηση, με την υψηλότερη τιμή πρώτη."
+
+#: includes/class-executor.php:103
+msgid "There is no query with that name."
+msgstr "Δεν υπάρχει ερώτημα με αυτό το όνομα."
+
+#: includes/class-executor.php:105
+msgid "Independent Analytics is not active on this site, or its tables are missing."
+msgstr "Το Independent Analytics δεν είναι ενεργό σε αυτόν τον ιστότοπο ή οι πίνακές του λείπουν."
+
+#: includes/class-executor.php:109
+msgid "Independent Analytics is updating its database. Retry in a few minutes."
+msgstr "Η Independent Analytics ενημερώνει τη βάση δεδομένων της. Προσπαθήστε ξανά σε λίγα λεπτά."
+
+#: includes/class-executor.php:116
+msgid "This query needs a licensed copy of Independent Analytics Pro."
+msgstr "Για αυτήν την αναζήτηση απαιτείται ένα αντίγραφο του Independent Analytics Pro με άδεια χρήσης."
+
+#. translators: %d: maximum row offset.
+#: includes/class-executor.php:157
+#, php-format
+msgid "Paging stops after %d row. Narrow the range or add a filter instead."
+msgid_plural "Paging stops after %d rows. Narrow the range or add a filter instead."
+msgstr[0] "Η σελιδοποίηση σταματά μετά από %d σειρά. Περιορίστε το εύρος ή προσθέστε ένα φίλτρο αντ' αυτού."
+msgstr[1] "Η σελιδοποίηση σταματά μετά από %d σειρές. Περιορίστε το εύρος ή προσθέστε ένα φίλτρο αντ' αυτού."
+
+#. translators: %s: plugin name.
+#: includes/class-plugin.php:240
+#, php-format
+msgid "%s needs Independent Analytics (free or Pro) to be active. Its REST routes and abilities are switched off until then."
+msgstr "Το %s απαιτεί την ενεργοποίηση του Independent Analytics (δωρεάν ή Pro). Μέχρι τότε, οι διαδρομές REST και οι δυνατότητές του παραμένουν απενεργοποιημένες."
+
+#. translators: 1: plugin name, 2: IAWP database version, 3: highest tested version.
+#: includes/class-plugin.php:251
+#, php-format
+msgid "%1$s has not been tested with Independent Analytics database version %2$d (tested up to %3$d). Queries still run; check for an update."
+msgstr "Το %1$s δεν έχει δοκιμαστεί με την έκδοση %2$d της βάσης δεδομένων της Independent Analytics (έχει δοκιμαστεί έως την έκδοση %3$d). Οι ερωτήσεις εξακολουθούν να εκτελούνται· ελέγξτε αν υπάρχει ενημέρωση."
+
+#: includes/class-query-runner.php:65
+msgid "Other analytics queries are already running on this site. Retry shortly."
+msgstr "Στον ιστότοπο αυτό εκτελούνται ήδη άλλα ερωτήματα ανάλυσης δεδομένων. Προσπαθήστε ξανά σε λίγο."
+
+#. translators: %d: seconds.
+#: includes/class-query-runner.php:242
+#, php-format
+msgid "The query took longer than %d second and was stopped. Narrow the date range or add a filter."
+msgid_plural "The query took longer than %d seconds and was stopped. Narrow the date range or add a filter."
+msgstr[0] "Η αναζήτηση διήρκεσε περισσότερο από %d δευτερόλεπτο και διακόπηκε. Περιορίστε το εύρος ημερομηνιών ή προσθέστε ένα φίλτρο."
+msgstr[1] "Η αναζήτηση διήρκεσε περισσότερο από %d δευτερόλεπτα και διακόπηκε. Περιορίστε το εύρος ημερομηνιών ή προσθέστε ένα φίλτρο."
+
+#: includes/class-query-runner.php:252
+msgid "The analytics query failed. The error has been logged on the server."
+msgstr "Η ερώτηση ανάλυσης απέτυχε. Το σφάλμα καταγράφηκε στον διακομιστή."
+
+#: includes/class-query.php:166
+msgid "Preset date range, defined as on the Independent Analytics dashboard, in the site timezone. year_to_date is the dashboard's \"This Year\". Defaults to last_30_days. Do not combine with start/end."
+msgstr "Προκαθορισμένο χρονικό διάστημα, όπως ορίζεται στον πίνακα ελέγχου του Independent Analytics, σύμφωνα με τη ζώνη ώρας του ιστότοπου. Το year_to_date αντιστοιχεί στην επιλογή «Φέτος» του πίνακα ελέγχου. Η προεπιλεγμένη τιμή είναι last_30_days. Μην το συνδυάζετε με τις παραμέτρους start/end."
+
+#: includes/class-query.php:171
+msgid "First day, Y-m-d, site timezone, inclusive. Use instead of period."
+msgstr "Πρώτη ημέρα, Η-Μ-Η, ζώνη ώρας ιστότοπου, συμπεριλαμβανομένης. Χρησιμοποιήστε το αντί για τελεία."
+
+#: includes/class-query.php:176
+msgid "Last day, Y-m-d, site timezone, inclusive. Defaults to today when start is given."
+msgstr "Τελευταία ημέρα, Η-Μ-Η, ζώνη ώρας ιστότοπου, συμπεριλαμβανομένης της ίδιας ημέρας. Αν οριστεί ημερομηνία έναρξης, η προεπιλεγμένη τιμή είναι η σημερινή ημερομηνία."
+
+#: includes/class-query.php:182
+msgid "Also report a comparison range. previous_year is the same dates one year earlier (use with year_to_date for year-on-year); previous_period is the same number of days immediately before."
+msgstr "Αναφέρετε επίσης ένα εύρος σύγκρισης. Το «previous_year» αντιστοιχεί στις ίδιες ημερομηνίες ενός έτους νωρίτερα (χρησιμοποιήστε το μαζί με το «year_to_date» για σύγκριση σε ετήσια βάση), ενώ το «previous_period» αντιστοιχεί στον ίδιο αριθμό ημερών αμέσως πριν."
+
+#: includes/class-query.php:191
+msgid "Page of results, from 1. Check meta.pagination.has_more."
+msgstr "Σελίδα αποτελεσμάτων, από το 1. Ελέγξτε το meta.pagination.has_more."
+
+#: includes/class-query.php:198
+msgid "Rows per page."
+msgstr "Γραμμές ανά σελίδα."
+
+#: includes/class-query.php:226
+msgid "Query name, resolved ranges, pagination and IAWP version details."
+msgstr "Όνομα ερωτήματος, καθορισμένα εύρη, σελιδοποίηση και λεπτομέρειες σχετικά με την έκδοση του IAWP."
+
+#: includes/class-query.php:236
+msgid "The same series for the comparison range, or null when not comparing."
+msgstr "Η ίδια σειρά για το εύρος σύγκρισης, ή η τιμή null όταν δεν γίνεται σύγκριση."
+
+#: includes/class-query.php:285
+msgid "Values for the comparison range, or null when not comparing."
+msgstr "Τιμές για το εύρος σύγκρισης ή η τιμή null όταν δεν γίνεται σύγκριση."
+
+#: includes/class-query.php:290
+msgid "Percentage change from previous to current, to 1 decimal place. A metric is null when its previous value was 0."
+msgstr "Ποσοστιαία μεταβολή από την προηγούμενη στην τρέχουσα τιμή, με ακρίβεια ενός δεκαδικού ψηφίου. Μια μέτρηση θεωρείται μηδενική όταν η προηγούμενη τιμή της ήταν 0."
+
+#: includes/queries/class-campaigns-query.php:88
+msgctxt "ability label; marketing campaigns tracked with UTM parameters"
+msgid "Campaigns"
+msgstr "Καμπάνιες"
+
+#: includes/queries/class-campaigns-query.php:99
+msgid "Traffic from UTM-tagged campaign links for a date range, from Independent Analytics. dimension=campaign gives one row per distinct campaign (landing page, source, medium, campaign, term, content); utm_source, utm_medium, utm_campaign or landing_page group by that one parameter. Each row has views, visitors, sessions, bounce rate, views per session and average session length, matching the dashboard's Campaigns tables. Untagged traffic is not included. Paged."
+msgstr "Επισκεψιμότητα από συνδέσμους καμπάνιας με ετικέτες UTM για ένα χρονικό διάστημα, από το Independent Analytics. Η παράμετρος dimension=campaign παρέχει μία σειρά ανά ξεχωριστή καμπάνια (σελίδα προορισμού, πηγή, μέσο, καμπάνια, όρος, περιεχόμενο)· οι παράμετροι utm_source, utm_medium, utm_campaign ή landing_page ομαδοποιούνται βάσει της συγκεκριμένης παραμέτρου. Κάθε σειρά περιλαμβάνει προβολές, επισκέπτες, συνεδρίες, ποσοστό εγκατάλειψης, προβολές ανά συνεδρία και μέση διάρκεια συνεδρίας, τα οποία αντιστοιχούν στους πίνακες «Καμπάνιες» του πίνακα ελέγχου. Η επισκεψιμότητα χωρίς ετικέτες δεν περιλαμβάνεται. Με σελιδοποίηση."
+
+#: includes/queries/class-campaigns-query.php:117
+msgid "Group by whole campaign, or by one UTM parameter."
+msgstr "Ομαδοποίηση ανά ολόκληρη την καμπάνια ή ανά μία παράμετρο UTM."
+
+#: includes/queries/class-campaigns-query.php:183
+msgid "Title of the page the campaign link pointed to."
+msgstr "Τίτλος της σελίδας στην οποία οδηγούσε ο σύνδεσμος της καμπάνιας."
+
+#: includes/queries/class-catalogue-query.php:62
+msgctxt "ability label; list of available analytics queries and site settings"
+msgid "Analytics catalogue"
+msgstr "Κατάλογος αναλυτικών στοιχείων"
+
+#: includes/queries/class-catalogue-query.php:73
+msgid "Call this first. Describes the Independent Analytics data on this site: timezone, week start, store currency, the first day with data, whether Independent Analytics Pro is active, the limits on date ranges and page sizes, and every analytics query available with what it is for. Takes no parameters."
+msgstr "Καλέστε πρώτα αυτή τη συνάρτηση. Περιγράφει τα δεδομένα του Independent Analytics σε αυτόν τον ιστότοπο: ζώνη ώρας, έναρξη εβδομάδας, νόμισμα καταστήματος, την πρώτη ημέρα με δεδομένα, αν το Independent Analytics Pro είναι ενεργό, τα όρια για τα χρονικά διαστήματα και τα μεγέθη σελίδων, καθώς και κάθε διαθέσιμο ερώτημα ανάλυσης μαζί με τον σκοπό του. Δεν δέχεται παραμέτρους."
+
+#: includes/queries/class-catalogue-query.php:121
+msgid "Store currency, when WooCommerce is active."
+msgstr "Νόμισμα καταστήματος, όταν το WooCommerce είναι ενεργοποιημένο."
+
+#: includes/queries/class-catalogue-query.php:125
+msgid "First day with recorded views, Y-m-d, site timezone. Ranges before it return zeros."
+msgstr "Πρώτη ημέρα με καταγεγραμμένες προβολές, Η-Μ-Η, ζώνη ώρας ιστότοπου. Οι τιμές πριν από αυτή εμφανίζονται ως μηδενικά."
+
+#: includes/queries/class-cities-query.php:40
+msgctxt "ability label; visitor locations by city"
+msgid "Cities"
+msgstr "Πόλεις"
+
+#: includes/queries/class-cities-query.php:51
+msgid "Traffic by visitor city for a date range, from Independent Analytics: city, region, country code and country, with views, visitors, sessions, bounce rate, views per session and average session length. Matches the dashboard's cities table. Filter with country_code to see one country. Visitors must not be summed across rows. Paged."
+msgstr "Κυκλοφορία ανά πόλη προέλευσης επισκεπτών για ένα χρονικό διάστημα, από την Independent Analytics: πόλη, περιοχή, κωδικός χώρας και χώρα, με προβολές, επισκέπτες, συνεδρίες, ποσοστό εγκατάλειψης, προβολές ανά συνεδρία και μέση διάρκεια συνεδρίας. Αντιστοιχεί στον πίνακα πόλεων του πίνακα ελέγχου. Φιλτράρετε με το κριτήριο «country_code» για να δείτε δεδομένα για μία μόνο χώρα. Οι επισκέπτες δεν πρέπει να αθροίζονται μεταξύ των γραμμών. Με σελιδοποίηση."
+
+#: includes/queries/class-cities-query.php:68
+msgid "Only cities in this country, by ISO 3166-1 alpha-2 code, such as GB."
+msgstr "Μόνο πόλεις αυτής της χώρας, σύμφωνα με τον κωδικό ISO 3166-1 alpha-2, όπως π.χ. GB."
+
+#: includes/queries/class-cities-query.php:131
+msgid "Region, state or county."
+msgstr "Περιφέρεια, πολιτεία ή νομός."
+
+#: includes/queries/class-countries-query.php:40
+msgctxt "ability label; visitor locations by country"
+msgid "Countries"
+msgstr "Χώρες"
+
+#: includes/queries/class-countries-query.php:51
+msgid "Traffic by visitor country for a date range, from Independent Analytics: country code, country name and continent, with views, visitors, sessions, bounce rate, views per session and average session length. Matches the dashboard's countries table. Sessions with no known location are left out. Visitors must not be summed across rows. Paged."
+msgstr "Κυκλοφορία ανά χώρα προέλευσης επισκεπτών για ένα χρονικό διάστημα, από το Independent Analytics: κωδικός χώρας, όνομα χώρας και ήπειρος, με προβολές, επισκέπτες, συνεδρίες, ποσοστό εγκατάλειψης, προβολές ανά συνεδρία και μέση διάρκεια συνεδρίας. Αντιστοιχεί στον πίνακα χωρών του πίνακα ελέγχου. Οι συνεδρίες χωρίς γνωστή τοποθεσία δεν περιλαμβάνονται. Οι επισκέπτες δεν πρέπει να αθροίζονται μεταξύ των σειρών. Με σελιδοποίηση."
+
+#: includes/queries/class-countries-query.php:107
+msgid "ISO 3166-1 alpha-2 code."
+msgstr "Κωδικός ISO 3166-1 alpha-2."
+
+#: includes/queries/class-devices-query.php:52
+msgctxt "ability label; visitor device type, operating system or browser"
+msgid "Devices"
+msgstr "Συσκευές"
+
+#: includes/queries/class-devices-query.php:63
+msgid "Traffic by device for a date range, from Independent Analytics. dimension=device_type gives Desktop, Mobile and Tablet; os gives operating systems; browser gives browsers. Each row has views, visitors, sessions, bounce rate, views per session and average session length, matching the dashboard's Devices tables. Visitors must not be summed across rows. Paged."
+msgstr "Κυκλοφορία ανά συσκευή για ένα χρονικό διάστημα, από την Independent Analytics. Η παράμετρος dimension=device_type παρέχει τις κατηγορίες «Desktop», «Mobile» και «Tablet»· η παράμετρος os παρέχει τα λειτουργικά συστήματα· η παράμετρος browser παρέχει τους περιηγητές. Κάθε σειρά περιλαμβάνει τις προβολές, τους επισκέπτες, τις συνεδρίες, το ποσοστό εγκατάλειψης, τις προβολές ανά συνεδρία και τη μέση διάρκεια συνεδρίας, σύμφωνα με τους πίνακες «Συσκευές» του πίνακα ελέγχου. Οι επισκέπτες δεν πρέπει να αθροίζονται μεταξύ των σειρών. Με σελιδοποίηση."
+
+#: includes/queries/class-devices-query.php:81
+msgid "Which device attribute to group by."
+msgstr "Σύμφωνα με ποιο χαρακτηριστικό της συσκευής θα γίνει η ομαδοποίηση."
+
+#: includes/queries/class-devices-query.php:138
+msgid "Device type, operating system or browser, depending on dimension."
+msgstr "Τύπος συσκευής, λειτουργικό σύστημα ή πρόγραμμα περιήγησης, ανάλογα με τη διάσταση."
+
+#: includes/queries/class-referrer-types-query.php:40
+msgctxt "ability label; categories of traffic source such as search or social"
+msgid "Referrer types"
+msgstr "Τύποι παραπομπών"
+
+#: includes/queries/class-referrer-types-query.php:51
+msgid "Traffic split by source category for a date range, from Independent Analytics: Search, Social, AI, Direct, Referrer (other websites) and Ad, each with views, visitors, sessions, bounce rate, views per session and average session length. Matches the dashboard's Referrer Types table. Use it for \"how much traffic comes from search?\" questions; use referrers for individual sites."
+msgstr "Κατανομή επισκεψιμότητας ανά κατηγορία πηγής για ένα χρονικό διάστημα, από το Independent Analytics: Αναζήτηση, Κοινωνικά δίκτυα, Τεχνητή νοημοσύνη, Άμεση πρόσβαση, Παραπομπές (άλλες ιστοσελίδες) και Διαφήμιση, με στοιχεία για προβολές, επισκέπτες, συνεδρίες, ποσοστό εγκατάλειψης, προβολές ανά συνεδρία και μέση διάρκεια συνεδρίας. Αντιστοιχεί στον πίνακα «Τύποι παραπομπών» του πίνακα ελέγχου. Χρησιμοποιήστε τον για ερωτήσεις του τύπου «πόση επισκεψιμότητα προέρχεται από την αναζήτηση;»· χρησιμοποιήστε τις παραπομπές για μεμονωμένους ιστότοπους."
+
+#: includes/queries/class-referrers-query.php:48
+msgctxt "ability label; websites that sent visitors"
+msgid "Referrers"
+msgstr "Πηγές παραπομπής"
+
+#: includes/queries/class-referrers-query.php:59
+msgid "Traffic by referring source for a date range, from Independent Analytics: each row is a referrer (such as Google, Facebook, an AI assistant, or Direct) with its domain and type, plus views, visitors, sessions, bounce rate, views per session and average session length. Matches the dashboard's Referrers table. Filter by referrer_type to see, for example, only Search or only AI. Visitors must not be summed across rows. Paged."
+msgstr "Επισκεψιμότητα ανά πηγή παραπομπής για ένα χρονικό διάστημα, από το Independent Analytics: κάθε σειρά αντιστοιχεί σε μια πηγή παραπομπής (όπως το Google, το Facebook, ένας βοηθός τεχνητής νοημοσύνης ή η «Άμεση πρόσβαση») με τον τομέα και τον τύπο της, καθώς και τις προβολές, τους επισκέπτες, τις συνεδρίες, το ποσοστό εγκατάλειψης, τις προβολές ανά συνεδρία και τη μέση διάρκεια συνεδρίας. Αντιστοιχεί στον πίνακα «Πηγές παραπομπής» του πίνακα ελέγχου. Φιλτράρετε ανά «referrer_type» για να δείτε, για παράδειγμα, μόνο την «Αναζήτηση» ή μόνο την «Τεχνητή Νοημοσύνη». Οι επισκέπτες δεν πρέπει να αθροίζονται μεταξύ των σειρών. Με σελιδοποίηση."
+
+#: includes/queries/class-referrers-query.php:76
+msgid "Only referrers of this type."
+msgstr "Μόνο παραπομπές αυτού του τύπου."
+
+#: includes/queries/class-referrers-query.php:137
+msgid "Referrer name, such as Google or Direct."
+msgstr "Όνομα παραπέμποντος, όπως Google ή Άμεση πρόσβαση."
+
+#: includes/queries/class-referrers-query.php:141
+msgid "Referring domain; empty for Direct."
+msgstr "Προερχόμενος τομέας· κενό για την επιλογή «Άμεση»."
+
+#: includes/queries/class-site-summary-query.php:48
+msgctxt "ability label; website traffic totals"
+msgid "Site summary"
+msgstr "Σύνοψη ιστότοπου"
+
+#: includes/queries/class-site-summary-query.php:59
+msgid "Site-wide totals from Independent Analytics for a date range: views, unique visitors, sessions, bounces, bounce rate, average session length and views per session. Figures match the Independent Analytics dashboard for the same range. Use compare=previous_year with period=year_to_date for year-on-year. Returns one row."
+msgstr "Συνολικά στοιχεία για ολόκληρο τον ιστότοπο από το Independent Analytics για ένα χρονικό διάστημα: προβολές, μοναδικοί επισκέπτες, συνεδρίες, αποχωρήσεις, ποσοστό αποχώρησης, μέση διάρκεια συνεδρίας και προβολές ανά συνεδρία. Τα στοιχεία αντιστοιχούν στον πίνακα ελέγχου του Independent Analytics για το ίδιο χρονικό διάστημα. Χρησιμοποιήστε τη συνθήκη compare=previous_year μαζί με την παράμετρο period=year_to_date για σύγκριση σε ετήσια βάση. Επιστρέφει μία σειρά."
+
+#: includes/queries/class-site-summary-query.php:124
+msgid "Single-view sessions as a percentage of sessions, rounded as on the dashboard."
+msgstr "Οι συνεδρίες με μία προβολή ως ποσοστό του συνολικού αριθμού συνεδριών, στρογγυλοποιημένες όπως εμφανίζονται στον πίνακα ελέγχου."
+
+#: includes/queries/class-top-posts-query.php:48
+msgctxt "ability label; most-visited blog posts and pages"
+msgid "Top posts"
+msgstr "Δημοφιλέστερες αναρτήσεις"
+
+#: includes/queries/class-top-posts-query.php:59
+msgid "Posts, pages, products and other singular content ranked by views, visitors or sessions for a date range, from Independent Analytics. Each row has the post ID, title, post type, absolute URL and path; the URL is the key to match against Google Search Console page data. Figures match the dashboard's Pages table. Visitors are unique per row and must not be summed across rows. Paged: check meta.pagination.has_more."
+msgstr "Αναρτήσεις, σελίδες, προϊόντα και άλλο μεμονωμένο περιεχόμενο ταξινομημένο κατά προβολές, επισκέπτες ή συνεδρίες για ένα χρονικό διάστημα, από το Independent Analytics. Κάθε σειρά περιλαμβάνει το αναγνωριστικό της ανάρτησης, τον τίτλο, τον τύπο ανάρτησης, την απόλυτη διεύθυνση URL και τη διαδρομή· η διεύθυνση URL αποτελεί το κλειδί για την αντιστοίχιση με τα δεδομένα σελίδων του Google Search Console. Τα στοιχεία αντιστοιχούν στον πίνακα «Σελίδες» του πίνακα ελέγχου. Οι επισκέπτες είναι μοναδικοί ανά σειρά και δεν πρέπει να αθροίζονται μεταξύ των σειρών. Σελιδοποίηση: ελέγξτε το meta.pagination.has_more."
+
+#: includes/queries/class-top-posts-query.php:85
+msgid "Only this post type, such as post, page or product. Omit for all."
+msgstr "Μόνο αυτός ο τύπος δημοσίευσης, όπως ανάρτηση, σελίδα ή προϊόν. Παραλείψτε για όλους."
+
+#: includes/queries/class-top-posts-query.php:90
+msgid "Only posts in this category, by term ID."
+msgstr "Μόνο αναρτήσεις αυτής της κατηγορίας, ανά αναγνωριστικό όρου."
+
+#. translators: %s: post type name.
+#: includes/queries/class-top-posts-query.php:143
+#, php-format
+msgid "There is no post type called %s on this site."
+msgstr "Δεν υπάρχει τύπος ανάρτησης με το όνομα %s σε αυτόν τον ιστότοπο."
+
+#: includes/queries/class-traffic-over-time-query.php:48
+msgctxt "ability label; website visits per day, week or month"
+msgid "Traffic over time"
+msgstr "Επισκεψιμότητα με την πάροδο του χρόνου"
+
+#: includes/queries/class-traffic-over-time-query.php:59
+msgid "Views, unique visitors and sessions per day, week or month across a date range, from Independent Analytics, matching the dashboard chart. Every bucket in the range is present, with zeros where there was no traffic. Visitors are unique within each bucket and must not be summed across buckets; use site-summary for range totals. With compare, previous_rows holds the same series for the comparison range."
+msgstr "Προβολές, μοναδικοί επισκέπτες και συνεδρίες ανά ημέρα, εβδομάδα ή μήνα για ένα εύρος ημερομηνιών, από το Independent Analytics, που αντιστοιχούν στο γράφημα του πίνακα ελέγχου. Κάθε κατηγορία του εύρους εμφανίζεται, με μηδενικά όπου δεν υπήρχε επισκεψιμότητα. Οι επισκέπτες είναι μοναδικοί εντός κάθε κατηγορίας και δεν πρέπει να αθροίζονται μεταξύ κατηγοριών· χρησιμοποιήστε τη σύνοψη ιστότοπου για τα σύνολα του εύρους. Με τη λειτουργία σύγκρισης, η παράμετρος `previous_rows` περιέχει την ίδια σειρά δεδομένων για το εύρος σύγκρισης."
+
+#: includes/queries/class-traffic-over-time-query.php:86
+msgid "Bucket size. Weeks start on the day set in Independent Analytics."
+msgstr "Μέγεθος ομάδας. Οι εβδομάδες ξεκινούν την ημέρα που έχει οριστεί στο Independent Analytics."
+
+#: includes/queries/class-traffic-over-time-query.php:105
+msgid "First day of the bucket, Y-m-d, site timezone."
+msgstr "Πρώτη ημέρα του bucket, Η-Μ-Η, ζώνη ώρας του ιστότοπου."
