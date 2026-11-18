@@ -15,6 +15,12 @@ The definitions, for a date range:
 - **Average session length** is the mean time from a session's first view to its last, in whole seconds
 - **Views per session** is the total views of those sessions (including any outside the range) divided by sessions, to two decimal places, as on the dashboard
 
+Breakdowns (referrers, referrer types, countries, cities, devices, campaigns) count the same way, grouped by the session's referrer, location, device or campaign, and match the dashboard's tables:
+
+- Sessions with no value for the attribute (no known location, for example) are left out, as on the dashboard
+- **Bounce rate** and **views per session** are to two decimal places, and views per session counts in-range views only
+- **Average session length** is truncated to whole seconds, and is `null` when no session in the group has a measurable length (single-view sessions have none)
+
 Daily, weekly and monthly series are bucketed by the day each session started, using the site's current UTC offset, exactly as the dashboard chart does. Weeks start on the day set in Independent Analytics. One consequence, shared with the dashboard: across a clock change, an hour of traffic can land in the neighbouring day.
 
 The Independent Analytics developer API (`iawp_analytics()` and friends) counts slightly differently, filtering on view time only. That's why this plugin reads the tables rather than calling it: its numbers can drift from the dashboard at the edges of a range.

@@ -27,6 +27,10 @@ Unknown parameters are refused rather than ignored, so a typo shows up as an err
 
 ## Queries
 
+### `catalogue`
+
+Takes no parameters. One row describing the site: `site_url`, `timezone`, `utc_offset`, `week_starts_on`, `currency` (when WooCommerce is active), `first_view_date`, `is_pro`, `limits`, `periods`, and `queries` (every query with its ability name, REST route, description, and whether it is paged and available here). Agents should call it first.
+
 ### `site-summary`
 
 Site-wide totals. One row: `views`, `visitors`, `sessions`, `bounces`, `bounce_rate_percent`, `average_session_seconds`, `views_per_session`.
@@ -44,6 +48,21 @@ Posts, pages, products and other singular content, ranked. Paged.
 - `orderby`: `views` (default), `visitors` or `sessions`
 
 Each row: `post_id`, `title`, `post_type`, `url`, `path`, `views`, `visitors`, `sessions`. `url` is absolute, for matching against Google Search Console page reports. `path` includes any query string, which matters for drafts and other posts without a pretty permalink.
+
+### Breakdowns
+
+These share one row shape: their own label fields, then `views`, `visitors`, `sessions`, `bounces`, `bounce_rate_percent`, `views_per_session` and `average_session_seconds`. All are paged and take `orderby` (`views`, `visitors` or `sessions`).
+
+- `referrer-types`: `referrer_type` (Search, Social, AI, Direct, Referrer, Ad)
+- `referrers`: `referrer`, `domain`, `referrer_type`. Filter with `referrer_type`
+- `countries`: `country_code`, `country`, `continent`
+- `cities`: `city`, `subdivision`, `country_code`, `country`. Filter with `country_code`, such as `GB`
+- `devices`: `device`. Choose with `dimension`: `device_type` (default), `os` or `browser`
+- `campaigns`: choose with `dimension`. `campaign` (default) returns `landing_page`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_term` and `utm_content`; `utm_source`, `utm_medium`, `utm_campaign` or `landing_page` return just that field
+
+```bash
+curl -u "$CREDENTIALS" 'https://example.com/wp-json/iawp-query-helper/v1/referrers?period=last_month&referrer_type=Search'
+```
 
 ### `traffic-over-time`
 
@@ -73,7 +92,9 @@ With `compare`, `previous_rows` holds the same series for the comparison range.
 }
 ```
 
-When comparing, `meta.compare` describes the comparison range. Rows from `site-summary` and `top-posts` then carry `previous` (the same metrics for the comparison range) and `change_percent` (percentage change, one decimal place, `null` where the previous value was zero). For rates such as `bounce_rate_percent`, `change_percent` is the relative change, not the difference in percentage points.
+`meta.range` is `null` for `catalogue`, which has no date range.
+
+When comparing, `meta.compare` describes the comparison range. Rows from `site-summary`, `top-posts` and the breakdowns then carry `previous` (the same metrics for the comparison range) and `change_percent` (percentage change, one decimal place, `null` where the previous value was zero). For rates such as `bounce_rate_percent`, `change_percent` is the relative change, not the difference in percentage points.
 
 ## Errors
 
@@ -91,6 +112,7 @@ Errors use the usual WordPress REST format, `{ "code": "...", "message": "...", 
 
 ## Tips for agent builders
 
+- Start with `catalogue`: it says what's available, the site's timezone and the first day with data
 - Ask for the range you need. "This year compared with last" is one `site-summary` call with `period=year_to_date&compare=previous_year`
 - Don't add up `visitors` across rows or days. Ask `site-summary` for the range instead
 - Prefer filters (`post_type`, `category`) over fetching every page and filtering yourself

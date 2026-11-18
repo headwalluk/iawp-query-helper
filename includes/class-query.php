@@ -118,6 +118,17 @@ abstract class Query {
 	}
 
 	/**
+	 * Whether the query reports on a date range. When false, `meta.range` is null.
+	 *
+	 * @since 0.2.0
+	 *
+	 * @return bool
+	 */
+	public function uses_date_range(): bool {
+		return true;
+	}
+
+	/**
 	 * Whether the query only runs with a licensed copy of IAWP Pro.
 	 *
 	 * @since 0.1.0

@@ -206,12 +206,14 @@ class Executor {
 	 * @return array<string, mixed>
 	 */
 	private function build_envelope( Query $query, Query_Context $context, array $output ): array {
-		$comparison = $context->get_comparison();
+		$comparison  = $context->get_comparison();
+		$has_range   = $query->uses_date_range();
+		$has_compare = $has_range && $comparison instanceof Date_Range;
 
 		$meta = array(
 			'query'           => $query->get_name(),
-			'range'           => $context->get_range()->to_array(),
-			'compare'         => $comparison instanceof Date_Range ? array_merge( array( 'mode' => $context->get_param( 'compare' ) ), $comparison->to_array() ) : null,
+			'range'           => $has_range ? $context->get_range()->to_array() : null,
+			'compare'         => $has_compare ? array_merge( array( 'mode' => $context->get_param( 'compare' ) ), $comparison->to_array() ) : null,
 			'generated_at'    => gmdate( 'c' ),
 			'iawp_version'    => $this->environment->get_iawp_version(),
 			'iawp_db_version' => $this->environment->get_db_version(),

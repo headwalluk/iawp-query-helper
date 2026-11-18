@@ -36,9 +36,16 @@ class Query_Registry {
 	 */
 	public function __construct( Environment $environment, Query_Runner $runner ) {
 		$queries = array(
+			new Catalogue_Query( $environment, $runner, $this ),
 			new Site_Summary_Query( $environment, $runner ),
-			new Top_Posts_Query( $environment, $runner ),
 			new Traffic_Over_Time_Query( $environment, $runner ),
+			new Top_Posts_Query( $environment, $runner ),
+			new Referrer_Types_Query( $environment, $runner ),
+			new Referrers_Query( $environment, $runner ),
+			new Countries_Query( $environment, $runner ),
+			new Cities_Query( $environment, $runner ),
+			new Devices_Query( $environment, $runner ),
+			new Campaigns_Query( $environment, $runner ),
 		);
 
 		foreach ( $queries as $query ) {
