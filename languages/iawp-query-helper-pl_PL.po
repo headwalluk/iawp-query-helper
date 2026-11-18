@@ -144,43 +144,44 @@ msgstr[2] "Zapytanie trwało dłużej niż %d sekund i zostało przerwane. Zawę
 msgid "The analytics query failed. The error has been logged on the server."
 msgstr "Zapytanie analityczne zakończyło się niepowodzeniem. Błąd został zarejestrowany na serwerze."
 
-#: includes/class-query.php:177
+#: includes/class-query.php:210
 msgid "Preset date range, defined as on the Independent Analytics dashboard, in the site timezone. year_to_date is the dashboard's \"This Year\". Defaults to last_30_days. Do not combine with start/end."
 msgstr "Z góry ustalony przedział czasowy, zdefiniowany zgodnie z pulpitem nawigacyjnym Independent Analytics, w strefie czasowej witryny. year_to_date odpowiada opcji „W tym roku” na pulpicie nawigacyjnym. Wartością domyślną jest last_30_days. Nie należy łączyć tej opcji z opcjami start/end."
 
-#: includes/class-query.php:182
+#: includes/class-query.php:215
 msgid "First day, Y-m-d, site timezone, inclusive. Use instead of period."
 msgstr "Pierwszy dzień, Y-m-d, strefa czasowa serwisu, włącznie. Należy używać zamiast kropki."
 
-#: includes/class-query.php:187
+#: includes/class-query.php:220
 msgid "Last day, Y-m-d, site timezone, inclusive. Defaults to today when start is given."
 msgstr "Ostatni dzień, Y-m-d, strefa czasowa serwisu, włącznie. Jeśli podano datę rozpoczęcia, domyślnie przyjmowana jest dzisiejsza data."
 
-#: includes/class-query.php:193
+#: includes/class-query.php:226
 msgid "Also report a comparison range. previous_year is the same dates one year earlier (use with year_to_date for year-on-year); previous_period is the same number of days immediately before."
 msgstr "Należy również podać zakres porównawczy. „previous_year” oznacza ten sam okres z poprzedniego roku (należy stosować wraz z „year_to_date” w celu porównania rok do roku); „previous_period” oznacza ten sam okres w dniach bezpośrednio poprzedzający."
 
-#: includes/class-query.php:202
+#: includes/class-query.php:254
 msgid "Page of results, from 1. Check meta.pagination.has_more."
 msgstr "Strona wyników, od 1. Sprawdź, czy meta.pagination.has_more ma wartość „true”."
 
-#: includes/class-query.php:209
+#: includes/class-query.php:245
+#: includes/class-query.php:261
 msgid "Rows per page."
 msgstr "Liczba wierszy na stronie."
 
-#: includes/class-query.php:237
+#: includes/class-query.php:289
 msgid "Query name, resolved ranges, pagination and IAWP version details."
 msgstr "Nazwa zapytania, ustalone zakresy, paginacja oraz szczegóły dotyczące wersji IAWP."
 
-#: includes/class-query.php:247
+#: includes/class-query.php:299
 msgid "The same series for the comparison range, or null when not comparing."
 msgstr "Ta sama seria dla zakresu porównawczego lub wartość zerowa, jeśli nie przeprowadza się porównania."
 
-#: includes/class-query.php:296
+#: includes/class-query.php:348
 msgid "Values for the comparison range, or null when not comparing."
 msgstr "Wartości z zakresu porównawczego lub wartość null, jeśli nie przeprowadza się porównania."
 
-#: includes/class-query.php:301
+#: includes/class-query.php:353
 msgid "Percentage change from previous to current, to 1 decimal place. A metric is null when its previous value was 0."
 msgstr "Zmiana procentowa między poprzednią a bieżącą wartością, z dokładnością do jednego miejsca po przecinku. Wskaźnik ma wartość null, jeśli jego poprzednia wartość wynosiła 0."
 
@@ -501,3 +502,90 @@ msgstr "Przychody według źródła odesłania"
 #: includes/queries/class-revenue-by-referrer-query.php:51
 msgid "WooCommerce orders and sales by traffic source for a date range, from Independent Analytics Pro: each referrer (Google, Facebook, Direct...) with orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, plus its visitors and sessions. Money is in the store currency (meta.currency) in major units. Matches the ecommerce columns of the dashboard's Referrers table. Only referrers with at least one order are listed, ranked by net sales. Filter with referrer_type. Paged."
 msgstr "Zamówienia i sprzedaż w WooCommerce według źródła ruchu w wybranym przedziale czasowym, na podstawie danych z Independent Analytics Pro: każde źródło ruchu (Google, Facebook, bezpośrednie wejście...) wraz z liczbą zamówień, sprzedażą brutto, zwrotami, sprzedażą netto, współczynnikiem konwersji, przychodem na odwiedzającego oraz średnią wartością zamówienia, a także liczbą odwiedzających i sesji. Kwoty podane są w walucie sklepu (meta.currency) w głównych jednostkach. Dane odpowiadają kolumnom e-commerce w tabeli „Źródła ruchu” na pulpicie nawigacyjnym. Wyświetlane są wyłącznie źródła ruchu, które wygenerowały co najmniej jedno zamówienie, uszeregowane według sprzedaży netto. Możliwość filtrowania według referrer_type. Stronicowanie."
+
+#: includes/class-form-breakdown-query.php:129
+msgid "Only count submissions of this form (form_id from the form-submissions query)."
+msgstr "Należy uwzględnić wyłącznie zgłoszenia z tego formularza (identyfikator form_id z zapytania dotyczącego zgłoszeń z formularzy)."
+
+#: includes/class-form-breakdown-query.php:147
+msgid "Submissions as a percentage of this row's visitors."
+msgstr "Liczba zgłoszeń jako odsetek odwiedzających tę stronę."
+
+#: includes/class-query.php:238
+msgid "Continue from the previous page: pass meta.pagination.next_cursor unchanged. Omit for the first page."
+msgstr "Kontynuacja z poprzedniej strony: należy przekazać wartość meta.pagination.next_cursor bez zmian. W przypadku pierwszej strony należy pominąć tę wartość."
+
+#: includes/queries/class-form-submissions-by-campaign-query.php:40
+msgctxt "ability label; contact form entries grouped by marketing campaign"
+msgid "Form submissions by campaign"
+msgstr "Przesłane formularze według kampanii"
+
+#: includes/queries/class-form-submissions-by-campaign-query.php:51
+msgid "Form submissions from UTM-tagged campaign traffic for a date range, from Independent Analytics Pro. dimension chooses whole campaigns or one UTM parameter, as in the campaigns query. Each row has submissions, conversion rate (submissions as a percentage of the row's visitors), visitors and sessions. Filter with form_id (from the form-submissions query). Only campaigns with at least one submission are listed, most first. Paged."
+msgstr "Przesłane formularze z ruchu kampanii oznaczonego tagami UTM dla danego przedziału czasowego, pochodzące z Independent Analytics Pro. W wymiarze można wybrać całe kampanie lub jeden parametr UTM, tak jak w zapytaniu dotyczącym kampanii. Każdy wiersz zawiera liczbę przesłanych formularzy, współczynnik konwersji (odsetek przesłanych formularzy w stosunku do liczby odwiedzających w danym wierszu), liczbę odwiedzających oraz liczbę sesji. Filtrowanie według form_id (z zapytania dotyczącego przesłanych formularzy). Wyświetlane są tylko kampanie z co najmniej jednym przesłanym formularzem, zaczynając od tych z największą liczbą przesłanych formularzy. Stronicowanie."
+
+#: includes/queries/class-form-submissions-by-page-query.php:62
+msgctxt "ability label; contact form entries grouped by web page"
+msgid "Form submissions by page"
+msgstr "Przesłane formularze według stron"
+
+#: includes/queries/class-form-submissions-by-page-query.php:73
+msgid "Form submissions by page for a date range, from Independent Analytics Pro: the page each form was submitted on, with its title, URL and kind, plus submissions, conversion rate (submissions as a percentage of the page's visitors), and the page's visitors and sessions. Matches the form columns of the dashboard's Pages table. Filter with form_id (from the form-submissions query). Only pages with at least one submission are listed, most first. Paged."
+msgstr "Przesłane formularze według stron w danym przedziale czasowym, z serwisu Independent Analytics Pro: strona, na której każdy formularz został przesłany, wraz z jej tytułem, adresem URL i typem, a także liczbą przesłanych formularzy, współczynnikiem konwersji (odsetek przesłanych formularzy w stosunku do liczby odwiedzających stronę) oraz liczbą odwiedzających i sesji na tej stronie. Odpowiada kolumnom formularza w tabeli „Strony” na pulpicie nawigacyjnym. Filtrowanie według form_id (z zapytania dotyczącego przesłanych formularzy). Wyświetlane są tylko strony z co najmniej jednym przesłaniem, zaczynając od tych z największą liczbą przesłań. Stronicowanie."
+
+#: includes/queries/class-form-submissions-by-referrer-query.php:40
+msgctxt "ability label; contact form entries grouped by the website that sent the visitor"
+msgid "Form submissions by referrer"
+msgstr "Przesłane formularze według źródła odesłania"
+
+#: includes/queries/class-form-submissions-by-referrer-query.php:51
+msgid "Form submissions by traffic source for a date range, from Independent Analytics Pro: each referrer (Google, Facebook, Direct...) with submissions, conversion rate (submissions as a percentage of the referrer's visitors), visitors and sessions. Matches the form columns of the dashboard's Referrers table. Filter with form_id (from the form-submissions query) and referrer_type. Only referrers with at least one submission are listed, most first. Paged."
+msgstr "Przesłane formularze według źródła ruchu w danym przedziale czasowym, na podstawie danych z Independent Analytics Pro: każde źródło odesłania (Google, Facebook, Bezpośredni...) wraz z liczbą przesłanych formularzy, współczynnikiem konwersji (odsetek przesłanych formularzy wśród odwiedzających z danego źródła), liczbą odwiedzających i sesji. Odpowiada kolumnom formularza w tabeli „Źródła ruchu” na pulpicie nawigacyjnym. Filtrowanie według form_id (z zapytania dotyczącego przesłanych formularzy) oraz referrer_type. Wyświetlane są wyłącznie źródła ruchu, które mają co najmniej jedno przesłanie, przy czym najpierw wyświetlane są te z największą liczbą przesłań. Stronicowanie."
+
+#: includes/queries/class-form-submissions-query.php:48
+msgctxt "ability label; contact form entries"
+msgid "Form submissions"
+msgstr "Przesłane formularze"
+
+#: includes/queries/class-form-submissions-query.php:59
+msgid "Form submissions tracked by Independent Analytics Pro for a date range, one row per form (contact forms, sign-ups and similar from the supported form plugins), with submissions and conversion rate (submissions as a percentage of all site visitors). The totals object holds the site-wide figures and the visitor count. Matches the form figures on the dashboard. Every tracked form is listed, including those with no submissions in the range. Use compare=previous_year with period=year_to_date for year-on-year."
+msgstr "Dane dotyczące przesłanych formularzy śledzone przez Independent Analytics Pro dla danego przedziału czasowego, po jednym wierszu na formularz (formularze kontaktowe, rejestracje i podobne z obsługiwanych wtyczek formularzy), wraz z liczbą przesłanych formularzy i współczynnikiem konwersji (liczba przesłanych formularzy jako procent wszystkich odwiedzających witrynę). Obiekt „sumy” zawiera dane ogólnowitrynowe oraz liczbę odwiedzających. Dane te odpowiadają danym dotyczącym formularzy na pulpicie nawigacyjnym. Wymienione są wszystkie śledzone formularze, w tym te, które nie miały żadnych przesłanych danych w danym przedziale czasowym. Aby uzyskać dane w ujęciu rok do roku, należy użyć parametru „compare=previous_year” wraz z parametrem „period=year_to_date”."
+
+#: includes/queries/class-form-submissions-query.php:89
+msgid "Independent Analytics form ID, for the form_id filter of the other form queries."
+msgstr "Identyfikator formularza Independent Analytics, służący jako filtr „form_id” w zapytaniach dotyczących innych formularzy."
+
+#: includes/queries/class-form-submissions-query.php:112
+msgid "Site-wide submissions, conversion rate and visitors."
+msgstr "Dane dotyczące całej witryny: zgłoszenia, współczynnik konwersji i liczba odwiedzających."
+
+#: includes/queries/class-form-submissions-query.php:163
+msgid "Submissions as a percentage of site visitors."
+msgstr "Liczba zgłoszeń jako odsetek odwiedzających stronę."
+
+#: includes/queries/class-raw-views-query.php:40
+msgctxt "ability label; list of individual page views"
+msgid "Raw views"
+msgstr "Wyświetlenia surowe"
+
+#. translators: %d: maximum days in one range.
+#: includes/queries/class-raw-views-query.php:53
+#, php-format
+msgid "Individual page views from Independent Analytics, oldest first: when each view happened (UTC and site time), the page (title, URL, kind, post ID and type), the visit's referrer and referrer type, country code, device type, and whether the view started the visit. Views are those viewed within the range, so totals can differ slightly from the dashboard at the edges of a range. There are no visitor or session identifiers. Ranges are limited to %d days. Prefer the grouped queries for totals and rankings; use this only when individual views are needed. Page through with cursor: pass meta.pagination.next_cursor until has_more is false."
+msgstr "Indywidualne wyświetlenia stron z Independent Analytics, najstarsze na początku: kiedy miało miejsce każde wyświetlenie (czas UTC i czas serwisu), strona (tytuł, adres URL, rodzaj, identyfikator i typ wpisu), strona odsyłająca i typ odsyłacza, kod kraju, typ urządzenia oraz informacja, czy wyświetlenie zainicjowało wizytę. Wyświetlenia to te, które miały miejsce w danym przedziale, więc sumy mogą nieznacznie różnić się od danych na pulpicie nawigacyjnym na granicach przedziału. Nie ma identyfikatorów odwiedzających ani sesji. Przedziały są ograniczone do %d dni. Do sum i rankingów lepiej używać zapytań zgrupowanych; z tej opcji korzystaj tylko wtedy, gdy potrzebne są pojedyncze wyświetlenia. Przeglądaj za pomocą kursora: przekazuj `meta.pagination.next_cursor`, dopóki `has_more` nie przyjmie wartości false."
+
+#: includes/queries/class-raw-views-query.php:107
+msgid "UTC, ISO 8601."
+msgstr "UTC, ISO 8601."
+
+#: includes/queries/class-raw-views-query.php:111
+msgid "Site time, Y-m-d H:i:s."
+msgstr "Czas na stronie, Y-m-d H:i:s."
+
+#: includes/queries/class-raw-views-query.php:128
+msgid "Whether this was the first view of its visit."
+msgstr "Czy było to pierwsze spojrzenie podczas tej wizyty."
+
+#: includes/queries/class-raw-views-query.php:146
+msgid "That cursor is not valid. Pass meta.pagination.next_cursor unchanged, or omit it for the first page."
+msgstr "Ten kursor jest nieprawidłowy. Należy przekazać parametr `meta.pagination.next_cursor` bez zmian lub pominąć go w przypadku pierwszej strony."

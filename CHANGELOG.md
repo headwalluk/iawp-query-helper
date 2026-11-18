@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-11-18
+
 ### Added
 
 - Form queries, available only with a licensed copy of Independent Analytics Pro: `form-submissions` (per form, with site-wide totals), `form-submissions-by-page`, `form-submissions-by-referrer` and `form-submissions-by-campaign`. Figures match the dashboard's form statistics and table columns.

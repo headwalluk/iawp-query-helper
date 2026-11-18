@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: IAWP Query Helper 0.4.0\n"
+"Project-Id-Version: IAWP Query Helper 0.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iawp-query-helper\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-18T13:40:55+00:00\n"
+"POT-Creation-Date: 2026-11-18T15:22:48+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: iawp-query-helper\n"
@@ -113,6 +113,14 @@ msgid_plural "Paging stops after %d rows. Narrow the range or add a filter inste
 msgstr[0] ""
 msgstr[1] ""
 
+#: includes/class-form-breakdown-query.php:129
+msgid "Only count submissions of this form (form_id from the form-submissions query)."
+msgstr ""
+
+#: includes/class-form-breakdown-query.php:147
+msgid "Submissions as a percentage of this row's visitors."
+msgstr ""
+
 #. translators: %s: plugin name.
 #: includes/class-plugin.php:240
 #, php-format
@@ -141,43 +149,48 @@ msgstr[1] ""
 msgid "The analytics query failed. The error has been logged on the server."
 msgstr ""
 
-#: includes/class-query.php:177
+#: includes/class-query.php:210
 msgid "Preset date range, defined as on the Independent Analytics dashboard, in the site timezone. year_to_date is the dashboard's \"This Year\". Defaults to last_30_days. Do not combine with start/end."
 msgstr ""
 
-#: includes/class-query.php:182
+#: includes/class-query.php:215
 msgid "First day, Y-m-d, site timezone, inclusive. Use instead of period."
 msgstr ""
 
-#: includes/class-query.php:187
+#: includes/class-query.php:220
 msgid "Last day, Y-m-d, site timezone, inclusive. Defaults to today when start is given."
 msgstr ""
 
-#: includes/class-query.php:193
+#: includes/class-query.php:226
 msgid "Also report a comparison range. previous_year is the same dates one year earlier (use with year_to_date for year-on-year); previous_period is the same number of days immediately before."
 msgstr ""
 
-#: includes/class-query.php:202
-msgid "Page of results, from 1. Check meta.pagination.has_more."
+#: includes/class-query.php:238
+msgid "Continue from the previous page: pass meta.pagination.next_cursor unchanged. Omit for the first page."
 msgstr ""
 
-#: includes/class-query.php:209
+#: includes/class-query.php:245
+#: includes/class-query.php:261
 msgid "Rows per page."
 msgstr ""
 
-#: includes/class-query.php:237
+#: includes/class-query.php:254
+msgid "Page of results, from 1. Check meta.pagination.has_more."
+msgstr ""
+
+#: includes/class-query.php:289
 msgid "Query name, resolved ranges, pagination and IAWP version details."
 msgstr ""
 
-#: includes/class-query.php:247
+#: includes/class-query.php:299
 msgid "The same series for the comparison range, or null when not comparing."
 msgstr ""
 
-#: includes/class-query.php:296
+#: includes/class-query.php:348
 msgid "Values for the comparison range, or null when not comparing."
 msgstr ""
 
-#: includes/class-query.php:301
+#: includes/class-query.php:353
 msgid "Percentage change from previous to current, to 1 decimal place. A metric is null when its previous value was 0."
 msgstr ""
 
@@ -334,6 +347,54 @@ msgstr ""
 msgid "Store base currency, ISO 4217."
 msgstr ""
 
+#: includes/queries/class-form-submissions-by-campaign-query.php:40
+msgctxt "ability label; contact form entries grouped by marketing campaign"
+msgid "Form submissions by campaign"
+msgstr ""
+
+#: includes/queries/class-form-submissions-by-campaign-query.php:51
+msgid "Form submissions from UTM-tagged campaign traffic for a date range, from Independent Analytics Pro. dimension chooses whole campaigns or one UTM parameter, as in the campaigns query. Each row has submissions, conversion rate (submissions as a percentage of the row's visitors), visitors and sessions. Filter with form_id (from the form-submissions query). Only campaigns with at least one submission are listed, most first. Paged."
+msgstr ""
+
+#: includes/queries/class-form-submissions-by-page-query.php:62
+msgctxt "ability label; contact form entries grouped by web page"
+msgid "Form submissions by page"
+msgstr ""
+
+#: includes/queries/class-form-submissions-by-page-query.php:73
+msgid "Form submissions by page for a date range, from Independent Analytics Pro: the page each form was submitted on, with its title, URL and kind, plus submissions, conversion rate (submissions as a percentage of the page's visitors), and the page's visitors and sessions. Matches the form columns of the dashboard's Pages table. Filter with form_id (from the form-submissions query). Only pages with at least one submission are listed, most first. Paged."
+msgstr ""
+
+#: includes/queries/class-form-submissions-by-referrer-query.php:40
+msgctxt "ability label; contact form entries grouped by the website that sent the visitor"
+msgid "Form submissions by referrer"
+msgstr ""
+
+#: includes/queries/class-form-submissions-by-referrer-query.php:51
+msgid "Form submissions by traffic source for a date range, from Independent Analytics Pro: each referrer (Google, Facebook, Direct...) with submissions, conversion rate (submissions as a percentage of the referrer's visitors), visitors and sessions. Matches the form columns of the dashboard's Referrers table. Filter with form_id (from the form-submissions query) and referrer_type. Only referrers with at least one submission are listed, most first. Paged."
+msgstr ""
+
+#: includes/queries/class-form-submissions-query.php:48
+msgctxt "ability label; contact form entries"
+msgid "Form submissions"
+msgstr ""
+
+#: includes/queries/class-form-submissions-query.php:59
+msgid "Form submissions tracked by Independent Analytics Pro for a date range, one row per form (contact forms, sign-ups and similar from the supported form plugins), with submissions and conversion rate (submissions as a percentage of all site visitors). The totals object holds the site-wide figures and the visitor count. Matches the form figures on the dashboard. Every tracked form is listed, including those with no submissions in the range. Use compare=previous_year with period=year_to_date for year-on-year."
+msgstr ""
+
+#: includes/queries/class-form-submissions-query.php:89
+msgid "Independent Analytics form ID, for the form_id filter of the other form queries."
+msgstr ""
+
+#: includes/queries/class-form-submissions-query.php:112
+msgid "Site-wide submissions, conversion rate and visitors."
+msgstr ""
+
+#: includes/queries/class-form-submissions-query.php:163
+msgid "Submissions as a percentage of site visitors."
+msgstr ""
+
 #: includes/queries/class-landing-pages-query.php:40
 msgctxt "ability label; pages where visits start"
 msgid "Landing pages"
@@ -375,6 +436,33 @@ msgstr ""
 
 #: includes/queries/class-page-stats-query.php:218
 msgid "Independent Analytics has no record of that page."
+msgstr ""
+
+#: includes/queries/class-raw-views-query.php:40
+msgctxt "ability label; list of individual page views"
+msgid "Raw views"
+msgstr ""
+
+#. translators: %d: maximum days in one range.
+#: includes/queries/class-raw-views-query.php:53
+#, php-format
+msgid "Individual page views from Independent Analytics, oldest first: when each view happened (UTC and site time), the page (title, URL, kind, post ID and type), the visit's referrer and referrer type, country code, device type, and whether the view started the visit. Views are those viewed within the range, so totals can differ slightly from the dashboard at the edges of a range. There are no visitor or session identifiers. Ranges are limited to %d days. Prefer the grouped queries for totals and rankings; use this only when individual views are needed. Page through with cursor: pass meta.pagination.next_cursor until has_more is false."
+msgstr ""
+
+#: includes/queries/class-raw-views-query.php:107
+msgid "UTC, ISO 8601."
+msgstr ""
+
+#: includes/queries/class-raw-views-query.php:111
+msgid "Site time, Y-m-d H:i:s."
+msgstr ""
+
+#: includes/queries/class-raw-views-query.php:128
+msgid "Whether this was the first view of its visit."
+msgstr ""
+
+#: includes/queries/class-raw-views-query.php:146
+msgid "That cursor is not valid. Pass meta.pagination.next_cursor unchanged, or omit it for the first page."
 msgstr ""
 
 #: includes/queries/class-referrer-types-query.php:40

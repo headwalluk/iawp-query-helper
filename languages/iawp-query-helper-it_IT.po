@@ -141,43 +141,44 @@ msgstr[1] "La query ha richiesto più di %d secondi ed è stata interrotta. Rest
 msgid "The analytics query failed. The error has been logged on the server."
 msgstr "La query di analisi non è andata a buon fine. L'errore è stato registrato sul server."
 
-#: includes/class-query.php:177
+#: includes/class-query.php:210
 msgid "Preset date range, defined as on the Independent Analytics dashboard, in the site timezone. year_to_date is the dashboard's \"This Year\". Defaults to last_30_days. Do not combine with start/end."
 msgstr "Intervallo di date predefinito, come definito nella dashboard di Independent Analytics, nel fuso orario del sito. year_to_date corrisponde alla voce \"Quest'anno\" della dashboard. Il valore predefinito è last_30_days. Non combinare con start/end."
 
-#: includes/class-query.php:182
+#: includes/class-query.php:215
 msgid "First day, Y-m-d, site timezone, inclusive. Use instead of period."
 msgstr "Primo giorno, G-M-A, fuso orario del sito, compreso. Da utilizzare al posto del punto."
 
-#: includes/class-query.php:187
+#: includes/class-query.php:220
 msgid "Last day, Y-m-d, site timezone, inclusive. Defaults to today when start is given."
 msgstr "Ultimo giorno, G-M-A, fuso orario del sito, compreso. Se viene specificata la data di inizio, il valore predefinito è la data odierna."
 
-#: includes/class-query.php:193
+#: includes/class-query.php:226
 msgid "Also report a comparison range. previous_year is the same dates one year earlier (use with year_to_date for year-on-year); previous_period is the same number of days immediately before."
 msgstr "Indicare anche un intervallo di confronto. \"previous_year\" corrisponde alle stesse date dell'anno precedente (da utilizzare insieme a \"year_to_date\" per il confronto su base annua); \"previous_period\" corrisponde allo stesso numero di giorni immediatamente precedenti."
 
-#: includes/class-query.php:202
+#: includes/class-query.php:254
 msgid "Page of results, from 1. Check meta.pagination.has_more."
 msgstr "Pagina dei risultati, a partire da 1. Verificare meta.pagination.has_more."
 
-#: includes/class-query.php:209
+#: includes/class-query.php:245
+#: includes/class-query.php:261
 msgid "Rows per page."
 msgstr "Righe per pagina."
 
-#: includes/class-query.php:237
+#: includes/class-query.php:289
 msgid "Query name, resolved ranges, pagination and IAWP version details."
 msgstr "Nome della query, intervalli risolti, impaginazione e dettagli sulla versione IAWP."
 
-#: includes/class-query.php:247
+#: includes/class-query.php:299
 msgid "The same series for the comparison range, or null when not comparing."
 msgstr "La stessa serie per l'intervallo di confronto, oppure \"null\" se non si effettua alcun confronto."
 
-#: includes/class-query.php:296
+#: includes/class-query.php:348
 msgid "Values for the comparison range, or null when not comparing."
 msgstr "Valori per l'intervallo di confronto, oppure \"null\" se non si effettua alcun confronto."
 
-#: includes/class-query.php:301
+#: includes/class-query.php:353
 msgid "Percentage change from previous to current, to 1 decimal place. A metric is null when its previous value was 0."
 msgstr "Variazione percentuale dal valore precedente a quello attuale, arrotondata al primo decimale. Un indicatore è nullo quando il suo valore precedente era 0."
 
@@ -498,3 +499,90 @@ msgstr "Ricavi per fonte di provenienza"
 #: includes/queries/class-revenue-by-referrer-query.php:51
 msgid "WooCommerce orders and sales by traffic source for a date range, from Independent Analytics Pro: each referrer (Google, Facebook, Direct...) with orders, gross sales, refunds, net sales, conversion rate, earnings per visitor and average order value, plus its visitors and sessions. Money is in the store currency (meta.currency) in major units. Matches the ecommerce columns of the dashboard's Referrers table. Only referrers with at least one order are listed, ranked by net sales. Filter with referrer_type. Paged."
 msgstr "Ordini e vendite WooCommerce per fonte di traffico in un intervallo di date, da Independent Analytics Pro: ogni fonte di provenienza (Google, Facebook, Diretto...) con ordini, vendite lorde, rimborsi, vendite nette, tasso di conversione, guadagni per visitatore e valore medio dell'ordine, oltre ai relativi visitatori e sessioni. Gli importi sono espressi nella valuta del negozio (meta.currency) nelle unità principali. Corrisponde alle colonne e-commerce della tabella “Referrer” della dashboard. Sono elencati solo i referrer con almeno un ordine, ordinati in base alle vendite nette. Filtra con referrer_type. Pagina per pagina."
+
+#: includes/class-form-breakdown-query.php:129
+msgid "Only count submissions of this form (form_id from the form-submissions query)."
+msgstr "Conta solo gli invii di questo modulo (form_id dalla query form-submissions)."
+
+#: includes/class-form-breakdown-query.php:147
+msgid "Submissions as a percentage of this row's visitors."
+msgstr "Visualizzazioni in percentuale rispetto ai visitatori di questa riga."
+
+#: includes/class-query.php:238
+msgid "Continue from the previous page: pass meta.pagination.next_cursor unchanged. Omit for the first page."
+msgstr "Continua dalla pagina precedente: passare meta.pagination.next_cursor senza modifiche. Omettilo per la prima pagina."
+
+#: includes/queries/class-form-submissions-by-campaign-query.php:40
+msgctxt "ability label; contact form entries grouped by marketing campaign"
+msgid "Form submissions by campaign"
+msgstr "Invii dei moduli per campagna"
+
+#: includes/queries/class-form-submissions-by-campaign-query.php:51
+msgid "Form submissions from UTM-tagged campaign traffic for a date range, from Independent Analytics Pro. dimension chooses whole campaigns or one UTM parameter, as in the campaigns query. Each row has submissions, conversion rate (submissions as a percentage of the row's visitors), visitors and sessions. Filter with form_id (from the form-submissions query). Only campaigns with at least one submission are listed, most first. Paged."
+msgstr "Invii di moduli provenienti dal traffico delle campagne con tag UTM per un intervallo di date, da Independent Analytics Pro. La dimensione consente di selezionare intere campagne o un singolo parametro UTM, come nella query delle campagne. Ogni riga riporta gli invii, il tasso di conversione (invii espressi in percentuale dei visitatori della riga), i visitatori e le sessioni. Filtra in base a form_id (dalla query \"form-submissions\"). Vengono elencate solo le campagne con almeno un invio, in ordine decrescente. Pagina per pagina."
+
+#: includes/queries/class-form-submissions-by-page-query.php:62
+msgctxt "ability label; contact form entries grouped by web page"
+msgid "Form submissions by page"
+msgstr "Invii dei moduli per pagina"
+
+#: includes/queries/class-form-submissions-by-page-query.php:73
+msgid "Form submissions by page for a date range, from Independent Analytics Pro: the page each form was submitted on, with its title, URL and kind, plus submissions, conversion rate (submissions as a percentage of the page's visitors), and the page's visitors and sessions. Matches the form columns of the dashboard's Pages table. Filter with form_id (from the form-submissions query). Only pages with at least one submission are listed, most first. Paged."
+msgstr "Invii dei moduli per pagina in un intervallo di date, da Independent Analytics Pro: la pagina su cui è stato inviato ciascun modulo, con il titolo, l’URL e il tipo, oltre agli invii, al tasso di conversione (invii in percentuale rispetto ai visitatori della pagina) e ai visitatori e alle sessioni della pagina. Corrisponde alle colonne relative ai moduli della tabella \"Pagine\" della dashboard. Filtra in base a form_id (dalla query form-submissions). Vengono elencate solo le pagine con almeno un invio, in ordine decrescente. Pagina per pagina."
+
+#: includes/queries/class-form-submissions-by-referrer-query.php:40
+msgctxt "ability label; contact form entries grouped by the website that sent the visitor"
+msgid "Form submissions by referrer"
+msgstr "Invii dei moduli per fonte di provenienza"
+
+#: includes/queries/class-form-submissions-by-referrer-query.php:51
+msgid "Form submissions by traffic source for a date range, from Independent Analytics Pro: each referrer (Google, Facebook, Direct...) with submissions, conversion rate (submissions as a percentage of the referrer's visitors), visitors and sessions. Matches the form columns of the dashboard's Referrers table. Filter with form_id (from the form-submissions query) and referrer_type. Only referrers with at least one submission are listed, most first. Paged."
+msgstr "Invii dei moduli per fonte di traffico in un intervallo di date, da Independent Analytics Pro: ogni fonte di provenienza (Google, Facebook, Diretto...) con gli invii, il tasso di conversione (invii in percentuale rispetto ai visitatori della fonte di provenienza), i visitatori e le sessioni. Corrisponde alle colonne della tabella \"Referrer\" della dashboard. Filtra in base a form_id (dalla query form-submissions) e referrer_type. Vengono elencati solo i referrer con almeno un invio, in ordine decrescente. Pagina per pagina."
+
+#: includes/queries/class-form-submissions-query.php:48
+msgctxt "ability label; contact form entries"
+msgid "Form submissions"
+msgstr "Invii dei moduli"
+
+#: includes/queries/class-form-submissions-query.php:59
+msgid "Form submissions tracked by Independent Analytics Pro for a date range, one row per form (contact forms, sign-ups and similar from the supported form plugins), with submissions and conversion rate (submissions as a percentage of all site visitors). The totals object holds the site-wide figures and the visitor count. Matches the form figures on the dashboard. Every tracked form is listed, including those with no submissions in the range. Use compare=previous_year with period=year_to_date for year-on-year."
+msgstr "Invii dei moduli monitorati da Independent Analytics Pro per un intervallo di date, una riga per ogni modulo (moduli di contatto, registrazioni e simili provenienti dai plugin per moduli supportati), con il numero di invii e il tasso di conversione (invii espressi in percentuale rispetto al totale dei visitatori del sito). L’oggetto “totali” contiene i dati relativi all’intero sito e il numero di visitatori. Corrisponde ai dati relativi ai moduli presenti nella dashboard. Vengono elencati tutti i moduli monitorati, compresi quelli senza invii nell’intervallo specificato. Utilizzare compare=previous_year con period=year_to_date per il confronto su base annua."
+
+#: includes/queries/class-form-submissions-query.php:89
+msgid "Independent Analytics form ID, for the form_id filter of the other form queries."
+msgstr "ID del modulo di Independent Analytics, da utilizzare come filtro \"form_id\" nelle altre query relative al modulo."
+
+#: includes/queries/class-form-submissions-query.php:112
+msgid "Site-wide submissions, conversion rate and visitors."
+msgstr "Invii a livello di sito, tasso di conversione e visitatori."
+
+#: includes/queries/class-form-submissions-query.php:163
+msgid "Submissions as a percentage of site visitors."
+msgstr "Contributi in percentuale rispetto ai visitatori del sito."
+
+#: includes/queries/class-raw-views-query.php:40
+msgctxt "ability label; list of individual page views"
+msgid "Raw views"
+msgstr "Visualizzazioni grezze"
+
+#. translators: %d: maximum days in one range.
+#: includes/queries/class-raw-views-query.php:53
+#, php-format
+msgid "Individual page views from Independent Analytics, oldest first: when each view happened (UTC and site time), the page (title, URL, kind, post ID and type), the visit's referrer and referrer type, country code, device type, and whether the view started the visit. Views are those viewed within the range, so totals can differ slightly from the dashboard at the edges of a range. There are no visitor or session identifiers. Ranges are limited to %d days. Prefer the grouped queries for totals and rankings; use this only when individual views are needed. Page through with cursor: pass meta.pagination.next_cursor until has_more is false."
+msgstr "Visualizzazioni di singole pagine da Independent Analytics, dalla più vecchia alla più recente: data e ora di ciascuna visualizzazione (UTC e ora del sito), pagina (titolo, URL, tipo, ID e tipo di post), referrer della visita e tipo di referrer, codice paese, tipo di dispositivo e se la visualizzazione ha dato inizio alla visita. Le visualizzazioni sono quelle effettuate all’interno dell’intervallo, pertanto i totali possono differire leggermente da quelli della dashboard ai margini di un intervallo. Non sono presenti identificatori di visitatori o sessioni. Gli intervalli sono limitati a %d giorni. Si consiglia di utilizzare le query raggruppate per i totali e le classifiche; utilizzare questa opzione solo quando sono necessarie le visualizzazioni individuali. Scorrere le pagine con il cursore: passare meta.pagination.next_cursor finché has_more non è falso."
+
+#: includes/queries/class-raw-views-query.php:107
+msgid "UTC, ISO 8601."
+msgstr "UTC, ISO 8601."
+
+#: includes/queries/class-raw-views-query.php:111
+msgid "Site time, Y-m-d H:i:s."
+msgstr "Ora del sito, G-M-G H:i:s."
+
+#: includes/queries/class-raw-views-query.php:128
+msgid "Whether this was the first view of its visit."
+msgstr "Se questa fosse stata la prima immagine della sua visita."
+
+#: includes/queries/class-raw-views-query.php:146
+msgid "That cursor is not valid. Pass meta.pagination.next_cursor unchanged, or omit it for the first page."
+msgstr "Quel cursore non è valido. Passa meta.pagination.next_cursor senza modificarlo oppure omettilo per la prima pagina."
