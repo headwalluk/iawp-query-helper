@@ -3,7 +3,7 @@
  * Plugin Name: IAWP Query Helper
  * Plugin URI: https://headwall-hosting.com/plugins/iawp-query-helper/
  * Description: Read-only REST routes and Abilities for querying Independent Analytics visitor and view metrics, built for AI agents.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Requires at least: 6.9
  * Requires PHP: 8.2
  * Author: Paul Faulkner
@@ -19,7 +19,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || die();
 
-define( 'IAWPQH_VERSION', '1.0.0' );
+define( 'IAWPQH_VERSION', '1.0.1' );
 define( 'IAWPQH_FILE', __FILE__ );
 define( 'IAWPQH_PATH', plugin_dir_path( __FILE__ ) );
 define( 'IAWPQH_URL', plugin_dir_url( __FILE__ ) );

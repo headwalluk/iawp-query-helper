@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-11-18
+
+### Fixed
+
+- The REST routes ignored parameters they didn't recognise, so a misspelt `period` ran the default 30 days instead of failing. They are now refused with `iawpqh_invalid_param`, as the Abilities API already did. WordPress's own `_fields`, `_envelope` and similar still work.
+- On a very long result, the last page allowed by the 10,000-row paging limit advertised a `next_page` that was then refused. That page now has `next_page: null`, and the new `meta.pagination.is_capped` is `true` to say there were more rows than can be paged through.
+
+### Documentation
+
+- Agents should have their own user, in a role with nothing but "View all analytics". An Application Password carries every permission of its user across the whole REST API, so an administrator's is far more than an analytics agent needs. The steps are in `docs/connecting-an-agent.md`.
+- `docs/how-it-works.md` explains that a daily series for a summer range, viewed in winter, can total slightly less than `site-summary` for the same range, as on the dashboard.
+
 ## [1.0.0] - 2026-11-18
 
 First stable release. The REST routes, ability names, parameters, response fields, error codes and filters documented in `docs/` are now the public interface, and won't change in a way that breaks callers within 1.x.
