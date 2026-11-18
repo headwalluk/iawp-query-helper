@@ -62,7 +62,15 @@ Agents connect with an Application Password belonging to one of those users. See
 
 ## Independent Analytics Pro
 
-Queries that need Pro features (WooCommerce revenue, form submissions) will only appear when Pro is installed and licensed. This plugin isn't a way around buying Pro.
+Queries that need Pro features only appear when Pro is installed and licensed: without it they aren't registered as abilities or REST routes, and calling one directly returns `iawpqh_requires_pro`. There's no setting to change that. This plugin isn't a way around buying Pro.
+
+The WooCommerce queries count orders as the dashboard does:
+
+- An order belongs to the session it was placed in, and counts when that session started in the range with its first view in the range. Its **landing page** is the page that session started on
+- Only orders in the statuses Independent Analytics includes in analytics are counted
+- Money is reported in the store's base currency, in major units (pounds, dollars), to two decimal places. Independent Analytics converts multi-currency orders to the base currency when it records them
+- **Net sales** are gross sales less refunded amounts. **Conversion rate** is orders as a percentage of visitors. **Earnings per visitor** is net sales divided by visitors (truncated to a whole minor unit in `ecommerce-summary`, as on the dashboard). **Average order value** is gross sales divided by orders, rounded to a whole minor unit
+- The `revenue-by-*` queries list only groups with at least one order, ranked by net sales by default
 
 ## Compatibility
 

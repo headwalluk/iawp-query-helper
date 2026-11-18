@@ -33,7 +33,12 @@ This is an independent plugin. It isn't made or supported by the Independent Ana
 - `devices`: device type, operating system or browser
 - `campaigns`: UTM-tagged traffic, by whole campaign or by one UTM parameter
 
-Planned next: WooCommerce revenue and form conversions with Independent Analytics Pro, and a paged raw export.
+With Independent Analytics Pro installed and licensed, four more appear:
+
+- `ecommerce-summary`: orders, gross and net sales, refunds, conversion rate, earnings per visitor and average order value
+- `revenue-by-landing-page`, `revenue-by-referrer` and `revenue-by-campaign`: which pages, sources and campaigns bring in sales
+
+Planned next: form conversions (Pro) and a paged raw export.
 
 ## Requirements
 

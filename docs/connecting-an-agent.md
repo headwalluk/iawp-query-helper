@@ -67,6 +67,17 @@ curl -u "$CREDENTIALS" -G 'https://example.com/wp-json/iawp-query-helper/v1/page
   --data-urlencode 'url=https://example.com/my-post/' --data-urlencode 'period=last_90_days' --data-urlencode 'interval=weekly'
 ```
 
+### WooCommerce (Independent Analytics Pro)
+
+Only present when Pro is licensed; `catalogue` shows whether they're available. Money fields are in the store's base currency in major units.
+
+- `ecommerce-summary`: one row with `currency`, `visitors`, `orders`, `gross_sales`, `refunds`, `refunded_amount`, `net_sales`, `conversion_rate_percent`, `earnings_per_visitor`, `average_order_value`
+- `revenue-by-landing-page`: the page each ordering session started on (`resource_type`, `title`, `url`, `path`, `post_id`, `post_type`)
+- `revenue-by-referrer`: referrer labels as in `referrers`; filter with `referrer_type`
+- `revenue-by-campaign`: campaign labels as in `campaigns`; choose with `dimension`
+
+The `revenue-by-*` rows carry `visitors`, `sessions` and the same order fields as `ecommerce-summary`. They're paged and take `orderby`: `net_sales` (default), `gross_sales` or `orders`. Only groups with orders are listed.
+
 ### Breakdowns
 
 These share one row shape: their own label fields, then `views`, `visitors`, `sessions`, `bounces`, `bounce_rate_percent`, `views_per_session` and `average_session_seconds`. All are paged and take `orderby` (`views`, `visitors` or `sessions`).
@@ -112,7 +123,7 @@ With `compare`, `previous_rows` holds the same series for the comparison range.
 
 `meta.range` is `null` for `catalogue`, which has no date range.
 
-When comparing, `meta.compare` describes the comparison range. Rows from `site-summary`, `top-posts`, the page-level queries and the breakdowns then carry `previous` (the same metrics for the comparison range) and `change_percent` (percentage change, one decimal place, `null` where the previous value was zero). For rates such as `bounce_rate_percent`, `change_percent` is the relative change, not the difference in percentage points.
+When comparing, `meta.compare` describes the comparison range. Rows from every query except `traffic-over-time` and `catalogue` then carry `previous` (the same metrics for the comparison range) and `change_percent` (percentage change, one decimal place, `null` where the previous value was zero). For rates such as `bounce_rate_percent`, `change_percent` is the relative change, not the difference in percentage points.
 
 ## Errors
 

@@ -59,7 +59,7 @@ class Countries_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return string
 	 */
-	protected function get_group_column( Query_Context $context ): string {
+	public function get_group_column( Query_Context $context ): string {
 		return 'sessions.country_id';
 	}
 
@@ -71,7 +71,7 @@ class Countries_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return string
 	 */
-	protected function get_join_sql( Query_Context $context ): string {
+	public function get_join_sql( Query_Context $context ): string {
 		$countries_table = $this->environment->get_table( IAWP_TABLE_COUNTRIES );
 
 		return "LEFT JOIN {$countries_table} AS countries ON countries.country_id = sessions.country_id";
@@ -85,7 +85,7 @@ class Countries_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return array<string, string>
 	 */
-	protected function get_label_columns( Query_Context $context ): array {
+	public function get_label_columns( Query_Context $context ): array {
 		return array(
 			'country_code' => 'countries.country_code',
 			'country'      => 'countries.country',
@@ -100,7 +100,7 @@ class Countries_Query extends Dimension_Query {
 	 *
 	 * @return array<string, array<string, mixed>>
 	 */
-	protected function get_label_properties(): array {
+	public function get_label_properties(): array {
 		return array(
 			'country_code' => array(
 				'type'        => array( 'string', 'null' ),

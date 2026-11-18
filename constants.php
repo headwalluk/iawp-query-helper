@@ -77,6 +77,7 @@ const IAWP_TABLE_LANDING_PAGES   = 'landing_pages';
 const IAWP_TABLE_UTM_SOURCES     = 'utm_sources';
 const IAWP_TABLE_UTM_MEDIUMS     = 'utm_mediums';
 const IAWP_TABLE_UTM_CAMPAIGNS   = 'utm_campaigns';
+const IAWP_TABLE_ORDERS          = 'orders';
 const IAWP_OPTION_DB_VERSION     = 'iawp_db_version';
 const IAWP_OPTION_IS_MIGRATING   = 'iawp_is_migrating';
 const IAWP_OPTION_WEEK_START     = 'iawp_dow';

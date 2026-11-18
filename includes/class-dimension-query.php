@@ -45,7 +45,7 @@ abstract class Dimension_Query extends Query {
 	 * @param Query_Context $context Validated input.
 	 * @return string
 	 */
-	abstract protected function get_group_column( Query_Context $context ): string;
+	abstract public function get_group_column( Query_Context $context ): string;
 
 	/**
 	 * JOIN clauses from `sessions` to the lookup tables. Must not reference `views`.
@@ -55,7 +55,7 @@ abstract class Dimension_Query extends Query {
 	 * @param Query_Context $context Validated input.
 	 * @return string
 	 */
-	abstract protected function get_join_sql( Query_Context $context ): string;
+	abstract public function get_join_sql( Query_Context $context ): string;
 
 	/**
 	 * Label columns to select, as alias => SQL expression on the joined tables.
@@ -65,7 +65,7 @@ abstract class Dimension_Query extends Query {
 	 * @param Query_Context $context Validated input.
 	 * @return array<string, string>
 	 */
-	abstract protected function get_label_columns( Query_Context $context ): array;
+	abstract public function get_label_columns( Query_Context $context ): array;
 
 	/**
 	 * Schema for the label fields of a row.
@@ -74,7 +74,7 @@ abstract class Dimension_Query extends Query {
 	 *
 	 * @return array<string, array<string, mixed>>
 	 */
-	abstract protected function get_label_properties(): array;
+	abstract public function get_label_properties(): array;
 
 	/**
 	 * Extra WHERE conditions and their values, beyond the group key not being NULL.
@@ -84,7 +84,7 @@ abstract class Dimension_Query extends Query {
 	 * @param Query_Context $context Validated input.
 	 * @return array{0: string, 1: array<int, mixed>} SQL starting with AND, or empty, and its values.
 	 */
-	protected function get_filter( Query_Context $context ): array {
+	public function get_filter( Query_Context $context ): array {
 		return array( '', array() );
 	}
 
@@ -97,7 +97,7 @@ abstract class Dimension_Query extends Query {
 	 * @param Query_Context        $context Validated input.
 	 * @return array<string, mixed>
 	 */
-	protected function shape_labels( array $row, Query_Context $context ): array {
+	public function shape_labels( array $row, Query_Context $context ): array {
 		$labels = array();
 
 		foreach ( array_keys( $this->get_label_columns( $context ) ) as $alias ) {
@@ -223,7 +223,7 @@ abstract class Dimension_Query extends Query {
 	 * @param int           $offset     Rows to skip.
 	 * @return array<string, array<string, mixed>>|\WP_Error
 	 */
-	private function get_groups( Query_Context $context, Date_Range $range, array $group_keys, int $limit, int $offset ): array|\WP_Error {
+	public function get_groups( Query_Context $context, Date_Range $range, array $group_keys, int $limit, int $offset ): array|\WP_Error {
 		$count_rows = $this->get_count_rows( $context, $range, $group_keys, $limit, $offset );
 
 		$groups = array();

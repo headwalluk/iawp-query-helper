@@ -107,6 +107,17 @@ abstract class Query {
 	}
 
 	/**
+	 * This query's own input properties, for another query that wraps it.
+	 *
+	 * @since 0.4.0
+	 *
+	 * @return array<string, array<string, mixed>>
+	 */
+	public function get_query_properties(): array {
+		return $this->get_specific_properties();
+	}
+
+	/**
 	 * Whether results are paged with `page` and `per_page`.
 	 *
 	 * @since 0.1.0

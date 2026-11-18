@@ -37,6 +37,9 @@ each registered as a REST route (`iawp-query-helper/v1/<name>`) and an ability
   country, device, campaign). Subclasses declare the group column, joins and labels
 - `includes/class-resource-query.php`: base for page-level queries (`top-pages` and friends),
   matching the dashboard's Pages table
+- `includes/class-revenue-query.php`, `class-dimension-revenue-query.php`: Pro-only revenue
+  queries. They rank groups by orders, then take traffic and labels from the matching
+  breakdown or page query (composition, not inheritance). **High-impact**: money figures
 - `includes/class-query-runner.php`: the safety rails. **High-impact**: every SQL statement
   against a customer's database passes through it
 - `includes/class-environment.php`: IAWP detection, table names, site offset, week start
@@ -78,6 +81,7 @@ values, response field names, error codes, and the four filters in
 wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-dashboard-parity.php
 wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-dimension-parity.php
 wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-page-parity.php
+wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-ecommerce-parity.php
 wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-executor-and-rails.php
 ```
 

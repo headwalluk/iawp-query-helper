@@ -59,7 +59,7 @@ class Referrer_Types_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return string
 	 */
-	protected function get_group_column( Query_Context $context ): string {
+	public function get_group_column( Query_Context $context ): string {
 		return 'referrers.referrer_type_id';
 	}
 
@@ -71,7 +71,7 @@ class Referrer_Types_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return string
 	 */
-	protected function get_join_sql( Query_Context $context ): string {
+	public function get_join_sql( Query_Context $context ): string {
 		$referrers_table      = $this->environment->get_table( IAWP_TABLE_REFERRERS );
 		$referrer_types_table = $this->environment->get_table( IAWP_TABLE_REFERRER_TYPES );
 
@@ -87,7 +87,7 @@ class Referrer_Types_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return array<string, string>
 	 */
-	protected function get_label_columns( Query_Context $context ): array {
+	public function get_label_columns( Query_Context $context ): array {
 		return array( 'referrer_type' => 'referrer_types.referrer_type' );
 	}
 
@@ -98,7 +98,7 @@ class Referrer_Types_Query extends Dimension_Query {
 	 *
 	 * @return array<string, array<string, mixed>>
 	 */
-	protected function get_label_properties(): array {
+	public function get_label_properties(): array {
 		return array( 'referrer_type' => array( 'type' => array( 'string', 'null' ) ) );
 	}
 }

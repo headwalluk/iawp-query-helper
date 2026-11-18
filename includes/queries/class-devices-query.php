@@ -92,7 +92,7 @@ class Devices_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return string
 	 */
-	protected function get_group_column( Query_Context $context ): string {
+	public function get_group_column( Query_Context $context ): string {
 		return $this->get_dimension( $context )[0];
 	}
 
@@ -104,7 +104,7 @@ class Devices_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return string
 	 */
-	protected function get_join_sql( Query_Context $context ): string {
+	public function get_join_sql( Query_Context $context ): string {
 		list( $group_column, $table_name, $key_column ) = $this->get_dimension( $context );
 
 		$lookup_table = $this->environment->get_table( $table_name );
@@ -120,7 +120,7 @@ class Devices_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return array<string, string>
 	 */
-	protected function get_label_columns( Query_Context $context ): array {
+	public function get_label_columns( Query_Context $context ): array {
 		return array( 'device' => 'lookup.' . $this->get_dimension( $context )[3] );
 	}
 
@@ -131,7 +131,7 @@ class Devices_Query extends Dimension_Query {
 	 *
 	 * @return array<string, array<string, mixed>>
 	 */
-	protected function get_label_properties(): array {
+	public function get_label_properties(): array {
 		return array(
 			'device' => array(
 				'type'        => array( 'string', 'null' ),

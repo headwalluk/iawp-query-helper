@@ -128,7 +128,7 @@ class Campaigns_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return string
 	 */
-	protected function get_group_column( Query_Context $context ): string {
+	public function get_group_column( Query_Context $context ): string {
 		return self::GROUP_COLUMNS[ $this->get_dimension( $context ) ];
 	}
 
@@ -140,7 +140,7 @@ class Campaigns_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return string
 	 */
-	protected function get_join_sql( Query_Context $context ): string {
+	public function get_join_sql( Query_Context $context ): string {
 		$campaigns_table     = $this->environment->get_table( IAWP_TABLE_CAMPAIGNS );
 		$landing_pages_table = $this->environment->get_table( IAWP_TABLE_LANDING_PAGES );
 		$sources_table       = $this->environment->get_table( IAWP_TABLE_UTM_SOURCES );
@@ -162,7 +162,7 @@ class Campaigns_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return array<string, string>
 	 */
-	protected function get_label_columns( Query_Context $context ): array {
+	public function get_label_columns( Query_Context $context ): array {
 		return self::LABEL_COLUMNS[ $this->get_dimension( $context ) ];
 	}
 
@@ -173,7 +173,7 @@ class Campaigns_Query extends Dimension_Query {
 	 *
 	 * @return array<string, array<string, mixed>>
 	 */
-	protected function get_label_properties(): array {
+	public function get_label_properties(): array {
 		$properties = array();
 
 		foreach ( array_keys( self::LABEL_COLUMNS['campaign'] ) as $field ) {
@@ -193,7 +193,7 @@ class Campaigns_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return array{0: string, 1: array<int, mixed>}
 	 */
-	protected function get_filter( Query_Context $context ): array {
+	public function get_filter( Query_Context $context ): array {
 		$dimension = $this->get_dimension( $context );
 		$result    = array( '', array() );
 

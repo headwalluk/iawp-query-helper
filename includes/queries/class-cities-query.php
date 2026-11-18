@@ -79,7 +79,7 @@ class Cities_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return string
 	 */
-	protected function get_group_column( Query_Context $context ): string {
+	public function get_group_column( Query_Context $context ): string {
 		return 'sessions.city_id';
 	}
 
@@ -91,7 +91,7 @@ class Cities_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return string
 	 */
-	protected function get_join_sql( Query_Context $context ): string {
+	public function get_join_sql( Query_Context $context ): string {
 		$cities_table    = $this->environment->get_table( IAWP_TABLE_CITIES );
 		$countries_table = $this->environment->get_table( IAWP_TABLE_COUNTRIES );
 
@@ -107,7 +107,7 @@ class Cities_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return array<string, string>
 	 */
-	protected function get_label_columns( Query_Context $context ): array {
+	public function get_label_columns( Query_Context $context ): array {
 		return array(
 			'city'         => 'cities.city',
 			'subdivision'  => 'cities.subdivision',
@@ -123,7 +123,7 @@ class Cities_Query extends Dimension_Query {
 	 *
 	 * @return array<string, array<string, mixed>>
 	 */
-	protected function get_label_properties(): array {
+	public function get_label_properties(): array {
 		return array(
 			'city'         => array( 'type' => array( 'string', 'null' ) ),
 			'subdivision'  => array(
@@ -143,7 +143,7 @@ class Cities_Query extends Dimension_Query {
 	 * @param Query_Context $context Validated input.
 	 * @return array{0: string, 1: array<int, mixed>}
 	 */
-	protected function get_filter( Query_Context $context ): array {
+	public function get_filter( Query_Context $context ): array {
 		$country_code = strtoupper( (string) $context->get_param( 'country_code', '' ) );
 		$result       = array( '', array() );
 

@@ -36,23 +36,30 @@ class Query_Registry {
 	 */
 	public function __construct( Environment $environment, Query_Runner $runner ) {
 		$traffic_over_time = new Traffic_Over_Time_Query( $environment, $runner );
+		$top_pages         = new Top_Pages_Query( $environment, $runner );
+		$referrers         = new Referrers_Query( $environment, $runner );
+		$campaigns         = new Campaigns_Query( $environment, $runner );
 
 		$queries = array(
 			new Catalogue_Query( $environment, $runner, $this ),
 			new Site_Summary_Query( $environment, $runner ),
 			$traffic_over_time,
 			new Top_Posts_Query( $environment, $runner ),
-			new Top_Pages_Query( $environment, $runner ),
+			$top_pages,
 			new Landing_Pages_Query( $environment, $runner ),
 			new Page_Stats_Query( $environment, $runner, $traffic_over_time ),
 			new Site_Searches_Query( $environment, $runner ),
 			new Not_Found_Query( $environment, $runner ),
 			new Referrer_Types_Query( $environment, $runner ),
-			new Referrers_Query( $environment, $runner ),
+			$referrers,
 			new Countries_Query( $environment, $runner ),
 			new Cities_Query( $environment, $runner ),
 			new Devices_Query( $environment, $runner ),
-			new Campaigns_Query( $environment, $runner ),
+			$campaigns,
+			new Ecommerce_Summary_Query( $environment, $runner ),
+			new Revenue_By_Landing_Page_Query( $environment, $runner, $top_pages ),
+			new Revenue_By_Referrer_Query( $environment, $runner, $referrers ),
+			new Revenue_By_Campaign_Query( $environment, $runner, $campaigns ),
 		);
 
 		foreach ( $queries as $query ) {

@@ -200,3 +200,37 @@ function get_url_path( string $url ): string {
 
 	return '' === $query ? $path : $path . '?' . $query;
 }
+
+/**
+ * Order figures in major currency units, calculated as the IAWP dashboard calculates them.
+ *
+ * IAWP stores money as integers in minor units (pence, cents) of the store's base currency.
+ *
+ * @since 0.4.0
+ *
+ * @param array<string, mixed> $order_row         Row with orders, gross_sales, refunded_amount, refunds, net_sales in minor units.
+ * @param int                  $visitors          Visitors the orders are measured against.
+ * @param bool                 $is_site_summary   Whether to truncate earnings per visitor, as the dashboard's headline figure does.
+ * @return array<string, int|float>
+ */
+function get_order_metrics( array $order_row, int $visitors, bool $is_site_summary = false ): array {
+	$orders          = (int) ( $order_row['orders'] ?? 0 );
+	$gross_sales     = (int) ( $order_row['gross_sales'] ?? 0 );
+	$refunded_amount = (int) ( $order_row['refunded_amount'] ?? 0 );
+	$earnings        = 0 === $visitors ? 0.0 : ( $gross_sales - $refunded_amount ) / $visitors;
+
+	if ( $is_site_summary ) {
+		$earnings = (float) (int) $earnings;
+	}
+
+	return array(
+		'orders'                  => $orders,
+		'gross_sales'             => round( $gross_sales / 100, 2 ),
+		'refunds'                 => (int) ( $order_row['refunds'] ?? 0 ),
+		'refunded_amount'         => round( $refunded_amount / 100, 2 ),
+		'net_sales'               => round( (int) ( $order_row['net_sales'] ?? 0 ) / 100, 2 ),
+		'conversion_rate_percent' => 0 === $visitors ? 0.0 : round( $orders / $visitors * 100, 2 ),
+		'earnings_per_visitor'    => round( $earnings / 100, 2 ),
+		'average_order_value'     => 0 === $orders ? 0.0 : round( round( $gross_sales / $orders ) / 100, 2 ),
+	);
+}
