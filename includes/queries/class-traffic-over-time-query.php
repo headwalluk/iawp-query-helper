@@ -143,15 +143,20 @@ class Traffic_Over_Time_Query extends Query {
 	}
 
 	/**
-	 * One series of buckets for a range, zero-filled.
+	 * One series of buckets for a range, zero-filled, optionally for one resource only.
+	 *
+	 * For one resource, views are that page's views and visitors and sessions are those that
+	 * viewed it, as on the dashboard's page view.
 	 *
 	 * @since 0.1.0
+	 * @since 0.3.0 Added $resource_id.
 	 *
-	 * @param Date_Range $range    Range.
-	 * @param string     $interval One of the INTERVAL_* constants.
+	 * @param Date_Range $range       Range.
+	 * @param string     $interval    One of the INTERVAL_* constants.
+	 * @param int        $resource_id IAWP resource ID, or 0 for the whole site.
 	 * @return array<int, array<string, mixed>>|\WP_Error
 	 */
-	private function get_series( Date_Range $range, string $interval ): array|\WP_Error {
+	public function get_series( Date_Range $range, string $interval, int $resource_id = 0 ): array|\WP_Error {
 		global $wpdb;
 
 		$sessions_table = $this->environment->get_table( IAWP_TABLE_SESSIONS );
@@ -175,6 +180,13 @@ class Traffic_Over_Time_Query extends Query {
 
 		$values = array_merge( $bucket_values, array( $range->get_start_utc(), $range->get_end_utc(), $range->get_start_utc(), $range->get_end_utc() ) );
 
+		$resource_sql = '';
+
+		if ( $resource_id > 0 ) {
+			$resource_sql = 'AND views.resource_id = %d';
+			$values[]     = $resource_id;
+		}
+
 		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- Values passed as one array. Table names from $wpdb->prefix; $bucket_sql holds only placeholders and fixed SQL.
 		$rows = $this->runner->get_rows(
 			$wpdb->prepare(
@@ -186,6 +198,7 @@ class Traffic_Over_Time_Query extends Query {
 				INNER JOIN {$views_table} AS views ON views.session_id = sessions.session_id
 				WHERE sessions.created_at BETWEEN %s AND %s
 					AND views.viewed_at BETWEEN %s AND %s
+					{$resource_sql}
 				GROUP BY period_start
 				ORDER BY period_start ASC",
 				$values

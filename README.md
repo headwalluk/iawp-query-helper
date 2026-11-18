@@ -23,13 +23,17 @@ This is an independent plugin. It isn't made or supported by the Independent Ana
 - `site-summary`: views, visitors, sessions, bounce rate, average session length and views per session
 - `traffic-over-time`: the same metrics per day, week or month
 - `top-posts`: posts, pages and products ranked by views, visitors or sessions, with absolute URLs for matching against Google Search Console
+- `top-pages`: every kind of page (archives, the home page, search results and 404s too), with entrances, exits, bounce rate and time on page
+- `landing-pages`: where visits start
+- `page-stats`: one page in detail, by post ID or URL, with its own daily, weekly or monthly series
+- `site-searches` and `not-found`: what visitors searched for, and which URLs they expected to exist. Good sources of content ideas
 - `referrer-types`: Search, Social, AI, Direct, Referrer and Ad
 - `referrers`: individual referring sites, filterable by type
 - `countries` and `cities`
 - `devices`: device type, operating system or browser
 - `campaigns`: UTM-tagged traffic, by whole campaign or by one UTM parameter
 
-More are planned: all page types, landing pages, site searches, 404s and, with Independent Analytics Pro, WooCommerce revenue.
+Planned next: WooCommerce revenue and form conversions with Independent Analytics Pro, and a paged raw export.
 
 ## Requirements
 

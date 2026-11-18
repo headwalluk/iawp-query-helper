@@ -237,8 +237,11 @@ class Executor {
 			'rows' => $output['rows'] ?? array(),
 		);
 
-		if ( array_key_exists( 'previous_rows', $output ) ) {
-			$envelope['previous_rows'] = $output['previous_rows'];
+		// Extra series a query returns (previous_rows, series...) pass through as they are.
+		foreach ( $output as $key => $value ) {
+			if ( ! in_array( $key, array( 'rows', 'has_more' ), true ) ) {
+				$envelope[ $key ] = $value;
+			}
 		}
 
 		return $envelope;

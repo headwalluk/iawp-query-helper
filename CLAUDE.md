@@ -33,6 +33,10 @@ each registered as a REST route (`iawp-query-helper/v1/<name>`) and an ability
 
 - `includes/class-query.php`: base class; shared input schema and output schema helpers
 - `includes/queries/`: one class per named query. Add a query here and in `Query_Registry`
+- `includes/class-dimension-query.php`: base for breakdowns by a session attribute (referrer,
+  country, device, campaign). Subclasses declare the group column, joins and labels
+- `includes/class-resource-query.php`: base for page-level queries (`top-pages` and friends),
+  matching the dashboard's Pages table
 - `includes/class-query-runner.php`: the safety rails. **High-impact**: every SQL statement
   against a customer's database passes through it
 - `includes/class-environment.php`: IAWP detection, table names, site offset, week start
@@ -72,6 +76,8 @@ values, response field names, error codes, and the four filters in
 
 ```bash
 wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-dashboard-parity.php
+wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-dimension-parity.php
+wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-page-parity.php
 wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-executor-and-rails.php
 ```
 

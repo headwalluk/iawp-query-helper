@@ -169,6 +169,7 @@ const ERROR_IAWP_MISSING  = 'iawpqh_iawp_missing';
 const ERROR_MIGRATING     = 'iawpqh_migrating';
 const ERROR_REQUIRES_PRO  = 'iawpqh_requires_pro';
 const ERROR_UNKNOWN_QUERY = 'iawpqh_unknown_query';
+const ERROR_UNKNOWN_PAGE  = 'iawpqh_unknown_page';
 const ERROR_INVALID_PARAM = 'iawpqh_invalid_param';
 const ERROR_RANGE_TOO_BIG = 'iawpqh_range_too_long';
 const ERROR_BUSY          = 'iawpqh_busy';

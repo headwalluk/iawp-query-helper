@@ -35,11 +35,18 @@ class Query_Registry {
 	 * @param Query_Runner $runner      SQL runner.
 	 */
 	public function __construct( Environment $environment, Query_Runner $runner ) {
+		$traffic_over_time = new Traffic_Over_Time_Query( $environment, $runner );
+
 		$queries = array(
 			new Catalogue_Query( $environment, $runner, $this ),
 			new Site_Summary_Query( $environment, $runner ),
-			new Traffic_Over_Time_Query( $environment, $runner ),
+			$traffic_over_time,
 			new Top_Posts_Query( $environment, $runner ),
+			new Top_Pages_Query( $environment, $runner ),
+			new Landing_Pages_Query( $environment, $runner ),
+			new Page_Stats_Query( $environment, $runner, $traffic_over_time ),
+			new Site_Searches_Query( $environment, $runner ),
+			new Not_Found_Query( $environment, $runner ),
 			new Referrer_Types_Query( $environment, $runner ),
 			new Referrers_Query( $environment, $runner ),
 			new Countries_Query( $environment, $runner ),

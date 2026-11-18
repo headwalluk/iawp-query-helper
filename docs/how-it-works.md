@@ -21,6 +21,14 @@ Breakdowns (referrers, referrer types, countries, cities, devices, campaigns) co
 - **Bounce rate** and **views per session** are to two decimal places, and views per session counts in-range views only
 - **Average session length** is truncated to whole seconds, and is `null` when no session in the group has a measurable length (single-view sessions have none)
 
+Page-level queries (`top-pages`, `landing-pages`, `page-stats`, `site-searches`, `not-found`) count as the dashboard's Pages table does:
+
+- A page's **visitors** and **sessions** are those that viewed it at least once
+- **Entrances** are sessions that started on the page. **Exits** are sessions that ended on it (a single-view session both starts and ends there). **Exit percent** is exits as a percentage of the page's views
+- **Bounces** are single-view sessions that included the page; bounce rate is bounces as a percentage of the page's sessions
+- **Average view seconds** is the mean time from a view of the page to the next view in the same session, truncated to whole seconds. A session's last view has no next view, so it isn't counted
+- `page-stats` series count the page's own views, and the visitors and sessions that viewed it, bucketed by session start like every other series
+
 Daily, weekly and monthly series are bucketed by the day each session started, using the site's current UTC offset, exactly as the dashboard chart does. Weeks start on the day set in Independent Analytics. One consequence, shared with the dashboard: across a clock change, an hour of traffic can land in the neighbouring day.
 
 The Independent Analytics developer API (`iawp_analytics()` and friends) counts slightly differently, filtering on view time only. That's why this plugin reads the tables rather than calling it: its numbers can drift from the dashboard at the edges of a range.
