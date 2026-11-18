@@ -48,7 +48,7 @@ class Not_Found_Query extends Resource_Query {
 	 * @return string
 	 */
 	public function get_description(): string {
-		return __( 'Requested URLs that returned a 404 Not Found error, for a date range, from Independent Analytics: one row per requested path (not_found_url) with views, visitors and sessions. Shows broken links and pages visitors expect to exist, which may need a redirect or new content. Paged.', 'iawp-query-helper' );
+		return __( 'Requested URLs that returned a 404 Not Found error, for a date range, from Independent Analytics: one row per requested path (not_found_url) with views, visitors and sessions. Shows broken links and pages visitors expect to exist, which may need a redirect or new content. Query strings and fragments are removed from these URLs, so two rows can share a path when Independent Analytics recorded them with different query strings. Paged.', 'iawp-query-helper' );
 	}
 
 	/**

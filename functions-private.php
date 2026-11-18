@@ -252,6 +252,50 @@ function get_url_path( string $url ): string {
 }
 
 /**
+ * A URL or path without its query string or fragment.
+ *
+ * IAWP records a 404's request URI as typed, which can carry tokens. See docs/how-it-works.md.
+ *
+ * @since 1.0.2
+ *
+ * @param string|null $url URL or path.
+ * @return string|null
+ */
+function strip_url_query( ?string $url ): ?string {
+	$result = $url;
+
+	if ( is_string( $url ) ) {
+		$cut_at = strcspn( $url, '?#' );
+		$result = substr( $url, 0, $cut_at );
+	} else {
+		// Nothing recorded.
+		$result = null;
+	}
+
+	return $result;
+}
+
+/**
+ * Labels of a 404 row with query strings and fragments removed; other rows unchanged.
+ *
+ * @since 1.0.2
+ *
+ * @param array<string, mixed> $labels Labels with resource_type, url, path and not_found_url.
+ * @return array<string, mixed>
+ */
+function redact_not_found_labels( array $labels ): array {
+	if ( RESOURCE_TYPE_NOT_FOUND === ( $labels['resource_type'] ?? null ) ) {
+		foreach ( array( 'url', 'path', 'not_found_url' ) as $field ) {
+			if ( array_key_exists( $field, $labels ) ) {
+				$labels[ $field ] = strip_url_query( $labels[ $field ] );
+			}
+		}
+	}
+
+	return $labels;
+}
+
+/**
  * Order figures in major currency units, calculated as the IAWP dashboard calculates them.
  *
  * IAWP stores money as integers in minor units (pence, cents) of the store's base currency.

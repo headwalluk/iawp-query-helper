@@ -56,6 +56,15 @@ Analytics tables get large, and many WordPress sites share a modest database ser
 
 Hosts can tighten these with filters; see [hooks and filters](developers/hooks-and-filters.md).
 
+## What agents receive
+
+Agents get the same aggregated figures as the dashboard, plus some text that visitors supplied. It's worth knowing what that text is before choosing which agent, and which AI provider behind it, gets access:
+
+- **Search terms** are sent exactly as visitors typed them into the site's search, in `site-searches`, the page-level queries and `raw-views`. A visitor can type anything, an email address or a name included. That's the point of `site-searches`, so the terms aren't altered
+- **404 URLs** are sent without their query string or fragment. Independent Analytics records the full requested URL, and a query string can carry a password-reset or invitation token. The path, which is what matters for fixing a broken link, is kept. Other pages keep their query strings, which identify drafts and similar posts without a pretty permalink
+- **Individual views** (`raw-views`) carry a time, page, referrer, country and device, but no visitor or session identifier, IP address or city, so they can't be joined into one person's visit
+- **Orders and forms** are counts and money totals only. No customer details and no form contents are ever read
+
 ## Who can run queries
 
 The same people who can see all analytics in Independent Analytics: administrators, and any role given "View all analytics" or "View all analytics and edit settings" in its settings. Roles limited to "View analytics for authored content" are refused for now.

@@ -307,15 +307,17 @@ abstract class Resource_Query extends Query {
 	public function shape_labels( array $row ): array {
 		$url = isset( $row['url'] ) ? (string) $row['url'] : null;
 
-		return array(
-			'resource_type' => (string) ( $row['resource_type'] ?? '' ),
-			'title'         => isset( $row['title'] ) ? (string) $row['title'] : null,
-			'url'           => $url,
-			'path'          => is_null( $url ) ? null : get_url_path( $url ),
-			'post_id'       => isset( $row['post_id'] ) ? (int) $row['post_id'] : null,
-			'post_type'     => isset( $row['post_type'] ) ? (string) $row['post_type'] : null,
-			'search_query'  => isset( $row['search_query'] ) ? (string) $row['search_query'] : null,
-			'not_found_url' => isset( $row['not_found_url'] ) ? (string) $row['not_found_url'] : null,
+		return redact_not_found_labels(
+			array(
+				'resource_type' => (string) ( $row['resource_type'] ?? '' ),
+				'title'         => isset( $row['title'] ) ? (string) $row['title'] : null,
+				'url'           => $url,
+				'path'          => is_null( $url ) ? null : get_url_path( $url ),
+				'post_id'       => isset( $row['post_id'] ) ? (int) $row['post_id'] : null,
+				'post_type'     => isset( $row['post_type'] ) ? (string) $row['post_type'] : null,
+				'search_query'  => isset( $row['search_query'] ) ? (string) $row['search_query'] : null,
+				'not_found_url' => isset( $row['not_found_url'] ) ? (string) $row['not_found_url'] : null,
+			)
 		);
 	}
 

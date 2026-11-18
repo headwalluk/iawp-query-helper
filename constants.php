@@ -38,6 +38,13 @@ const ABILITY_NAMESPACE = 'iawp-query-helper';
 const ABILITY_CATEGORY  = 'iawp-query-helper';
 
 /**
+ * IAWP's resource type for a request that returned 404 Not Found.
+ *
+ * @since 1.0.2
+ */
+const RESOURCE_TYPE_NOT_FOUND = '404';
+
+/**
  * Query-string keys WordPress's REST transport uses itself, besides the `_`-prefixed ones.
  * `rest_route` carries the route on sites without pretty permalinks.
  *

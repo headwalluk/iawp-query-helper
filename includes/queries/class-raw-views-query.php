@@ -245,24 +245,26 @@ class Raw_Views_Query extends Query {
 		$viewed_at = new \DateTimeImmutable( (string) $row['viewed_at'], new \DateTimeZone( 'UTC' ) );
 		$url       = isset( $row['url'] ) ? (string) $row['url'] : null;
 
-		return array(
-			'view_id'         => (int) $row['view_id'],
-			'viewed_at'       => $viewed_at->format( 'Y-m-d\TH:i:s\Z' ),
-			'viewed_at_local' => $viewed_at->setTimezone( wp_timezone() )->format( DATETIME_FORMAT ),
-			'resource_type'   => (string) ( $row['resource_type'] ?? '' ),
-			'title'           => isset( $row['title'] ) ? (string) $row['title'] : null,
-			'url'             => $url,
-			'path'            => is_null( $url ) ? null : get_url_path( $url ),
-			'post_id'         => isset( $row['post_id'] ) ? (int) $row['post_id'] : null,
-			'post_type'       => isset( $row['post_type'] ) ? (string) $row['post_type'] : null,
-			'search_query'    => isset( $row['search_query'] ) ? (string) $row['search_query'] : null,
-			'not_found_url'   => isset( $row['not_found_url'] ) ? (string) $row['not_found_url'] : null,
-			'referrer'        => isset( $row['referrer'] ) ? (string) $row['referrer'] : null,
-			'referrer_domain' => isset( $row['referrer_domain'] ) && '' !== $row['referrer_domain'] ? (string) $row['referrer_domain'] : null,
-			'referrer_type'   => isset( $row['referrer_type'] ) ? (string) $row['referrer_type'] : null,
-			'country_code'    => isset( $row['country_code'] ) ? (string) $row['country_code'] : null,
-			'device_type'     => isset( $row['device_type'] ) ? (string) $row['device_type'] : null,
-			'is_entrance'     => 1 === (int) $row['is_entrance'],
+		return redact_not_found_labels(
+			array(
+				'view_id'         => (int) $row['view_id'],
+				'viewed_at'       => $viewed_at->format( 'Y-m-d\TH:i:s\Z' ),
+				'viewed_at_local' => $viewed_at->setTimezone( wp_timezone() )->format( DATETIME_FORMAT ),
+				'resource_type'   => (string) ( $row['resource_type'] ?? '' ),
+				'title'           => isset( $row['title'] ) ? (string) $row['title'] : null,
+				'url'             => $url,
+				'path'            => is_null( $url ) ? null : get_url_path( $url ),
+				'post_id'         => isset( $row['post_id'] ) ? (int) $row['post_id'] : null,
+				'post_type'       => isset( $row['post_type'] ) ? (string) $row['post_type'] : null,
+				'search_query'    => isset( $row['search_query'] ) ? (string) $row['search_query'] : null,
+				'not_found_url'   => isset( $row['not_found_url'] ) ? (string) $row['not_found_url'] : null,
+				'referrer'        => isset( $row['referrer'] ) ? (string) $row['referrer'] : null,
+				'referrer_domain' => isset( $row['referrer_domain'] ) && '' !== $row['referrer_domain'] ? (string) $row['referrer_domain'] : null,
+				'referrer_type'   => isset( $row['referrer_type'] ) ? (string) $row['referrer_type'] : null,
+				'country_code'    => isset( $row['country_code'] ) ? (string) $row['country_code'] : null,
+				'device_type'     => isset( $row['device_type'] ) ? (string) $row['device_type'] : null,
+				'is_entrance'     => 1 === (int) $row['is_entrance'],
+			)
 		);
 	}
 

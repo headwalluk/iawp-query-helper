@@ -2,7 +2,7 @@
 
 For site owners:
 
-- [How it works](how-it-works.md): what the plugin reads, how each metric is calculated, the safety rails and who can run queries
+- [How it works](how-it-works.md): what the plugin reads, how each metric is calculated, what agents receive, the safety rails and who can run queries
 
 For anyone connecting an AI agent:
 
