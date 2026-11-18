@@ -140,6 +140,39 @@ abstract class Query {
 	}
 
 	/**
+	 * Whether results are paged with an opaque `cursor` instead of `page`.
+	 *
+	 * @since 0.5.0
+	 *
+	 * @return bool
+	 */
+	public function uses_cursor(): bool {
+		return false;
+	}
+
+	/**
+	 * Whether the query accepts `compare`.
+	 *
+	 * @since 0.5.0
+	 *
+	 * @return bool
+	 */
+	public function is_comparable(): bool {
+		return true;
+	}
+
+	/**
+	 * Longest range this query accepts, in days, before the site's own limit is applied.
+	 *
+	 * @since 0.5.0
+	 *
+	 * @return int
+	 */
+	public function get_max_range_days(): int {
+		return DEFAULT_MAX_RANGE_DAYS;
+	}
+
+	/**
 	 * Whether the query only runs with a licensed copy of IAWP Pro.
 	 *
 	 * @since 0.1.0
@@ -193,6 +226,25 @@ abstract class Query {
 				'description' => __( 'Also report a comparison range. previous_year is the same dates one year earlier (use with year_to_date for year-on-year); previous_period is the same number of days immediately before.', 'iawp-query-helper' ),
 			),
 		);
+
+		if ( ! $this->is_comparable() ) {
+			unset( $properties['compare'] );
+		}
+
+		if ( $this->uses_cursor() ) {
+			$properties['cursor']   = array(
+				'type'        => 'string',
+				'pattern'     => CURSOR_PATTERN,
+				'description' => __( 'Continue from the previous page: pass meta.pagination.next_cursor unchanged. Omit for the first page.', 'iawp-query-helper' ),
+			);
+			$properties['per_page'] = array(
+				'type'        => 'integer',
+				'minimum'     => 1,
+				'maximum'     => MAX_PER_PAGE,
+				'default'     => DEFAULT_PER_PAGE,
+				'description' => __( 'Rows per page.', 'iawp-query-helper' ),
+			);
+		}
 
 		if ( $this->is_paged() ) {
 			$properties['page']     = array(
@@ -301,6 +353,39 @@ abstract class Query {
 				'description' => __( 'Percentage change from previous to current, to 1 decimal place. A metric is null when its previous value was 0.', 'iawp-query-helper' ),
 			),
 		);
+	}
+
+	/**
+	 * Unique visitors for a range, counted as the dashboard's headline figure counts them.
+	 *
+	 * @since 0.5.0
+	 *
+	 * @param Date_Range $range Range.
+	 * @return int|\WP_Error
+	 */
+	protected function get_site_visitors( Date_Range $range ): int|\WP_Error {
+		global $wpdb;
+
+		$views_table    = $this->environment->get_table( IAWP_TABLE_VIEWS );
+		$sessions_table = $this->environment->get_table( IAWP_TABLE_SESSIONS );
+
+		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Table names from $wpdb->prefix.
+		$rows = $this->runner->get_rows(
+			$wpdb->prepare(
+				"SELECT COUNT(DISTINCT sessions.visitor_id) AS visitors
+				FROM {$sessions_table} AS sessions
+				INNER JOIN {$views_table} AS views ON views.session_id = sessions.session_id
+				WHERE sessions.created_at BETWEEN %s AND %s
+					AND views.viewed_at BETWEEN %s AND %s",
+				$range->get_start_utc(),
+				$range->get_end_utc(),
+				$range->get_start_utc(),
+				$range->get_end_utc()
+			)
+		);
+		// phpcs:enable
+
+		return is_wp_error( $rows ) ? $rows : (int) ( $rows[0]['visitors'] ?? 0 );
 	}
 
 	/**

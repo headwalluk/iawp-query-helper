@@ -176,7 +176,7 @@ class Executor {
 	 * @return array<string, mixed>|\WP_Error
 	 */
 	private function run_query( Query $query, array $params ): array|\WP_Error {
-		$max_days   = get_filtered_int( FILTER_MAX_RANGE_DAYS, DEFAULT_MAX_RANGE_DAYS, MIN_MAX_RANGE_DAYS, DEFAULT_MAX_RANGE_DAYS );
+		$max_days   = min( $query->get_max_range_days(), get_filtered_int( FILTER_MAX_RANGE_DAYS, DEFAULT_MAX_RANGE_DAYS, MIN_MAX_RANGE_DAYS, DEFAULT_MAX_RANGE_DAYS ) );
 		$range      = $this->resolver->resolve( $params, $max_days );
 		$comparison = null;
 
@@ -221,7 +221,15 @@ class Executor {
 			'schema_untested' => $this->environment->is_schema_untested(),
 		);
 
-		if ( $query->is_paged() ) {
+		if ( $query->uses_cursor() ) {
+			$has_more = ! empty( $output['has_more'] );
+
+			$meta['pagination'] = array(
+				'per_page'    => $context->get_per_page(),
+				'has_more'    => $has_more,
+				'next_cursor' => $has_more ? (string) ( $output['next_cursor'] ?? '' ) : null,
+			);
+		} elseif ( $query->is_paged() ) {
 			$has_more = ! empty( $output['has_more'] );
 
 			$meta['pagination'] = array(
@@ -239,7 +247,7 @@ class Executor {
 
 		// Extra series a query returns (previous_rows, series...) pass through as they are.
 		foreach ( $output as $key => $value ) {
-			if ( ! in_array( $key, array( 'rows', 'has_more' ), true ) ) {
+			if ( ! in_array( $key, array( 'rows', 'has_more', 'next_cursor' ), true ) ) {
 				$envelope[ $key ] = $value;
 			}
 		}

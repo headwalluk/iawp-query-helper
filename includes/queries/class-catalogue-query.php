@@ -156,16 +156,28 @@ class Catalogue_Query extends Query {
 			$week_days = array( 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' );
 			$queries   = array();
 
+			$max_days = get_filtered_int( FILTER_MAX_RANGE_DAYS, DEFAULT_MAX_RANGE_DAYS, MIN_MAX_RANGE_DAYS, DEFAULT_MAX_RANGE_DAYS );
+
 			foreach ( $this->registry->get_all() as $query ) {
+				if ( $query->uses_cursor() ) {
+					$paging = 'cursor';
+				} elseif ( $query->is_paged() ) {
+					$paging = 'page';
+				} else {
+					$paging = 'none';
+				}
+
 				$queries[] = array(
-					'name'         => $query->get_name(),
-					'ability'      => ABILITY_NAMESPACE . '/' . $query->get_name(),
-					'rest_route'   => '/' . REST_NAMESPACE . '/' . $query->get_name(),
-					'label'        => $query->get_label(),
-					'description'  => $query->get_description(),
-					'is_paged'     => $query->is_paged(),
-					'is_pro_only'  => $query->is_pro_only(),
-					'is_available' => $is_pro || ! $query->is_pro_only(),
+					'name'           => $query->get_name(),
+					'ability'        => ABILITY_NAMESPACE . '/' . $query->get_name(),
+					'rest_route'     => '/' . REST_NAMESPACE . '/' . $query->get_name(),
+					'label'          => $query->get_label(),
+					'description'    => $query->get_description(),
+					'is_paged'       => $query->is_paged() || $query->uses_cursor(),
+					'paging'         => $paging,
+					'max_range_days' => $query->uses_date_range() ? min( $max_days, $query->get_max_range_days() ) : null,
+					'is_pro_only'    => $query->is_pro_only(),
+					'is_available'   => $is_pro || ! $query->is_pro_only(),
 				);
 			}
 
@@ -180,7 +192,7 @@ class Catalogue_Query extends Query {
 						'first_view_date' => $first_view,
 						'is_pro'          => $is_pro,
 						'limits'          => array(
-							'max_range_days'            => get_filtered_int( FILTER_MAX_RANGE_DAYS, DEFAULT_MAX_RANGE_DAYS, MIN_MAX_RANGE_DAYS, DEFAULT_MAX_RANGE_DAYS ),
+							'max_range_days'            => $max_days,
 							'max_per_page'              => MAX_PER_PAGE,
 							'max_row_offset'            => MAX_GROUPED_ROW_OFFSET,
 							'statement_timeout_seconds' => $this->runner->get_timeout_seconds(),

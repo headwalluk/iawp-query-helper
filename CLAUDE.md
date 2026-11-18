@@ -37,6 +37,10 @@ each registered as a REST route (`iawp-query-helper/v1/<name>`) and an ability
   country, device, campaign). Subclasses declare the group column, joins and labels
 - `includes/class-resource-query.php`: base for page-level queries (`top-pages` and friends),
   matching the dashboard's Pages table
+- `includes/class-form-breakdown-query.php`, `class-dimension-form-breakdown-query.php`: Pro-only form
+  submissions by page, referrer or campaign, built the same way as the revenue queries
+- `includes/queries/class-raw-views-query.php`: the only unaggregated query. Keyset cursor on
+  `(viewed_at, id)`; never add visitor, session or city fields to it
 - `includes/class-revenue-query.php`, `class-dimension-revenue-query.php`: Pro-only revenue
   queries. They rank groups by orders, then take traffic and labels from the matching
   breakdown or page query (composition, not inheritance). **High-impact**: money figures
@@ -82,6 +86,7 @@ wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-dashboa
 wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-dimension-parity.php
 wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-page-parity.php
 wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-ecommerce-parity.php
+wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-forms-and-raw.php
 wp eval-file wp-content/plugins/iawp-query-helper/dev-notes/testing/test-executor-and-rails.php
 ```
 

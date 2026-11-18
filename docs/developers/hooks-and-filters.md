@@ -41,7 +41,7 @@ How many queries may run at once across the site. Default 2. Clamped to 1 to 10.
 
 ### `iawpqh_max_range_days`
 
-Longest date range, in days, any one query may cover. Default 366. Can only be lowered: values are clamped to 1 to 366.
+Longest date range, in days, any one query may cover. Default 366. Can only be lowered: values are clamped to 1 to 366. `raw-views` has its own limit of 31 days, and takes the lower of the two.
 
 **Parameters:** `int $days`
 

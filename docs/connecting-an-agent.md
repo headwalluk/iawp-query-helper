@@ -78,6 +78,30 @@ Only present when Pro is licensed; `catalogue` shows whether they're available. 
 
 The `revenue-by-*` rows carry `visitors`, `sessions` and the same order fields as `ecommerce-summary`. They're paged and take `orderby`: `net_sales` (default), `gross_sales` or `orders`. Only groups with orders are listed.
 
+### Forms (Independent Analytics Pro)
+
+Only present when Pro is licensed.
+
+- `form-submissions`: one row per tracked form, with `form_id`, `title`, `submissions` and `conversion_rate_percent` (submissions as a percentage of site visitors). Every form is listed, including those with no submissions in the range. A `totals` object holds `visitors`, `submissions` and `conversion_rate_percent` for the whole site
+- `form-submissions-by-page`: the page each form was submitted on (`resource_type`, `title`, `url`, `path`, `post_id`, `post_type`)
+- `form-submissions-by-referrer`: referrer labels as in `referrers`; filter with `referrer_type`
+- `form-submissions-by-campaign`: campaign labels as in `campaigns`; choose with `dimension`
+
+The `form-submissions-by-*` rows carry `visitors`, `sessions`, `submissions` and `conversion_rate_percent` (submissions as a percentage of that row's visitors). They're paged, list only groups with submissions, most first, and take `form_id` to count one form.
+
+### Raw views
+
+`raw-views` returns individual page views, oldest first: `view_id`, `viewed_at` (UTC), `viewed_at_local` (site time), the page fields as in `top-pages`, `referrer`, `referrer_domain`, `referrer_type`, `country_code`, `device_type` and `is_entrance`. There are no visitor or session identifiers, so views can't be joined into visits.
+
+Ranges are limited to 31 days and `compare` isn't accepted. Instead of `page`, it pages with a cursor: leave `cursor` out for the first page, then pass `meta.pagination.next_cursor` back unchanged until `meta.pagination.has_more` is false.
+
+```bash
+curl -u "$CREDENTIALS" 'https://example.com/wp-json/iawp-query-helper/v1/raw-views?period=last_7_days&per_page=500'
+curl -u "$CREDENTIALS" 'https://example.com/wp-json/iawp-query-helper/v1/raw-views?period=last_7_days&per_page=500&cursor=20261115093012-48121'
+```
+
+For totals and rankings the grouped queries are faster and match the dashboard; use `raw-views` only when individual views matter.
+
 ### Breakdowns
 
 These share one row shape: their own label fields, then `views`, `visitors`, `sessions`, `bounces`, `bounce_rate_percent`, `views_per_session` and `average_session_seconds`. All are paged and take `orderby` (`views`, `visitors` or `sessions`).

@@ -60,6 +60,11 @@ class Query_Registry {
 			new Revenue_By_Landing_Page_Query( $environment, $runner, $top_pages ),
 			new Revenue_By_Referrer_Query( $environment, $runner, $referrers ),
 			new Revenue_By_Campaign_Query( $environment, $runner, $campaigns ),
+			new Form_Submissions_Query( $environment, $runner ),
+			new Form_Submissions_By_Page_Query( $environment, $runner, $top_pages ),
+			new Form_Submissions_By_Referrer_Query( $environment, $runner, $referrers ),
+			new Form_Submissions_By_Campaign_Query( $environment, $runner, $campaigns ),
+			new Raw_Views_Query( $environment, $runner ),
 		);
 
 		foreach ( $queries as $query ) {

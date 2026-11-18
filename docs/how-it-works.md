@@ -72,6 +72,16 @@ The WooCommerce queries count orders as the dashboard does:
 - **Net sales** are gross sales less refunded amounts. **Conversion rate** is orders as a percentage of visitors. **Earnings per visitor** is net sales divided by visitors (truncated to a whole minor unit in `ecommerce-summary`, as on the dashboard). **Average order value** is gross sales divided by orders, rounded to a whole minor unit
 - The `revenue-by-*` queries list only groups with at least one order, ranked by net sales by default
 
+The form queries count submissions as the dashboard does:
+
+- In `form-submissions`, a submission counts when it was made in the range, from a view in the range, in a session that started in the range. **Conversion rate** is submissions as a percentage of all site visitors, as in the dashboard's headline figures
+- In the `form-submissions-by-*` queries, a submission belongs to the view it was made from: its **page** is that view's page, and its referrer and campaign are its session's. It counts when that view and its session's start are in the range, as in the dashboard's tables. Conversion rate is submissions as a percentage of the row's own visitors
+- Independent Analytics' form tables have no index on submission time, so these queries read the whole submissions table. It holds one row per submission, far fewer than views, and the statement timeout still applies
+
+## Raw views
+
+`raw-views` lists views whose own time falls in the range, ordered by view time then ID. That differs slightly from the dashboard's view count at the edges of a range, which counts views of sessions that started in the range. The cursor holds the last row's view time and ID, so each page is read from the `viewed_at` index without an offset, and pages stay fast however deep they go. The range is limited to 31 days, or less if `iawpqh_max_range_days` sets a lower limit.
+
 ## Compatibility
 
 The plugin records which Independent Analytics database version it has been tested with. When Independent Analytics moves past it, queries keep running, responses carry `"schema_untested": true`, and administrators see a notice suggesting a check for an update. While Independent Analytics is migrating its database, queries return HTTP 503 and ask the caller to retry.

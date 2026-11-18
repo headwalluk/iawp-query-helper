@@ -61,31 +61,33 @@ const FILTER_MAX_RANGE_DAYS    = 'iawpqh_max_range_days';
  *
  * @since 0.1.0
  */
-const IAWP_TABLE_PREFIX          = 'independent_analytics_';
-const IAWP_TABLE_VIEWS           = 'views';
-const IAWP_TABLE_SESSIONS        = 'sessions';
-const IAWP_TABLE_RESOURCES       = 'resources';
-const IAWP_TABLE_REFERRERS       = 'referrers';
-const IAWP_TABLE_REFERRER_TYPES  = 'referrer_types';
-const IAWP_TABLE_COUNTRIES       = 'countries';
-const IAWP_TABLE_CITIES          = 'cities';
-const IAWP_TABLE_DEVICE_TYPES    = 'device_types';
-const IAWP_TABLE_DEVICE_OSS      = 'device_oss';
-const IAWP_TABLE_DEVICE_BROWSERS = 'device_browsers';
-const IAWP_TABLE_CAMPAIGNS       = 'campaigns';
-const IAWP_TABLE_LANDING_PAGES   = 'landing_pages';
-const IAWP_TABLE_UTM_SOURCES     = 'utm_sources';
-const IAWP_TABLE_UTM_MEDIUMS     = 'utm_mediums';
-const IAWP_TABLE_UTM_CAMPAIGNS   = 'utm_campaigns';
-const IAWP_TABLE_ORDERS          = 'orders';
-const IAWP_OPTION_DB_VERSION     = 'iawp_db_version';
-const IAWP_OPTION_IS_MIGRATING   = 'iawp_is_migrating';
-const IAWP_OPTION_WEEK_START     = 'iawp_dow';
-const IAWP_CAP_READ_ONLY         = 'iawp_read_only_access';
-const IAWP_CAP_FULL              = 'iawp_full_access';
-const IAWP_HIGHEST_TESTED_SCHEMA = 53;
-const IAWP_PRO_CHECK_FUNCTION    = 'IAWPSCOPED\iawp_is_pro';
-const IAWP_API_PROBE_FUNCTION    = 'iawp_analytics';
+const IAWP_TABLE_PREFIX           = 'independent_analytics_';
+const IAWP_TABLE_VIEWS            = 'views';
+const IAWP_TABLE_SESSIONS         = 'sessions';
+const IAWP_TABLE_RESOURCES        = 'resources';
+const IAWP_TABLE_REFERRERS        = 'referrers';
+const IAWP_TABLE_REFERRER_TYPES   = 'referrer_types';
+const IAWP_TABLE_COUNTRIES        = 'countries';
+const IAWP_TABLE_CITIES           = 'cities';
+const IAWP_TABLE_DEVICE_TYPES     = 'device_types';
+const IAWP_TABLE_DEVICE_OSS       = 'device_oss';
+const IAWP_TABLE_DEVICE_BROWSERS  = 'device_browsers';
+const IAWP_TABLE_CAMPAIGNS        = 'campaigns';
+const IAWP_TABLE_LANDING_PAGES    = 'landing_pages';
+const IAWP_TABLE_UTM_SOURCES      = 'utm_sources';
+const IAWP_TABLE_UTM_MEDIUMS      = 'utm_mediums';
+const IAWP_TABLE_UTM_CAMPAIGNS    = 'utm_campaigns';
+const IAWP_TABLE_ORDERS           = 'orders';
+const IAWP_TABLE_FORMS            = 'forms';
+const IAWP_TABLE_FORM_SUBMISSIONS = 'form_submissions';
+const IAWP_OPTION_DB_VERSION      = 'iawp_db_version';
+const IAWP_OPTION_IS_MIGRATING    = 'iawp_is_migrating';
+const IAWP_OPTION_WEEK_START      = 'iawp_dow';
+const IAWP_CAP_READ_ONLY          = 'iawp_read_only_access';
+const IAWP_CAP_FULL               = 'iawp_full_access';
+const IAWP_HIGHEST_TESTED_SCHEMA  = 53;
+const IAWP_PRO_CHECK_FUNCTION     = 'IAWPSCOPED\iawp_is_pro';
+const IAWP_API_PROBE_FUNCTION     = 'iawp_analytics';
 
 /**
  * Safety rails. See docs/how-it-works.md.
@@ -103,6 +105,7 @@ const MIN_MAX_RANGE_DAYS                = 1;
 const DEFAULT_PER_PAGE                  = 100;
 const MAX_PER_PAGE                      = 500;
 const MAX_GROUPED_ROW_OFFSET            = 10000;
+const RAW_MAX_RANGE_DAYS                = 31;
 const BUSY_RETRY_AFTER_SECONDS          = 10;
 const LOCK_NAME_PREFIX                  = 'iawpqh_slot_';
 
@@ -159,6 +162,7 @@ const METRIC_SESSIONS  = 'sessions';
 const DATE_FORMAT      = 'Y-m-d';
 const DATETIME_FORMAT  = 'Y-m-d H:i:s';
 const DATE_PATTERN     = '^\d{4}-\d{2}-\d{2}$';
+const CURSOR_PATTERN   = '^\d{14}-\d{1,20}$';
 const SECONDS_PER_HOUR = 3600;
 
 /**

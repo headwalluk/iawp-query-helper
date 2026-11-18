@@ -115,6 +115,31 @@ class Query_Context {
 	}
 
 	/**
+	 * Keyset position from the `cursor` parameter: the last row's UTC view time and view ID.
+	 *
+	 * @since 0.5.0
+	 *
+	 * @return array{0: string, 1: int}|null Null on the first page or for a malformed cursor.
+	 */
+	public function get_cursor(): ?array {
+		$cursor = (string) $this->get_param( 'cursor', '' );
+		$result = null;
+
+		if ( 1 === preg_match( '/^(\d{14})-(\d{1,20})$/', $cursor, $matches ) ) {
+			$viewed_at = \DateTimeImmutable::createFromFormat( '!YmdHis', $matches[1], new \DateTimeZone( 'UTC' ) );
+
+			if ( $viewed_at instanceof \DateTimeImmutable && $viewed_at->format( 'YmdHis' ) === $matches[1] ) {
+				$result = array( $viewed_at->format( DATETIME_FORMAT ), (int) $matches[2] );
+			} else {
+				// Matches the pattern but isn't a real time; treated as no cursor.
+				$result = null;
+			}
+		}
+
+		return $result;
+	}
+
+	/**
 	 * Row offset for the requested page.
 	 *
 	 * @since 0.1.0

@@ -32,13 +32,14 @@ This is an independent plugin. It isn't made or supported by the Independent Ana
 - `countries` and `cities`
 - `devices`: device type, operating system or browser
 - `campaigns`: UTM-tagged traffic, by whole campaign or by one UTM parameter
+- `raw-views`: individual page views, up to 31 days at a time, paged with a cursor. No visitor or session identifiers
 
-With Independent Analytics Pro installed and licensed, four more appear:
+With Independent Analytics Pro installed and licensed, eight more appear:
 
 - `ecommerce-summary`: orders, gross and net sales, refunds, conversion rate, earnings per visitor and average order value
 - `revenue-by-landing-page`, `revenue-by-referrer` and `revenue-by-campaign`: which pages, sources and campaigns bring in sales
-
-Planned next: form conversions (Pro) and a paged raw export.
+- `form-submissions`: submissions and conversion rate for each tracked form, with site-wide totals
+- `form-submissions-by-page`, `form-submissions-by-referrer` and `form-submissions-by-campaign`: which pages, sources and campaigns bring in enquiries
 
 ## Requirements
 

@@ -156,21 +156,11 @@ class Ecommerce_Summary_Query extends Query {
 		$orders_table   = $this->environment->get_table( IAWP_TABLE_ORDERS );
 		$views_table    = $this->environment->get_table( IAWP_TABLE_VIEWS );
 		$sessions_table = $this->environment->get_table( IAWP_TABLE_SESSIONS );
+		$visitors       = $this->get_site_visitors( $range );
 		$range_values   = array( $range->get_start_utc(), $range->get_end_utc(), $range->get_start_utc(), $range->get_end_utc() );
 
 		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- Values passed as one array. Table names from $wpdb->prefix.
-		$visitor_rows = $this->runner->get_rows(
-			$wpdb->prepare(
-				"SELECT COUNT(DISTINCT sessions.visitor_id) AS visitors
-				FROM {$sessions_table} AS sessions
-				INNER JOIN {$views_table} AS views ON views.session_id = sessions.session_id
-				WHERE sessions.created_at BETWEEN %s AND %s
-					AND views.viewed_at BETWEEN %s AND %s",
-				$range_values
-			)
-		);
-
-		$order_rows = is_wp_error( $visitor_rows ) ? $visitor_rows : $this->runner->get_rows(
+		$order_rows = is_wp_error( $visitors ) ? $visitors : $this->runner->get_rows(
 			$wpdb->prepare(
 				"SELECT COUNT(*) AS orders,
 					CAST(IFNULL(SUM(orders.total), 0) AS SIGNED) AS gross_sales,
@@ -191,8 +181,7 @@ class Ecommerce_Summary_Query extends Query {
 		if ( is_wp_error( $order_rows ) ) {
 			$result = $order_rows;
 		} else {
-			$visitors = (int) ( $visitor_rows[0]['visitors'] ?? 0 );
-			$result   = array_merge( array( 'visitors' => $visitors ), get_order_metrics( $order_rows[0] ?? array(), $visitors, true ) );
+			$result = array_merge( array( 'visitors' => $visitors ), get_order_metrics( $order_rows[0] ?? array(), $visitors, true ) );
 		}
 
 		return $result;
