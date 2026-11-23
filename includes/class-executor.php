@@ -131,11 +131,16 @@ class Executor {
 	 * @return array<string, mixed>|\WP_Error
 	 */
 	private function prepare_input( Query $query, mixed $input ): array|\WP_Error {
-		$schema = $query->get_input_schema( $this->resolver->get_periods() );
-		$params = is_array( $input ) ? $input : array();
+		$schema      = $query->get_input_schema( $this->resolver->get_periods() );
+		$params      = is_array( $input ) ? $input : array();
+		$known_names = array_keys( $schema['properties'] );
 
-		// REST and abilities may hand over empty strings for unset query arguments.
-		$params = array_filter( $params, fn( mixed $value ): bool => null !== $value && '' !== $value );
+		// REST and abilities may hand over empty strings for unset arguments; an empty unknown key is still refused.
+		$params = array_filter(
+			$params,
+			fn( mixed $value, int|string $name ): bool => ! in_array( $name, $known_names, true ) || ( null !== $value && '' !== $value ),
+			ARRAY_FILTER_USE_BOTH
+		);
 
 		foreach ( $schema['properties'] as $name => $property ) {
 			if ( ! array_key_exists( $name, $params ) && array_key_exists( 'default', $property ) ) {
