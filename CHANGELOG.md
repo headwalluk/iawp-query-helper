@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Fixed
+
+- The GitHub updater now reads each release's `Requires at least` and `Requires PHP`, and refuses a background auto-update to a release that needs a newer WordPress or PHP than the site runs. Returning `false` from `iawpqh_updater_enabled` now also withdraws an update offer already stored. Requests to GitHub send a plain `WordPress` user agent instead of one naming the site's URL. Present since 0.1.0.
+
+### Documentation
+
+- `docs/how-it-works.md` lists the plugin's only outbound requests, the updater's, and what GitHub sees of them.
+
+### Changed
+
+- The release workflow pins its actions to commit SHAs and no longer uploads build artifacts.
+
 ## [1.0.2] - 2026-11-18
 
 ### Changed

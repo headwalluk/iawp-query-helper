@@ -65,6 +65,8 @@ Agents get the same aggregated figures as the dashboard, plus some text that vis
 - **Individual views** (`raw-views`) carry a time, page, referrer, country and device, but no visitor or session identifier, IP address or city, so they can't be joined into one person's visit
 - **Orders and forms** are counts and money totals only. No customer details and no form contents are ever read
 
+The plugin never sends analytics anywhere itself; figures leave the site only in answer to an agent's request. Its only outbound requests are the GitHub updater checking `api.github.com/repos/headwalluk/iawp-query-helper/releases/latest`, and reading the released `iawp-query-helper.php` header from `raw.githubusercontent.com` for its PHP and WordPress requirements, at most every 12 hours. Both send a plain `WordPress` user agent, not WordPress's default, which names the site's URL; GitHub sees only the server's IP address. Turn the updater off with the `iawpqh_updater_enabled` [filter](developers/hooks-and-filters.md#iawpqh_updater_enabled).
+
 ## Who can run queries
 
 The same people who can see all analytics in Independent Analytics: administrators, and any role given "View all analytics" or "View all analytics and edit settings" in its settings. Roles limited to "View analytics for authored content" are refused for now.
