@@ -242,6 +242,8 @@ class Executor {
 				'next_page' => ( $has_more && ! $is_capped ) ? $context->get_page() + 1 : null,
 				'is_capped' => $is_capped,
 			);
+		} else {
+			// Not paginated.
 		}
 
 		$envelope = array(
