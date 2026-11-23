@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-11-23
+
 ### Fixed
 
 - Where the site's clocks go forward at midnight (Chile, Cuba, Lebanon and others), a range including that day was counted one day short. `meta.range.days` was wrong, `previous_period` compared against a period a day too short, and the range limit allowed one extra day. Independent Analytics' dashboard counts these days correctly. Present since 0.1.0.

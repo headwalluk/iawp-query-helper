@@ -107,7 +107,7 @@ msgid "This query needs a licensed copy of Independent Analytics Pro."
 msgstr "To zapytanie wymaga licencjonowanej kopii programu Independent Analytics Pro."
 
 #. translators: %d: maximum row offset.
-#: includes/class-executor.php:157
+#: includes/class-executor.php:162
 #, php-format
 msgid "Paging stops after %d row. Narrow the range or add a filter instead."
 msgid_plural "Paging stops after %d rows. Narrow the range or add a filter instead."
