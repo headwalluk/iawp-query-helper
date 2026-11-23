@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Documentation
 
 - `docs/how-it-works.md` lists the plugin's only outbound requests, the updater's, and what GitHub sees of them.
+- `docs/connecting-an-agent.md` said `iawpqh_iawp_missing` meant Independent Analytics wasn't active. While it's inactive no queries are registered, so callers get WordPress's own 404; the 503 means it's active but its tables are missing.
 
 ### Changed
 

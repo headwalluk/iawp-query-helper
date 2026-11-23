@@ -172,8 +172,8 @@ Errors use the usual WordPress REST format, `{ "code": "...", "message": "...", 
 - `iawpqh_timeout` (503): the query ran past the time limit. Narrow the range or add a filter
 - `iawpqh_migrating` (503): Independent Analytics is updating its database. Retry later
 - `iawpqh_unknown_page` (404): `page-stats` was given a page Independent Analytics has never recorded
-- `rest_no_route` or `rest_ability_not_found` (404), from WordPress itself: there's no query with that name on this site. That includes the Pro-only queries on a site without a Pro licence, which aren't registered at all. `catalogue` lists what's available
-- `iawpqh_iawp_missing` (503): Independent Analytics isn't active
+- `rest_no_route` or `rest_ability_not_found` (404), from WordPress itself: there's no query with that name on this site. That includes the Pro-only queries on a site without a Pro licence, and every query while Independent Analytics isn't active, none of which are registered. `catalogue` lists what's available
+- `iawpqh_iawp_missing` (503): Independent Analytics is active but its tables are missing
 - `iawpqh_database_error` (500): logged on the server
 
 ## Tips for agent builders
