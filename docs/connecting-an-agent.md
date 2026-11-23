@@ -66,7 +66,7 @@ Each row: `post_id`, `title`, `post_type`, `url`, `path`, `views`, `visitors`, `
 - `top-pages`: every kind of page. Filter with `resource_type` (`singular`, `home`, `post_type_archive`, `term_archive`, `author_archive`, `date_archive`, `search`, `404`, `virtual_page`), `post_type`, or an exact `url`
 - `landing-pages`: pages with at least one entrance, ranked by entrances. Takes the same filters as `top-pages`
 - `site-searches`: one row per search term typed into the site's own search, exactly as typed
-- `not-found`: one row per requested path that returned a 404. Query strings and fragments are removed from 404 URLs in every query, because they can carry tokens; two rows can share a path when Independent Analytics recorded them with different query strings
+- `not-found`: one row per requested path that returned a 404. Query strings and fragments are removed from 404 URLs in every query, because they can carry tokens; two rows can share a path when Independent Analytics recorded them with different query strings. Lookups by `url` (`page-stats`, and `top-pages` or `landing-pages` filtered by `url`) match the full URL as recorded, so a shortened 404 URL may not be found; use `not-found` itself for 404 figures
 
 ### `page-stats`
 
