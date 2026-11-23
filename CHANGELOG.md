@@ -8,11 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Fixed
 
+- Where the site's clocks go forward at midnight (Chile, Cuba, Lebanon and others), a range including that day was counted one day short. `meta.range.days` was wrong, `previous_period` compared against a period a day too short, and the range limit allowed one extra day. Independent Analytics' dashboard counts these days correctly. Present since 0.1.0.
+- An unknown parameter with an empty value, such as `?perod=`, was dropped silently instead of being refused with `iawpqh_invalid_param`. Empty values are still ignored for parameters the query knows. Present since 1.0.1.
 - The GitHub updater now reads each release's `Requires at least` and `Requires PHP`, and refuses a background auto-update to a release that needs a newer WordPress or PHP than the site runs. Returning `false` from `iawpqh_updater_enabled` now also withdraws an update offer already stored. Requests to GitHub send a plain `WordPress` user agent instead of one naming the site's URL. Present since 0.1.0.
 
 ### Documentation
 
 - `docs/how-it-works.md` lists the plugin's only outbound requests, the updater's, and what GitHub sees of them.
+- `docs/connecting-an-agent.md` explains that a 404 URL, with its query string removed, may not be found by a `url` lookup in `page-stats`, `top-pages` or `landing-pages`.
 - `docs/connecting-an-agent.md` said `iawpqh_iawp_missing` meant Independent Analytics wasn't active. While it's inactive no queries are registered, so callers get WordPress's own 404; the 503 means it's active but its tables are missing.
 
 ### Changed

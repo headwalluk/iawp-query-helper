@@ -121,7 +121,12 @@ class Date_Range {
 	 * @return int
 	 */
 	public function get_day_count(): int {
-		return (int) $this->start_day->diff( $this->end_day )->days + 1;
+		// Counted on the date labels in UTC: where clocks go forward at midnight, local day starts are 23 hours apart.
+		$utc_timezone = new \DateTimeZone( 'UTC' );
+		$first_date   = new \DateTimeImmutable( $this->get_start_date(), $utc_timezone );
+		$last_date    = new \DateTimeImmutable( $this->get_end_date(), $utc_timezone );
+
+		return (int) $first_date->diff( $last_date )->days + 1;
 	}
 
 	/**
