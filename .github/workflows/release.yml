@@ -13,8 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Third-party actions are pinned to a commit SHA, with the release it is as a comment.
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Get version from tag
         id: get_version
@@ -68,21 +71,10 @@ jobs:
           cp iawp-query-helper-${{ steps.get_version.outputs.version }}.zip iawp-query-helper.zip
           cd ..
 
-      - name: Upload versioned zip as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: iawp-query-helper-${{ steps.get_version.outputs.version }}
-          path: build/iawp-query-helper-${{ steps.get_version.outputs.version }}.zip
-
-      - name: Upload generic zip as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: iawp-query-helper
-          path: build/iawp-query-helper.zip
-
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3 # v3.0.4
         with:
+          fail_on_unmatched_files: true
           files: |
             build/iawp-query-helper-${{ steps.get_version.outputs.version }}.zip
             build/iawp-query-helper.zip
@@ -98,5 +90,3 @@ jobs:
             See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) for full release notes.
           draft: false
           prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
