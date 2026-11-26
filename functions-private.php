@@ -38,7 +38,7 @@ function log_error( string $message ): void {
 /**
  * Whether the current user may run analytics queries.
  *
- * Mirrors IAWP's "view all analytics" check. Authored-only access is refused in v1.
+ * Mirrors IAWP's "view all analytics" check. Authored-only access is refused.
  *
  * @since 0.1.0
  *

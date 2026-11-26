@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || die();
 const PLUGIN_NAME = 'IAWP Query Helper';
 
 /**
- * Options. Internal state only; the plugin has no settings in v1.
+ * Options. Internal state only; the plugin has no settings.
  *
  * @since 0.1.0
  */
